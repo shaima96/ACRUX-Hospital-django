@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 
 class UserAccountManager(BaseUserManager):
-    def create_user(self, email, name, password=None):
+    def create_user(self, email, name, password=None, role='user'):
         if not email:
             raise ValueError('Users must have an email address')
         
@@ -14,9 +14,9 @@ class UserAccountManager(BaseUserManager):
 
         return user
     
-    def create_superuser(self, email, name, password):
-        user = self.create_user(email, name, password)
-
+    def create_superuser(self, email, name, password, role):
+        user = self.create_user(email, name, password,role)
+        user.role = 'admin'
         user.is_superuser = True
         user.is_staff = True
         user.save()
