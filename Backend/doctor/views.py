@@ -11,6 +11,15 @@ class DoctorList(generics.ListCreateAPIView):
     queryset = Doctor.objects.all()
     serializer_class = DoctorSerializer
 
+@api_view(['POST'])
+def doctorCreate(request):
+	serializer = DoctorSerializer(data=request.data)
+
+	if serializer.is_valid():
+		serializer.save()
+
+	return Response(serializer.data)
+
 
 
 @api_view(['POST'])

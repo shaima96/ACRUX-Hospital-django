@@ -9,7 +9,6 @@ class Doctor(models.Model):
     role = models.CharField(max_length=10,default='doctor')
     BloodType = models.CharField(max_length=10)
     image = models.CharField(max_length=250)
-    thing = models.CharField(max_length=232,default='thing')
 
     def __str__(self):
         return self.doctor.name
