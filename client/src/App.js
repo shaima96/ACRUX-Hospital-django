@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css';
+import Header from './Components/SharedComponents/Header/Header.jsx';  
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ class App extends React.Component{
   render(){
     return (
       <div>
+        <Header/>
         <Switch>
           {/* <Route exact path='/' component={HompePage} /> */}
           {/* <Route exact path='/profile' component={ProfilePage} /> */}
