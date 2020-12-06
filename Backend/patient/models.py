@@ -4,7 +4,7 @@ from doctor.models import Doctor
 # Create your models here.
 
 class Patient(models.Model):
-    userId = models.OneToOneField(UserAccount,on_delete=models.CASCADE)
+    userId = models.OneToOneField(UserAccount,on_delete=models.CASCADE, related_name="patient")
     role = models.CharField(max_length=10,default='patient')
     BloodType = models.CharField(max_length=10)
     image = models.CharField(max_length=250)
