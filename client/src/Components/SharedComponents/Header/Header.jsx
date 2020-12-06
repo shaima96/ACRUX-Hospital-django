@@ -5,7 +5,7 @@ import RegisterDialog from "./RegisterDialog"
 import { Button,Avatar } from '@material-ui/core'
 import { setCurrentUser } from '../../../Redux/User/userActions'
 
-const Header = ({ currentUser, setCurrentUser }) => {
+const Header = ({ currentUser, setCurrentUser}) => {
     // console.log(currentUser)
     return (
 
