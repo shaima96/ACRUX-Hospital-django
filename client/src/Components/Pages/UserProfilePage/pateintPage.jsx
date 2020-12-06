@@ -1,13 +1,13 @@
 import React from "react"
- 
 
-const PatientPage=()=>{
-    return(
+
+const PatientPage = () => {
+    return (
         <div>
-        PATIENT PAGE
+            PATIENT PAGE
         </div>
     )
 
-    
+
 }
 export default PatientPage

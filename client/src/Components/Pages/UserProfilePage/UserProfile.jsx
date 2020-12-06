@@ -1,13 +1,13 @@
 import React from "react"
- 
 
-const UserPage=()=>{
-    return(
+
+const UserPage = () => {
+    return (
         <div>
-        USER PAGE
+            USER PAGE
         </div>
     )
 
-    
+
 }
 export default UserPage

@@ -19,17 +19,17 @@ class UsersProfile extends React.Component {
 
 
     render() {
-        const { role,currentUser } = this.props
+        const { role, currentUser } = this.props
         return (
             <div>
                 {
-                    currentUser?
-                    (role === "patient") ?
-                    <PatientPage />
-                    : (role === "doctor") ?
-                    <DoctorPage />
-                    : <UserPage />
-                    :<div>LOGIN FIRST</div>
+                    currentUser ?
+                        (role === "patient") ?
+                            <PatientPage />
+                            : (role === "doctor") ?
+                                <DoctorPage />
+                                : <UserPage />
+                        : <div>LOGIN FIRST</div>
 
                 }
 
@@ -38,7 +38,7 @@ class UsersProfile extends React.Component {
     }
 }
 
-const mapStateToProps = ({ user: { role,currentUser } }) => {
+const mapStateToProps = ({ user: { role, currentUser } }) => {
     return {
         role,
         currentUser
