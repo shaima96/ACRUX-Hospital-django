@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls')),
     path('auth/', include('djoser.urls.jwt')),
+    path('user/', include('users.urls')),
     path('doctor/', include('doctor.urls')),
     path('department/', include('department.urls'))
 ]
