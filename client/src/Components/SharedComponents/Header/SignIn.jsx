@@ -40,7 +40,7 @@ class SignIn extends React.Component {
             .then(data => {
                 // console.log("aaaaaaaaaaa", data)
                 localStorage.setItem("Authorization", `JWT ${data.access}`)
-                let x = this.loadUser || this.props.loadUser
+                let loader = this.loadUser || this.props.loadUser
                 // this.loadUser?
                 // this.loadUser()
                 // :this.props.loadUser()
