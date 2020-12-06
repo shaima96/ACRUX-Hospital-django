@@ -4,7 +4,7 @@ const INITIAL_STATE = {
   currentUser: null,
   email:null,
   id: null,
-  role : null
+  role : "user"
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {

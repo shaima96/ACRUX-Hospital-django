@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import Header from './Components/SharedComponents/Header/Header.jsx';
 import { connect } from "react-redux"
-import { setCurrentUser } from './Redux/User/userActions'
+import { setCurrentUser,setUserRole } from './Redux/User/userActions'
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -46,7 +46,13 @@ class App extends React.Component {
 
     fetch('http://localhost:8000/user/details', requestOptions)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(user =>{
+        if(user.patient){
+          this.props.setUserRole(user.patient.role)
+        }else if(user.doctor){
+          this.props.setUserRole(user.doctor.role)
+        }
+      } )
   }
 
 
@@ -70,7 +76,8 @@ class App extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCurrentUser: user => dispatch(setCurrentUser(user))
+    setCurrentUser: user => dispatch(setCurrentUser(user)),
+    setUserRole: role=>dispatch(setUserRole(role))
   }
 }
 
