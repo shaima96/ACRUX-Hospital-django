@@ -2,7 +2,8 @@ import { UserActionTypes } from './userActionTypes';
 
 const INITIAL_STATE = {
   currentUser: null,
-  email:null
+  email:null,
+  id: null
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -11,7 +12,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentUser: action.payload.name,
-        email: action.payload.email
+        email: action.payload.email,
+        id: action.payload.id
       };
     default:
       return state;
