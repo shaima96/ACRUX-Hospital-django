@@ -2,7 +2,9 @@ import { UserActionTypes } from './userActionTypes';
 
 const INITIAL_STATE = {
   currentUser: null,
-  email:null
+  email:null,
+  id: null,
+  role : "user"
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -11,8 +13,14 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentUser: action.payload.name,
-        email: action.payload.email
+        email: action.payload.email,
+        id: action.payload.id
       };
+      case UserActionTypes.SET_USER_ROLE:
+        return{
+          ...state,
+          role : action.payload
+        }
     default:
       return state;
   }

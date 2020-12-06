@@ -1,8 +1,8 @@
 import React from 'react'
 import SignUp from './SignUp'
-import { Button,TextField  } from '@material-ui/core'
-import {connect} from "react-redux"
-import {setCurrentUser} from "../../../Redux/User/userActions"
+import { Button, TextField } from '@material-ui/core'
+import { connect } from "react-redux"
+import { setCurrentUser } from "../../../Redux/User/userActions"
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -14,21 +14,21 @@ class SignIn extends React.Component {
         }
     }
 
-    loadUser=()=>{
+    loadUser = () => {
         const requestOptions = {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json','Authorization':localStorage.getItem("Authorization") },
+            headers: { 'Content-Type': 'application/json', 'Authorization': localStorage.getItem("Authorization") },
         };
         return fetch('http://localhost:8000/auth/users/me', requestOptions)
-        .then(response => response.json())
-        .then(data => {
-            console.log("ME",data)
-          return data
-        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("ME", data)
+                return data
+            })
 
     }
 
-    generateToken=(data)=>{
+    generateToken = (data) => {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -38,17 +38,18 @@ class SignIn extends React.Component {
         fetch('http://localhost:8000/auth/jwt/create', requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log("aaaaaaaaaaa",data)
-                localStorage.setItem("Authorization",`JWT ${data.access}`)
-                let x=this.loadUser ||this.props.loadUser
+                // console.log("aaaaaaaaaaa", data)
+                localStorage.setItem("Authorization", `JWT ${data.access}`)
+                let x = this.loadUser || this.props.loadUser
                 // this.loadUser?
                 // this.loadUser()
                 // :this.props.loadUser()
                 return x()
             })
-            .then(async (data)=>{
-                console.log("DISPATCH ME",data)
-                 this.props.setCurrentUser(data)
+            .then((data) => {
+                // console.log("DISPATCH ME", data)
+                this.props.setCurrentUser(data)
+                window.location.reload()
             })
     }
 
@@ -62,7 +63,7 @@ class SignIn extends React.Component {
         const { name, value } = e.target
 
         this.setState({ [name]: value })
-        console.log(value)
+        // console.log(value)
     }
 
     signUpStatus = (e) => {
@@ -72,37 +73,37 @@ class SignIn extends React.Component {
 
 
     render() {
-        console.log(this.props)
-        const { email, password,signedUp } = this.state
+        // console.log(this.props)
+        const { email, password, signedUp } = this.state
         return (
             <div>
                 {
                     signedUp ?
-                        <div style={{display:'flex',flexDirection:'column'}} >
-                        <form className='login' onSubmit={this.signIn} >
-                            <TextField  className='Input'
-                                label="Email"
-                                type='email'
-                                name='email'
-                                value={email}
-                                onChange={this.handleChange}
-                                required
-                            />
-                            <br />
-                            <TextField  className='Input'
-                                label="Password"
-                                type='password'
-                                name='password'
-                                value={password}
-                                onChange={this.handleChange}
-                                required
-                            />
-                            <Button type='submit' className='dialog_button' > Log In </Button>
-                            
-                        </form>
-                        
-                        <Button type='submit' className='dialog_button' onClick={this.signUpStatus} > Sign Up </Button>
-                        </div>:
+                        <div style={{ display: 'flex', flexDirection: 'column' }} >
+                            <form className='login' onSubmit={this.signIn} >
+                                <TextField className='Input'
+                                    label="Email"
+                                    type='email'
+                                    name='email'
+                                    value={email}
+                                    onChange={this.handleChange}
+                                    required
+                                />
+                                <br />
+                                <TextField className='Input'
+                                    label="Password"
+                                    type='password'
+                                    name='password'
+                                    value={password}
+                                    onChange={this.handleChange}
+                                    required
+                                />
+                                <Button type='submit' className='dialog_button' > Log In </Button>
+
+                            </form>
+
+                            <Button type='submit' className='dialog_button' onClick={this.signUpStatus} > Sign Up </Button>
+                        </div> :
                         <SignUp signUpStatus={this.signUpStatus} generateToken={this.generateToken} />
                 }
 
@@ -111,11 +112,11 @@ class SignIn extends React.Component {
         )
     }
 }
- 
-const mapDispatchToProps=(dispatch)=>{
-    return{
-        setCurrentUser:user=>dispatch(setCurrentUser(user))
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setCurrentUser: user => dispatch(setCurrentUser(user))
     }
 }
 
-export default connect(null,mapDispatchToProps)(SignIn)
+export default connect(null, mapDispatchToProps)(SignIn)

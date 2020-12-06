@@ -1,28 +1,49 @@
 import React from 'react'
 import './header.css'
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import RegisterDialog from "./RegisterDialog"
-const Header = ({currentUser}) => {
+import { Button,Avatar } from '@material-ui/core'
+import { setCurrentUser } from '../../../Redux/User/userActions'
+
+const Header = ({ currentUser, setCurrentUser}) => {
+    // console.log(currentUser)
     return (
 
         <div className='header'>
             <img className='header__logo' src='' alt='logo' />
             <div className='header__contents'>
-            {
-                currentUser?
-                <h1 className='contents__content'>  LOGOUT</h1>
-                :
-                <h1 className='contents__content'> <RegisterDialog/>  </h1>
-            }
+                {
+                    currentUser ?
+                    <div className='header__contents'>
+                        <Avatar style={{marginRight:'20px'}}  alt={currentUser} />
+                        <Button variant="contained" color="primary" onClick={() => {
+                            localStorage.removeItem('Authorization')
+                            setCurrentUser({
+                                currentUser: null,
+                                email: null,
+                                id: null
+                            })
+                        }}> LogOut </Button>
+                        </div>
+                        :
+                        <RegisterDialog />
+                }
             </div>
-        </div>
+        </div >
     )
 }
 
-const mapStateToProps=({user:{currentUser}})=>{
-return{
-    currentUser
-}
+const mapStateToProps = ({ user: { currentUser } }) => {
+    return {
+        currentUser
+    }
 }
 
-export default connect()(Header);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setCurrentUser: user => dispatch(setCurrentUser(user))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
