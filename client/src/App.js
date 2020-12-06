@@ -31,15 +31,30 @@ class App extends React.Component {
       .then(user => {
         // console.log("ME", user)
         this.props.setCurrentUser(user)
+        return user
       })
+      .then((user) => this.userRole({ pk:user.id }))
 
   }
+
+  userRole = (user) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
+    };
+
+    fetch('http://localhost:8000/user/details', requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
+
 
 
   render() {
     return (
       <div>
-        <Header />
+        <Header/>
         <Switch>
           {/* <Route exact path='/' component={HompePage} /> */}
           {/* <Route exact path='/profile' component={ProfilePage} /> */}
