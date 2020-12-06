@@ -15,7 +15,7 @@ class SignUp extends React.Component {
         const { name, value } = e.target
 
         this.setState({ [name]: value })
-        console.log(value)
+        // console.log(value)
     }
 
 
@@ -30,7 +30,7 @@ class SignUp extends React.Component {
         fetch('http://localhost:8000/auth/users/', requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                if(!data.id){
                    const alert1=data.email||data.password[1]
                    alert(alert1)
