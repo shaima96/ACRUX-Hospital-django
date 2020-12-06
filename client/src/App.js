@@ -3,7 +3,7 @@ import './App.css';
 import Header from './Components/SharedComponents/Header/Header.jsx';
 import { connect } from "react-redux"
 import { setCurrentUser,setUserRole } from './Redux/User/userActions'
-
+import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 class App extends React.Component {
@@ -63,7 +63,7 @@ class App extends React.Component {
         <Header/>
         <Switch>
           {/* <Route exact path='/' component={HompePage} /> */}
-          {/* <Route exact path='/profile' component={ProfilePage} /> */}
+          <Route exact path='/profile' component={UsersProfile} />
           {/* <Route exact path='/bloodbank' component={} />
           <Route exact path='/departments' component={} />
           <Route exact path='/doctors' component={} />
