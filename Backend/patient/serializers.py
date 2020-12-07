@@ -3,7 +3,7 @@ from rest_framework import serializers
 
 class PatientsDoctorsSerializer(serializers.ModelSerializer):
     doctorName = serializers.CharField(source='doctorId.doctor.name', read_only=True)
-    # patientName = serializers.CharField(source='patientId.userId.name',read_only=True)
+    
     class Meta:
         model=DoctorPatient
         fields= ['doctorName']
