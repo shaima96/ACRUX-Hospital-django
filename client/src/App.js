@@ -75,13 +75,14 @@ class App extends React.Component {
 
           <Route exact path='/profile' component={UsersProfile} />
           <Route exact path='/doctors' component={DoctorPage} />
+          <Route exact path='/departments' render={(props) => <Departments departments={this.state.departments} {...props}/> } />
           {/* <Route exact path='/bloodbank' component={} />
           
           <Route exact path='/doctors' component={} />
           <Route exact path='/booking' component={} /> */}
           {/* <Route exact path='/departments' component={departments} /> */}
         </Switch>
-        <Departments departments = {this.state.departments}/>
+        
       </div>
     )
   }
