@@ -15,7 +15,7 @@
 
 
 #card{
-    background-color:red;
+
     margin-left: auto;
     margin-right: auto;
     justify-content:center;
@@ -48,6 +48,12 @@
     padding-top: 3rem;
 }
 
- .doctor_image{
-    border-radius: 150px;
+#photo{
+    width: 200px;
+    height: 220px;
+    margin: 0px 50px;
+    border-radius: 40px;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
 }

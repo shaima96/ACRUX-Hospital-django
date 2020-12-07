@@ -1,6 +1,6 @@
 import React from 'react';
 import './doctor.css'
-import MediaCard from "./DoctorCard";
+import DoctorCard from "./DoctorCard";
 
 
 
@@ -30,7 +30,7 @@ class DoctorPage extends React.Component {
             <div className='home'>
                 <div className='doctors'>
                     {
-                        doctors? doctors.map((doc, i) => <MediaCard doctor={doc} key={i} />
+                        doctors? doctors.map((doc, i) => <DoctorCard doctor={doc} key={i} />
                         ) : <div></div>
                     }
                 </div>

@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function MediaCard({ doctor }) {
+export default function DoctorCard({ doctor }) {
     const classes = useStyles();
     console.log(doctor.image)
     return (
@@ -27,6 +27,7 @@ export default function MediaCard({ doctor }) {
                     alt="Contemplative Reptile"
                     height="300"
                     image={doctor.image}
+                    id="photo"
                 />
                 <CardContent>
                     <Typography id="name" gutterBottom variant="h5" component="h2">
