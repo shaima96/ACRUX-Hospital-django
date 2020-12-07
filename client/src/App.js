@@ -1,9 +1,12 @@
 import React from 'react'
 import './App.css';
+
 import Header from './Components/SharedComponents/Header/Header.jsx';
+import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
-import { setCurrentUser,setUserRole } from './Redux/User/userActions'
 import  Departments from './Components/Pages/DepartmentPage/DepartmentPage'
+import { setCurrentUser, setUserRole } from './Redux/User/userActions'
+import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 class App extends React.Component {
@@ -13,6 +16,7 @@ class App extends React.Component {
       departments:[]
     }
   }
+
 
   componentDidMount = () => {
     this.loadUser()
@@ -39,7 +43,7 @@ class App extends React.Component {
         this.props.setCurrentUser(user)
         return user
       })
-      .then((user) => this.userRole({ pk:user.id }))
+      .then((user) => this.userRole({ pk: user.id }))
 
   }
 
@@ -52,24 +56,25 @@ class App extends React.Component {
 
     fetch('http://localhost:8000/user/details', requestOptions)
       .then(response => response.json())
-      .then(user =>{
-        if(user.patient){
+      .then(user => {
+        if (user.patient) {
           this.props.setUserRole(user.patient.role)
-        }else if(user.doctor){
+        } else if (user.doctor) {
           this.props.setUserRole(user.doctor.role)
         }
-      } )
+      })
   }
-
 
 
   render() {
     return (
       <div>
-        <Header/>
+        <Header />
         <Switch>
           {/* <Route exact path='/' component={HompePage} /> */}
-          {/* <Route exact path='/profile' component={ProfilePage} /> */}
+
+          <Route exact path='/profile' component={UsersProfile} />
+          <Route exact path='/doctors' component={DoctorPage} />
           {/* <Route exact path='/bloodbank' component={} />
           
           <Route exact path='/doctors' component={} />
@@ -85,8 +90,9 @@ class App extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
-    setUserRole: role=>dispatch(setUserRole(role))
+    setUserRole: role => dispatch(setUserRole(role))
   }
 }
 
 export default connect(null, mapDispatchToProps)(App);
+

@@ -1,13 +1,13 @@
 import React from "react"
 
 
-const UserPage = () => {
+const PatientPage = () => {
     return (
         <div>
-            USER PAGE
+            PATIENT PAGE
         </div>
     )
 
 
 }
-export default UserPage
+export default PatientPage
