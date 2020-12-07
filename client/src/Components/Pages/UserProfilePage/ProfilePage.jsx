@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from "react-redux"
-import PatientPage from "./PateintProfile"
-import DoctorPage from "./DoctorProfile"
-import UserPage from "./UserProfile"
+import PatientProfile from "./PateintProfile"
+import DoctorProfile from "./DoctorProfile"
+import UserProfile from "./UserProfile"
 
 class UsersProfile extends React.Component {
     constructor(props) {
@@ -25,10 +25,10 @@ class UsersProfile extends React.Component {
                 {
                     currentUser ?
                         (role === "patient") ?
-                            <PatientPage />
+                            <PatientProfile />
                             : (role === "doctor") ?
-                                <DoctorPage />
-                                : <UserPage />
+                                <DoctorProfile />
+                                : <UserProfile />
                         : <div>LOGIN FIRST</div>
 
                 }
