@@ -29,7 +29,7 @@ const Header = ({ currentUser, setCurrentUser}) => {
                         <RegisterDialog />
                 }
             </div>
-        </div >
+        </div>
     )
 }
 
