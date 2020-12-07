@@ -14,8 +14,8 @@ class Patient(models.Model):
 
 
 class DoctorPatient(models.Model):
-    patientId = models.ForeignKey(Patient,on_delete=models.CASCADE)
-    doctorId = models.ForeignKey(Doctor,on_delete=models.CASCADE)
+    patientId = models.ForeignKey(Patient,on_delete=models.CASCADE, related_name='doctors')
+    doctorId = models.ForeignKey(Doctor,on_delete=models.CASCADE, related_name='patients')
 
     def __str__(self):
         return "%s %s" % (self.doctorId.doctor.name, self.patientId.userId.name)
