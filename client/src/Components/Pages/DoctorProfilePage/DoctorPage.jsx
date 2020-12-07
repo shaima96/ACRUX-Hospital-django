@@ -1,16 +1,14 @@
 import React from 'react';
 import './doctor.css'
 import DoctorCard from "./DoctorCard";
-
-
-
+// import setCurrentDoctor from '../Redux/Doctor/doctorActions';
 
 class DoctorPage extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            doctors: []
-        }
+    constructor(props) {
+        super(props)
+        // this.state = {
+        //     doctors: []
+        // }
     }
     componentDidMount() {
         this.getDoctors()
@@ -18,14 +16,17 @@ class DoctorPage extends React.Component {
     getDoctors = () => {
         fetch('http://localhost:8000/doctor/')
             .then(response => response.json())
-            .then(data => {
-                console.log("result", data)
-                this.setState({ doctors: data })
+            .then(doctor => {
+                console.log("result", doctor)
+                // this.setState({ doctors: data })
+                this.props.setCurrentDoctor(doctor)
+                return doctor
+                // console.log(this.props.setCurrentDoctor(doctor))
             })
         }
 
     render() {
-        const { doctors } = this.state
+        const { doctors } =  this.props.setCurrentDoctor(doctor)
         return ( 
             <div className='home'>
                 <div className='doctors'>
