@@ -7,8 +7,9 @@ const HomePage = ({ departments }) => {
         let array = [...arr]
         let result = []
         for (let i = 0; i < 4; i++) {
-            let index = Math.floor(Math.random() * result.length)
-            result.push(array.splice(index, 1)[0])
+            let index = Math.floor(Math.random() * array.length)
+            result.push(array[index])
+            array.splice(index,1)
         }
         return result
     }
