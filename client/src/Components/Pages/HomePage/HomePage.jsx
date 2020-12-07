@@ -3,7 +3,17 @@ import RandomCard from './RandomCard'
 import './HomePage.css'
 
 const HomePage = ({ departments }) => {
-    console.log(departments)
+    const random = (arr) => {
+        let array = [...arr]
+        let result = []
+        for (let i = 0; i < 4; i++) {
+            let index = Math.floor(Math.random() * result.length)
+            result.push(array.splice(index, 1)[0])
+        }
+        return result
+    }
+
+    const res = random(departments)
     return (
         <div className='homepage'>
             <div className='homepage__picture'></div>
@@ -11,11 +21,11 @@ const HomePage = ({ departments }) => {
                 <h1 >Welcome To Our Hospital</h1>
             </div>
             <div className='random'>
-            {
-                departments ?
-                    departments.map((department, i) => <RandomCard key={i} department={department} />) :
-                    <div></div>
-            }
+                {
+                    res[0] ?
+                        res.map((department, i) => <RandomCard key={i} department={department} />) :
+                        <div></div>
+                }
             </div>
 
 
