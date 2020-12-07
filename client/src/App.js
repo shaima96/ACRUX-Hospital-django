@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import Header from './Components/SharedComponents/Header/Header.jsx';
 import { connect } from "react-redux"
-import { setCurrentUser } from './Redux/User/userActions'
+import { setCurrentUser,setUserRole } from './Redux/User/userActions'
 import  Departments from './Components/Pages/DepartmentPage/DepartmentPage'
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -37,15 +37,36 @@ class App extends React.Component {
       .then(user => {
         // console.log("ME", user)
         this.props.setCurrentUser(user)
+        return user
       })
+      .then((user) => this.userRole({ pk:user.id }))
 
   }
+
+  userRole = (user) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user)
+    };
+
+    fetch('http://localhost:8000/user/details', requestOptions)
+      .then(response => response.json())
+      .then(user =>{
+        if(user.patient){
+          this.props.setUserRole(user.patient.role)
+        }else if(user.doctor){
+          this.props.setUserRole(user.doctor.role)
+        }
+      } )
+  }
+
 
 
   render() {
     return (
       <div>
-        <Header />
+        <Header/>
         <Switch>
           {/* <Route exact path='/' component={HompePage} /> */}
           {/* <Route exact path='/profile' component={ProfilePage} /> */}
@@ -63,7 +84,8 @@ class App extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCurrentUser: user => dispatch(setCurrentUser(user))
+    setCurrentUser: user => dispatch(setCurrentUser(user)),
+    setUserRole: role=>dispatch(setUserRole(role))
   }
 }
 
