@@ -16,4 +16,3 @@ class PatientsSerializer(serializers.ModelSerializer):
         fields=("image","BloodType","role","userId","name",'doctors')
 
 
-
