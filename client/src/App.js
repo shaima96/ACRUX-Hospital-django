@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.css';
+
 import Header from './Components/SharedComponents/Header/Header.jsx';
+import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
 import { setCurrentUser,setUserRole } from './Redux/User/userActions'
 
@@ -13,6 +15,7 @@ class App extends React.Component {
 
     }
   }
+
 
   componentDidMount = () => {
     this.loadUser()
@@ -56,13 +59,13 @@ class App extends React.Component {
   }
 
 
-
   render() {
     return (
       <div>
         <Header/>
         <Switch>
           {/* <Route exact path='/' component={HompePage} /> */}
+          <Route exact path='/doctors' component={DoctorPage} />
           {/* <Route exact path='/profile' component={ProfilePage} /> */}
           {/* <Route exact path='/bloodbank' component={} />
           <Route exact path='/departments' component={} />
@@ -82,3 +85,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(App);
+
