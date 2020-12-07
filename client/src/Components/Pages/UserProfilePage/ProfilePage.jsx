@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from "react-redux"
-import PatientPage from "./pateintPage"
-import DoctorPage from "./doctorPage"
+import PatientPage from "./PateintProfile"
+import DoctorPage from "./DoctorProfile"
 import UserPage from "./UserProfile"
 
 class UsersProfile extends React.Component {
