@@ -14,6 +14,7 @@ export default function MaxWidthDialog() {
     };
     return (
         <React.Fragment>
+            
             <Button variant="outlined" color="primary" className="login_button" onClick={handleClickOpen}> SignIn </Button>
             <Dialog
                 maxWidth={"xs"}

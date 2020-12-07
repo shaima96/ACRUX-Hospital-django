@@ -4,6 +4,7 @@ import './App.css';
 import Header from './Components/SharedComponents/Header/Header.jsx';
 import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
+import  Departments from './Components/Pages/DepartmentPage/DepartmentPage'
 import { setCurrentUser, setUserRole } from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -12,13 +13,19 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      departments:[]
     }
   }
 
 
   componentDidMount = () => {
     this.loadUser()
+    fetch('http://127.0.0.1:8000/department/')
+        .then(response => response.json())
+        .then(data =>{
+          this.setState({departments : data})
+         console.log("dep",this.state.departments)
+        })
   }
 
   loadUser = () => {
@@ -69,10 +76,12 @@ class App extends React.Component {
           <Route exact path='/profile' component={UsersProfile} />
           <Route exact path='/doctors' component={DoctorPage} />
           {/* <Route exact path='/bloodbank' component={} />
-          <Route exact path='/departments' component={} />
+          
           <Route exact path='/doctors' component={} />
           <Route exact path='/booking' component={} /> */}
+          {/* <Route exact path='/departments' component={departments} /> */}
         </Switch>
+        <Departments departments = {this.state.departments}/>
       </div>
     )
   }
