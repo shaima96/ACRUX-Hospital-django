@@ -24,6 +24,7 @@ const Header = ({ currentUser, setCurrentUser }) => {
                                 id: null
                             })
                         }}> LogOut </Button>
+                        
                         </div>
                         :
                         <RegisterDialog />
