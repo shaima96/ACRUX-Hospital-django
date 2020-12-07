@@ -18,7 +18,7 @@ class DoctorPatient(models.Model):
     doctorId = models.ForeignKey(Doctor,on_delete=models.CASCADE, related_name='patients')
 
     class Meta:
-        unique_together=['patientId','doctorId']
+        unique_together = ('patientId','doctorId')
 
     def __str__(self):
         return "%s %s" % (self.doctorId.doctor.name, self.patientId.userId.name)
