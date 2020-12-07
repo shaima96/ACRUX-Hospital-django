@@ -23,7 +23,7 @@ export default function DepCard(props) {
  //console.log(props)
   const classes = useStyles();
   return (
-    <div id="crad">
+    
     <Card   >
       <CardActionArea>
         <CardMedia
@@ -41,7 +41,7 @@ export default function DepCard(props) {
   
       </CardActions>
     </Card>
-    </div>
+    
   );
 }
 //export default MediaCard

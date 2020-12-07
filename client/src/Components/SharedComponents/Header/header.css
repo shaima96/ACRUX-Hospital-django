@@ -3,7 +3,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: aquamarine;
+    background-color: rgba(4, 90, 61, 0.329);
+}
+
+.header__logo{
+    width: 70px;
+    object-fit: contain;
 }
 
 .header__contents{
@@ -41,8 +46,8 @@
 
 .Dialog__image{
     width: 60%;
-    object-fit: contain;
-    border-radius:505px;
+    /* object-fit: contain; */
+    border-radius:150px;
     /* box-shadow: 0px 0px 5px 5px white inset; */
 }
 
