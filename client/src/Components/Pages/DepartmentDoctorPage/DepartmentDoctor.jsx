@@ -1,7 +1,6 @@
-
 import React from 'react'
-import DepartmentCard from './DepartmentCard'
-import './department.css'
+import DoctorCard from '../DoctorProfilePage/DoctorCard'
+
 class DepartmentDoctor extends React.Component {
     constructor(props) {
         super(props)
@@ -33,9 +32,9 @@ class DepartmentDoctor extends React.Component {
         const {result} = this.state
         return (
             <div className='home'>
-                <div className='departments'>
+                <div className='doctors'>
                 {
-                    result? result.map( (res , i) => <DepartmentCard department={res} key={i} /> ):<div></div>
+                    result? result.map( (res , i) => <DoctorCard doctor={res} key={i} /> ):<div></div>
                 }
                 </div>
             </div>
