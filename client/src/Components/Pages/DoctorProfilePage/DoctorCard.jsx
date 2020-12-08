@@ -1,10 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom'
+import DatePicker from './DatePicker'
 
 
 
@@ -12,31 +10,36 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
     root: {
         maxWidth: 300,
-
+    },
+    media: {
+        height: 250,
     }
 });
 
 export default function DoctorCard({ doctor }) {
     const classes = useStyles();
-    console.log(doctor.image)
     return (
-        <Card id="card" className={classes.root}>
+        <Card className={classes.root} style={{ margin: '20px', marginTop: '80px' }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
-                    height="300"
                     image={doctor.image}
+                    className={classes.media}
                     id="photo"
                 />
                 <CardContent>
                     <Typography id="name" gutterBottom variant="h5" component="h2">
                         {doctor.name}
                     </Typography>
-                    <Typography id="title" variant="body2" color="textSecondary" component="p">
-                        Book an appoinment
+                    <Link to={`/appointment/${doctor.pk}`} style={{textDecoration:'none'}}>
+                        <Typography id="title" variant="body2" color="textSecondary" component="p">
+                            Book an appoinment
                    </Typography>
+                    </Link>
+                    {/* <DatePicker/> */}
                 </CardContent>
+
             </CardActionArea>
         </Card>
     );
