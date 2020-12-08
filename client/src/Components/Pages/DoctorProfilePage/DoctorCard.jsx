@@ -18,7 +18,6 @@ const useStyles = makeStyles({
 
 export default function DoctorCard({ doctor }) {
     const classes = useStyles();
-    console.log(doctor.image)
     return (
         <Card className={classes.root} style={{ margin: '20px', marginTop: '80px' }}>
             <CardActionArea>
