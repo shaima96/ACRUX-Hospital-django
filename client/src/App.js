@@ -8,7 +8,6 @@ import  Departments from './Components/Pages/DepartmentPage/DepartmentPage'
 import { setCurrentUser, setUserRole } from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { setCurrentDoctor } from './Redux/Doctor/doctorActions';
 
 class App extends React.Component {
   constructor(props) {
@@ -93,7 +92,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
     setUserRole: role => dispatch(setUserRole(role)),
-    setCurrentDoctor:doctor=>dispatch(setCurrentDoctor(doctor))
   }
 }
 

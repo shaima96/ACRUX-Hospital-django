@@ -1,7 +1,8 @@
 import React from 'react';
 import './doctor.css'
 import DoctorCard from "./DoctorCard";
-// import setCurrentDoctor from '../Redux/Doctor/doctorActions';
+import { connect } from "react-redux"
+import { setCurrentDoctor } from "../../../Redux/Doctor/doctorActions"
 
 class DoctorPage extends React.Component {
     constructor(props) {
@@ -40,4 +41,10 @@ class DoctorPage extends React.Component {
     }
 }
 
-export default DoctorPage
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setCurrentDoctor:doctor=>dispatch(setCurrentDoctor(doctor))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(DoctorPage)
