@@ -1,9 +1,9 @@
 import React from "react"
 import "./UserProfile.css"
 
-const UserProfile = () => {
+const DoctorProfile = () => {
     return (
-    <div className="content__left">
+        <div className="content__left">
         <div className="content__left__collection">
             popular collection
         </div>
@@ -15,4 +15,4 @@ const UserProfile = () => {
 
 
 }
-export default UserProfile
+export default DoctorProfile

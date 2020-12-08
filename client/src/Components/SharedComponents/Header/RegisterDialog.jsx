@@ -14,6 +14,7 @@ export default function MaxWidthDialog() {
     };
     return (
         <React.Fragment>
+            
             <Button variant="outlined" color="primary" className="login_button" onClick={handleClickOpen}> SignIn </Button>
             <Dialog
                 maxWidth={"xs"}
@@ -24,7 +25,7 @@ export default function MaxWidthDialog() {
                 <DialogContent>
                     <div>
                         <div className="Dialog">
-                            <img className='Dialog__image' src='https://media.istockphoto.com/vectors/sunset-with-bungalows-on-sea-resort-aircraft-in-the-sky-mountain-and-vector-id940018518?k=6&m=940018518&s=612x612&w=0&h=UIjqrOGVmE1g5Dt-k36kKAvWEzENoDQEEWz9cVXiTSA=' alt='ss' />
+                            <img className='Dialog__image' src='https://i.pinimg.com/736x/9f/32/20/9f3220f4535dd9cd9743b995fdfdeaa1.jpg' alt='ss' />
                         </div>
                         <div>
                             <SignIn  />
