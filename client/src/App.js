@@ -97,7 +97,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
     setUserRole: role => dispatch(setUserRole(role)),
+<<<<<<< HEAD
     viewDepartments : department =>dispatch(viewDepartments(department))
+=======
+>>>>>>> 633d7924ea34293a3c26b2809b7d7c098cc11e11
   }
 }
 const mapStateToProps = (state) => {
@@ -107,5 +110,9 @@ const mapStateToProps = (state) => {
 }
 
 
+<<<<<<< HEAD
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
+=======
+export default connect(null, mapDispatchToProps)(App);
+>>>>>>> 633d7924ea34293a3c26b2809b7d7c098cc11e11
