@@ -4,6 +4,7 @@ import DoctorCard from "./DoctorCard";
 import { connect } from "react-redux"
 import { setCurrentDoctor } from "../../../Redux/Doctor/doctorActions"
 
+
 class DoctorPage extends React.Component {
     constructor(props) {
         super(props)
@@ -35,6 +36,7 @@ class DoctorPage extends React.Component {
 
         return (
             <div className='home'>
+                
                 <div className='doctors'>
                     {
                         currentDoctor ? currentDoctor.map((doc, i) => <DoctorCard doctor={doc} key={i} />
