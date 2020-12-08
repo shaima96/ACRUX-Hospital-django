@@ -1,9 +1,10 @@
 import React from 'react'
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, makeStyles } from '@material-ui/core';
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 415,
+        maxWidth: 380,
     },
     media: {
         height: 250,
@@ -11,8 +12,10 @@ const useStyles = makeStyles({
 });
 
 const RandomCard = ({department}) => {
+    // console.log(department)
     const classes = useStyles()
     return (
+        <Link to={`/department/${department.pk}`} style={{textDecoration:'none'}}>
         <Card className={classes.root} style={{margin:'30px'}}>
             <CardActionArea>
                 <CardMedia
@@ -30,6 +33,8 @@ const RandomCard = ({department}) => {
                 </CardContent>
             </CardActionArea>
         </Card>
+        </Link>
+
     )
 }
 
