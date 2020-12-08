@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom'
@@ -39,4 +40,4 @@ export default function DepCard({department}) {
     
   );
 }
-//export default MediaCard
+
