@@ -8,9 +8,9 @@ class DoctorPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            CurrentDoctor,
-            setCurrentDoctor
+
         }
+
     }
     componentDidMount() {
         this.getDoctors()
@@ -20,21 +20,24 @@ class DoctorPage extends React.Component {
             .then(response => response.json())
             .then(doctor => {
                 console.log("result", doctor)
-                // this.setState({ doctors: data })
                 this.props.setCurrentDoctor(doctor)
                 return doctor
-                // console.log(this.props.setCurrentDoctor(doctor))
             })
-        }
+    }
+
+
+
 
     render() {
-        // const { doctors } =  this.state.CurrentDoctor
+        const { currentDoctor } = this.props
+        console.log(currentDoctor)
 
-        return ( 
+
+        return (
             <div className='home'>
                 <div className='doctors'>
                     {
-                        doctors? doctors.map((doc, i) => <DoctorCard doctor={doc} key={i} />
+                        currentDoctor ? currentDoctor.map((doc, i) => <DoctorCard doctor={doc} key={i} />
                         ) : <div></div>
                     }
                 </div>
@@ -44,14 +47,14 @@ class DoctorPage extends React.Component {
 }
 
 
-const mapStateToProps = ({ doctor: { CurrentDoctor } }) => {
+const mapStateToProps = ({ doctor: { currentDoctor } }) => {
     return {
-        CurrentDoctor
+        currentDoctor
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        setCurrentDoctor:doctor=>dispatch(setCurrentDoctor(doctor))
+        setCurrentDoctor: doctor => dispatch(setCurrentDoctor(doctor))
     }
 }
 
