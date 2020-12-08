@@ -26,7 +26,7 @@ export default function DepCard(props) {
     <div id="crad">
     <Card   >
       <CardActionArea>
-        <CardMedia
+        <CardMedia id="photo"
           className={classes.media}
           image= {props.department.image}
         />
