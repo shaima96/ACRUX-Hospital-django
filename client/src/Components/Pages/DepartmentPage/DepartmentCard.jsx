@@ -3,13 +3,14 @@ import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typo
 import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
-    root: {
-        maxWidth: 380,
-    },
-    media: {
-        height: 250,
-    },
+  root: {
+    maxWidth: 380,
+  },
+  media: {
+    height: 250,
+  },
 });
+
 
 
 

@@ -10,6 +10,8 @@ import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage/HomePage'
 import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/DepartmentDoctor'
+import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -77,14 +79,17 @@ class App extends React.Component {
 
           <Route exact path='/profile' component={UsersProfile} />
           <Route exact path='/doctors' component={DoctorPage} />
+
           <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props} />} />
           <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
+          <Route exact path='/appointment/:id' component={AppointmentPage} />
+          {/* <Route exact path='/department/:id' component={} /> */}
 
           {/* <Route exact path='/bloodbank' component={} />
           
           <Route exact path='/doctors' component={} />
           <Route exact path='/booking' component={} /> */}
-          {/* <Route exact path='/departments' component={departments} /> */}
+          
         </Switch>
 
       </div>
@@ -95,8 +100,9 @@ class App extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
-    setUserRole: role => dispatch(setUserRole(role)),
+    setUserRole: role => dispatch(setUserRole(role))
   }
 }
 
 export default connect(null, mapDispatchToProps)(App);
+
