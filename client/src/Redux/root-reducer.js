@@ -5,10 +5,6 @@ import storage from "redux-persist/lib/storage"
 import userReducer from './User/userReduser';
 import doctorReducer from './Doctor/doctorReducer';
 
-export default combineReducers({
-  user: userReducer,
-  doctor: doctorReducer
-});
 const persistConfig = {
   key: "root",
   storage,
@@ -16,7 +12,8 @@ const persistConfig = {
 }
 
 const rootReducer = combineReducers({
-  user: userReducer
+  user: userReducer,
+  doctor: doctorReducer
 });
 
-export default persistReducer(persistConfig,rootReducer)
+export default persistReducer(persistConfig, rootReducer)
