@@ -1,9 +1,13 @@
 import React from 'react'
 import { connect } from "react-redux"
-import PatientPage from "./PateintProfile"
-import DoctorPage from "./DoctorProfile"
-import UserPage from "./UserProfile"
+import PatientProfile from "./PateintProfile"
+import DoctorProfile from "./DoctorProfile"
+import UserProfile from "./UserProfile"
+import ProfileLeft from "./ProfileLeft.jsx"
+import RightImage from "./RightImage.jsx"
+import Details from "./Details.jsx"
 
+import "./UserProfile.css"
 class UsersProfile extends React.Component {
     constructor(props) {
         super(props)
@@ -12,27 +16,37 @@ class UsersProfile extends React.Component {
         }
     }
 
-
-
-
-
-
-
     render() {
         const { role, currentUser } = this.props
         return (
+
             <div>
                 {
                     currentUser ?
-                        (role === "patient") ?
-                            <PatientPage />
-                            : (role === "doctor") ?
-                                <DoctorPage />
-                                : <UserPage />
+                        <div className="profile">
+                            <div className="profile__left">
+                                <ProfileLeft />
+                            </div>
+                            <div className="profile__right">
+                                <div className="right__image">
+                                    <RightImage />
+                                </div>
+                                <div className="right__content">
+                                    {
+                                        (role === "patient") ?
+                                            <PatientProfile />
+                                            : (role === "doctor") ?
+                                                <DoctorProfile />
+                                                : <UserProfile />
+                                    }
+                                    <div className="content__right">
+                                        <Details />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         : <div>LOGIN FIRST</div>
-
                 }
-
             </div>
         )
     }

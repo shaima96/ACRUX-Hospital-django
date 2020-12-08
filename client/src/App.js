@@ -8,13 +8,15 @@ import  Departments from './Components/Pages/DepartmentPage/DepartmentPage'
 import { setCurrentUser, setUserRole } from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
+import HomePage from './Components/Pages/HomePage/HomePage'
+import {viewDepartments} from './Redux/Department/departmentAction'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      departments:[]
-    }
+    // this.state = {
+    //   departments:[]
+    // }
   }
 
 
@@ -23,8 +25,9 @@ class App extends React.Component {
     fetch('http://127.0.0.1:8000/department/')
         .then(response => response.json())
         .then(data =>{
-          this.setState({departments : data})
-         console.log("dep",this.state.departments)
+          //this.setState({departments : data})
+          this.props.viewDepartments(data)
+         console.log("dep",data)
         })
   }
 
@@ -67,21 +70,24 @@ class App extends React.Component {
 
 
   render() {
+    const { departments } = this.props
+    console.log(departments)
     return (
-      <div>
+      <div className='App'>
         <Header />
         <Switch>
-          {/* <Route exact path='/' component={HompePage} /> */}
+          <Route exact path='/' render={(props) => <HomePage departments={departments} {...props}/> } />
 
           <Route exact path='/profile' component={UsersProfile} />
           <Route exact path='/doctors' component={DoctorPage} />
+          <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props}/> } />
           {/* <Route exact path='/bloodbank' component={} />
           
           <Route exact path='/doctors' component={} />
           <Route exact path='/booking' component={} /> */}
           {/* <Route exact path='/departments' component={departments} /> */}
         </Switch>
-        <Departments departments = {this.state.departments}/>
+        
       </div>
     )
   }
@@ -90,9 +96,23 @@ class App extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
-    setUserRole: role => dispatch(setUserRole(role))
+    setUserRole: role => dispatch(setUserRole(role)),
+<<<<<<< HEAD
+    viewDepartments : department =>dispatch(viewDepartments(department))
+=======
+>>>>>>> 633d7924ea34293a3c26b2809b7d7c098cc11e11
+  }
+}
+const mapStateToProps = (state) => {
+  return {
+    departments :state.department.Departments
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
 
+<<<<<<< HEAD
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+=======
+export default connect(null, mapDispatchToProps)(App);
+>>>>>>> 633d7924ea34293a3c26b2809b7d7c098cc11e11
