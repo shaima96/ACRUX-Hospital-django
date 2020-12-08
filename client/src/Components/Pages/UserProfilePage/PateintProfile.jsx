@@ -1,17 +1,9 @@
 import React from "react"
-
+import "./UserProfile.css"
 
 const PatientProfile = () => {
     return (
-        <div className="profile">
-            <div className="profile__left">
-                circular image 30%
-            </div>
-            <div className="profile__right">
-                <div className="right__image">
-                    circular image 70%
-            </div>
-                <div className="right__content">
+        
                     <div className="content__left">
                         <div className="content__left__collection">
                             popular collection
@@ -21,13 +13,8 @@ const PatientProfile = () => {
                         </div>
 
                     </div>
-                    <div className="content__right">
-                        details
-                    </div>
-                </div>
-
-            </div>
-        </div>
+                    
+               
     )
 
 
