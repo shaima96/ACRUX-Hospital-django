@@ -3,7 +3,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: rgba(4, 90, 61, 0.329);
+    background-color: rgba(14, 134, 204, 0.246);
+    opacity: .75;
 }
 
 .header__logo{

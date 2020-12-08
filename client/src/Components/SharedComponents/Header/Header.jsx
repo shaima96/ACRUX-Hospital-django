@@ -19,7 +19,9 @@ const Header = ({ currentUser, setCurrentUser }) => {
                 {
                     currentUser ?
                         <div className='header__contents'>
-                            <Avatar style={{ marginRight: '20px' }} alt={currentUser} />
+                            <Link to='/profile'>
+                            <Avatar style={{ marginRight: '20px' }} alt={currentUser} src='https://www.shareicon.net/data/512x512/2016/08/18/813844_people_512x512.png' />
+                            </Link>
                             <Button variant="contained" color="primary" onClick={() => {
                                 localStorage.removeItem('Authorization')
                                 setCurrentUser({

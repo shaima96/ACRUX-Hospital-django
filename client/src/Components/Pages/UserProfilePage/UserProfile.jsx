@@ -1,13 +1,18 @@
 import React from "react"
+import "./UserProfile.css"
 
-
-const UserPage = () => {
+const UserProfile = () => {
     return (
-        <div>
-            USER PAGE
+    <div className="content__left">
+        <div className="content__left__collection">
+            popular collection
         </div>
+        <div className="content__left__royal">
+            royal ui force
+        </div>
+    </div>
     )
 
 
 }
-export default UserPage
+export default UserProfile
