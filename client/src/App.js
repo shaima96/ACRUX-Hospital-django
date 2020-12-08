@@ -9,9 +9,10 @@ import { setCurrentUser, setUserRole } from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage/HomePage'
-import {viewDepartments} from './Redux/Department/departmentAction'
+import { viewDepartments } from './Redux/Department/departmentAction'
 import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/DepartmentDoctor'
 import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
+import Footer from './Components/SharedComponents/Footer/Footer.jsx';
 
 
 class App extends React.Component {
@@ -27,12 +28,12 @@ class App extends React.Component {
     this.loadUser()
     fetch('http://127.0.0.1:8000/department/')
 
-        .then(response => response.json())
-        .then(data =>{
-          //this.setState({departments : data})
-          this.props.viewDepartments(data)
-         console.log("dep",data)
-        })
+      .then(response => response.json())
+      .then(data => {
+        //this.setState({departments : data})
+        this.props.viewDepartments(data)
+        console.log("dep", data)
+      })
   }
 
   loadUser = () => {
@@ -94,9 +95,9 @@ class App extends React.Component {
           
           <Route exact path='/doctors' component={} />
           <Route exact path='/booking' component={} /> */}
-          
-        </Switch>
 
+        </Switch>
+        <Footer />
       </div>
     )
   }
@@ -106,12 +107,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
     setUserRole: role => dispatch(setUserRole(role)),
-    viewDepartments : department =>dispatch(viewDepartments(department))
+    viewDepartments: department => dispatch(viewDepartments(department))
   }
 }
 const mapStateToProps = (state) => {
   return {
-    departments :state.department.Departments
+    departments: state.department.Departments
   }
 }
 

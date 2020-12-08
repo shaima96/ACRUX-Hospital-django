@@ -1,0 +1,22 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 7%;
+    background-color:#20889C;
+    text-align:top;
+    
+  }
+ 
+  
+.container{
+position:absolute;
+width: 145px;
+text-align: center;
+margin-left: 45%;
+top:20px;
+font-weight: bold;
+color: white;
+}
+

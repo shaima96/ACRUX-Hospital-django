@@ -27,10 +27,10 @@ export default function DepCard({department}) {
                     title="Contemplative Reptile"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography  id="depName"gutterBottom variant="h5" component="h2">
                         {department.title}
             </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
+                    <Typography id="depabout"variant="body2" color="textSecondary" component="p">
                         {department.about}
             </Typography>
                 </CardContent>

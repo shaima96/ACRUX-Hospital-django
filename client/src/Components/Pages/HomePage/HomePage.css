@@ -22,12 +22,15 @@
     color: azure;
     position: absolute;
     top: 190px;
-    font-weight: 900;
+    font-weight: bold;
     font-size: 25px;
     padding: 15px 30px;
-    cursor: pointer;
-    border: 1px solid white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* cursor: pointer; */
+    /* border: solid white; */
+    margin-left: 140px;
+  
+    font: 25px 'Ravi Prakash', cursive ;
+      /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
 }
 
 .homepage__text:hover{
@@ -42,3 +45,10 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+
+#about{
+    text-align:left;
+    direction: ltr;
+}
+
