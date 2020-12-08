@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function DoctorCard({ doctor }) {
+export default function DepartmentCard({ department }) {
     const classes = useStyles();
     return (
         <Card id="card" className={classes.root}>
@@ -25,12 +25,12 @@ export default function DoctorCard({ doctor }) {
                     component="img"
                     alt="Contemplative Reptile"
                     height="300"
-                    image={doctor.image}
+                    image={department.image}
                     id="photo"
                 />
                 <CardContent>
                     <Typography id="name" gutterBottom variant="h5" component="h2">
-                        {doctor.name}
+                        {department.name}
                     </Typography>
                     <Typography id="title" variant="body2" color="textSecondary" component="p">
                         Book an appoinment

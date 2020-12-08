@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography, makeStyles } from '@material-ui/core';
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
@@ -13,10 +14,9 @@ const useStyles = makeStyles({
 
 
 export default function DepCard({department}) {
- //console.log(props)
   const classes = useStyles();
   return (
-    
+    <Link to={`/department/${department.pk}`}>
     <Card className={classes.root} style={{margin:'30px'}}>
             <CardActionArea>
                 <CardMedia
@@ -34,6 +34,7 @@ export default function DepCard({department}) {
                 </CardContent>
             </CardActionArea>
         </Card>
+        </Link>
     
   );
 }

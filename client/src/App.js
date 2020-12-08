@@ -4,17 +4,18 @@ import './App.css';
 import Header from './Components/SharedComponents/Header/Header.jsx';
 import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
-import  Departments from './Components/Pages/DepartmentPage/DepartmentPage'
+import Departments from './Components/Pages/DepartmentPage/DepartmentPage'
 import { setCurrentUser, setUserRole } from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage/HomePage'
+import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/DepartmentDoctor'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      departments:[]
+      departments: []
     }
   }
 
@@ -22,11 +23,10 @@ class App extends React.Component {
   componentDidMount = () => {
     this.loadUser()
     fetch('http://127.0.0.1:8000/department/')
-        .then(response => response.json())
-        .then(data =>{
-          this.setState({departments : data})
-         console.log("dep",this.state.departments)
-        })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ departments: data })
+      })
   }
 
   loadUser = () => {
@@ -73,18 +73,20 @@ class App extends React.Component {
       <div className='App'>
         <Header />
         <Switch>
-          <Route exact path='/' render={(props) => <HomePage departments={departments} {...props}/> } />
+          <Route exact path='/' render={(props) => <HomePage departments={departments} {...props} />} />
 
           <Route exact path='/profile' component={UsersProfile} />
           <Route exact path='/doctors' component={DoctorPage} />
-          <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props}/> } />
+          <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props} />} />
+          <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
+
           {/* <Route exact path='/bloodbank' component={} />
           
           <Route exact path='/doctors' component={} />
           <Route exact path='/booking' component={} /> */}
           {/* <Route exact path='/departments' component={departments} /> */}
         </Switch>
-        
+
       </div>
     )
   }
