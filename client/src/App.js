@@ -93,9 +93,8 @@ class App extends React.Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
-    setUserRole: role => dispatch(setUserRole(role))
+    setUserRole: role => dispatch(setUserRole(role)),
   }
 }
 
 export default connect(null, mapDispatchToProps)(App);
-
