@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: rgba(14, 134, 204, 0.246);
+    background-color: rgba(255, 255, 255, 0.651);
     opacity: .75;
 }
 
@@ -16,6 +16,11 @@
     display: flex;
     align-items: center;
     justify-content:space-between;
+}
+
+.header__taps{
+    margin-right: 20px;
+    text-decoration: none;
 }
 
 .contents__content{

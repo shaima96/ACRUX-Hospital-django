@@ -3,7 +3,7 @@ import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typo
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 415,
+        maxWidth: 380,
     },
     media: {
         height: 250,
@@ -11,6 +11,7 @@ const useStyles = makeStyles({
 });
 
 const RandomCard = ({department}) => {
+    // console.log(department)
     const classes = useStyles()
     return (
         <Card className={classes.root} style={{margin:'30px'}}>

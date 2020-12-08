@@ -1,16 +1,16 @@
 import React from 'react';
 import './doctor.css'
 import DoctorCard from "./DoctorCard";
-
-
-
+import { connect } from "react-redux"
+import { setCurrentDoctor } from "../../../Redux/Doctor/doctorActions"
 
 class DoctorPage extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            doctors: []
+
         }
+
     }
     componentDidMount() {
         this.getDoctors()
@@ -18,19 +18,26 @@ class DoctorPage extends React.Component {
     getDoctors = () => {
         fetch('http://localhost:8000/doctor/')
             .then(response => response.json())
-            .then(data => {
-                console.log("result", data)
-                this.setState({ doctors: data })
+            .then(doctor => {
+                console.log("result", doctor)
+                this.props.setCurrentDoctor(doctor)
+                return doctor
             })
-        }
+    }
+
+
+
 
     render() {
-        const { doctors } = this.state
-        return ( 
+        const { currentDoctor } = this.props
+        console.log(currentDoctor)
+
+
+        return (
             <div className='home'>
                 <div className='doctors'>
                     {
-                        doctors? doctors.map((doc, i) => <DoctorCard doctor={doc} key={i} />
+                        currentDoctor ? currentDoctor.map((doc, i) => <DoctorCard doctor={doc} key={i} />
                         ) : <div></div>
                     }
                 </div>
@@ -39,4 +46,16 @@ class DoctorPage extends React.Component {
     }
 }
 
-export default DoctorPage
+
+const mapStateToProps = ({ doctor: { currentDoctor } }) => {
+    return {
+        currentDoctor
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setCurrentDoctor: doctor => dispatch(setCurrentDoctor(doctor))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(DoctorPage)
