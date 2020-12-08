@@ -7,9 +7,10 @@ import { setCurrentDoctor } from "../../../Redux/Doctor/doctorActions"
 class DoctorPage extends React.Component {
     constructor(props) {
         super(props)
-        // this.state = {
-        //     doctors: []
-        // }
+        this.state = {
+            CurrentDoctor,
+            setCurrentDoctor
+        }
     }
     componentDidMount() {
         this.getDoctors()
@@ -27,7 +28,8 @@ class DoctorPage extends React.Component {
         }
 
     render() {
-        const { doctors } =  this.props.setCurrentDoctor(doctor)
+        // const { doctors } =  this.state.CurrentDoctor
+
         return ( 
             <div className='home'>
                 <div className='doctors'>
@@ -41,10 +43,16 @@ class DoctorPage extends React.Component {
     }
 }
 
+
+const mapStateToProps = ({ doctor: { CurrentDoctor } }) => {
+    return {
+        CurrentDoctor
+    }
+}
 const mapDispatchToProps = (dispatch) => {
     return {
         setCurrentDoctor:doctor=>dispatch(setCurrentDoctor(doctor))
     }
 }
 
-export default connect(null, mapDispatchToProps)(DoctorPage)
+export default connect(mapStateToProps, mapDispatchToProps)(DoctorPage)
