@@ -11,6 +11,7 @@ const useStyles = makeStyles({
 });
 
 const RandomCard = ({department}) => {
+    // console.log(department)
     const classes = useStyles()
     return (
         <Card className={classes.root} style={{margin:'30px'}}>
