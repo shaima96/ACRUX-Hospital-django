@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 export default function DepCard({department}) {
   const classes = useStyles();
   return (
-    <Link to={`/department/${department.pk}`}>
+    <Link to={`/department/${department.pk}`}  style={{textDecoration:'none'}}>
     <Card className={classes.root} style={{margin:'30px'}}>
             <CardActionArea>
                 <CardMedia
