@@ -1,8 +1,9 @@
 import React from 'react'
 import './header.css'
 import { connect } from "react-redux"
+import { Link } from 'react-router-dom'
 import RegisterDialog from "./RegisterDialog"
-import { Button,Avatar } from '@material-ui/core'
+import { Button, Avatar } from '@material-ui/core'
 import { setCurrentUser } from '../../../Redux/User/userActions'
 
 const Header = ({ currentUser, setCurrentUser }) => {
@@ -10,27 +11,32 @@ const Header = ({ currentUser, setCurrentUser }) => {
     return (
 
         <div className='header'>
-            <img className='header__logo' src='' alt='logo' />
+            <Link to='/'>
+                <img className='header__logo' src='https://acruxlatam.com/images/logo-acrux-md.png' alt='logo' />
+            </Link>
+
             <div className='header__contents'>
                 {
                     currentUser ?
-                    <div className='header__contents'>
-                        <Avatar style={{marginRight:'20px'}}  alt={currentUser} />
-                        <Button variant="contained" color="primary" onClick={() => {
-                            localStorage.removeItem('Authorization')
-                            setCurrentUser({
-                                currentUser: null,
-                                email: null,
-                                id: null
-                            })
-                        }}> LogOut </Button>
-                        
+                        <div className='header__contents'>
+                            <Link to='/profile'>
+                            <Avatar style={{ marginRight: '20px' }} alt={currentUser} src='https://www.shareicon.net/data/512x512/2016/08/18/813844_people_512x512.png' />
+                            </Link>
+                            <Button variant="contained" color="primary" onClick={() => {
+                                localStorage.removeItem('Authorization')
+                                setCurrentUser({
+                                    currentUser: null,
+                                    email: null,
+                                    id: null
+                                })
+                            }}> LogOut </Button>
+
                         </div>
                         :
                         <RegisterDialog />
                 }
             </div>
-        </div >
+        </div>
     )
 }
 

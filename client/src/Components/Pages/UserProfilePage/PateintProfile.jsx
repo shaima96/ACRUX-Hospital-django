@@ -1,16 +1,11 @@
 import React from "react"
-import "./UserProfile.css"
 
-const UserProfile = () => {
+
+const PatientProfile = () => {
     return (
         <div className="profile">
             <div className="profile__left">
-            <div className="profile__left__image">
-            </div>
-            <h3>Asem</h3>
-                <div>
-                    <h3>email.....</h3>
-                </div>
+                circular image 30%
             </div>
             <div className="profile__right">
                 <div className="right__image">
@@ -37,4 +32,4 @@ const UserProfile = () => {
 
 
 }
-export default UserProfile
+export default PatientProfile
