@@ -15,6 +15,6 @@ class PatientsSerializer(serializers.ModelSerializer):
     Appointments = HourSerializer(many=True, read_only=True)
     class Meta:
         model=Patient
-        fields=("image","BloodType","role","userId","name",'doctors','Appointments')
+        fields=('id',"image","BloodType","role","userId","name",'doctors','Appointments')
 
 

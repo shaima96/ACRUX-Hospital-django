@@ -4,20 +4,20 @@ from doctor.models import Doctor
 
 # Create your models here.
 class Day(models.Model):
-    date = models.DateField()
+    date = models.DateField(unique=True)
     
     def __str__(self):
         return self.date.strftime("%b %d %Y")
 
 class Hour(models.Model):
-    hour = models.CharField(max_length=200,default='9:00 AM')
+    hour = models.CharField(max_length=200,default='9:00 AM',unique=True)
     isAvailable = models.BooleanField(default=False)
     dayId = models.ForeignKey(Day,on_delete=models.CASCADE, related_name="Hour")
     patientId = models.ForeignKey(Patient,on_delete=models.CASCADE, related_name="Appointments")
     doctorId = models.ForeignKey(Doctor,on_delete=models.CASCADE, related_name='Appointments',default=1)
     
     class Meta:
-        unique_together = ('patientId','doctorId')
+        unique_together = ('patientId','dayId')
         
     def __str__(self):
         return self.hour

@@ -2,9 +2,10 @@ import { UserActionTypes } from './userActionTypes';
 
 const INITIAL_STATE = {
   currentUser: null,
-  email:null,
+  email: null,
   id: null,
-  role : "user"
+  role: "user",
+  patientId: null,
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -16,11 +17,16 @@ const userReducer = (state = INITIAL_STATE, action) => {
         email: action.payload.email,
         id: action.payload.id
       };
-      case UserActionTypes.SET_USER_ROLE:
-        return{
-          ...state,
-          role : action.payload
-        }
+    case UserActionTypes.SET_USER_ROLE:
+      return {
+        ...state,
+        role: action.payload
+      }
+    case UserActionTypes.SET_PATIENT_ID:
+      return {
+        ...state,
+        patientId: action.payload
+      }
     default:
       return state;
   }
