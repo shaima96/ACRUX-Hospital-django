@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom'
-import DatePicker from './DatePicker'
+
 
 
 
@@ -37,7 +37,6 @@ export default function DoctorCard({ doctor }) {
                             Book an appoinment
                    </Typography>
                     </Link>
-                    {/* <DatePicker/> */}
                 </CardContent>
 
             </CardActionArea>
