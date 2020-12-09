@@ -9,3 +9,8 @@ export const setUserRole = role => ({
   type: UserActionTypes.SET_USER_ROLE,
   payload: role
 });
+
+export const setPatientId = id => ({
+  type: UserActionTypes.SET_PATIENT_ID,
+  payload : id
+})
