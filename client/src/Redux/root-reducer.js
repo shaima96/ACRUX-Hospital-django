@@ -4,9 +4,10 @@ import storage from "redux-persist/lib/storage"
 
 import userReducer from './User/userReduser';
 import departmentReducer from './Department/departmentReducer'
-import articlesReducer from './Articles/articlesReducer'
+// import articlesReducer from './Articles/articlesReducer'
 export default combineReducers({
   user: userReducer,
-  articles:articlesReducer
+  
+  // articles:articlesReducer
   
 });

@@ -17,7 +17,7 @@ componentDidMount = async () => {
              image :"image",
              article:"abooooooooooooooooout"
          })
-        console.log( "artilcles",data)
+        
       
     }
 
