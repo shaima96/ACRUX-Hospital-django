@@ -12,8 +12,7 @@ import HomePage from './Components/Pages/HomePage/HomePage'
 import {viewDepartments} from './Redux/Department/departmentAction'
 import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/DepartmentDoctor'
 import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
-import ChatPage from "./Components/Pages/ChatPage/ChatPage.jsx"
-
+import ChatShell from "./Components/Pages/ChatPage/ChatShell"
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -89,7 +88,7 @@ class App extends React.Component {
           <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props} />} />
           <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
           <Route exact path='/appointment/:id' component={AppointmentPage} />
-          <Route exact path='/chat' component={ChatPage} />
+          <Route exact path='/chat' component={ChatShell} />
 
           {/* <Route exact path='/department/:id' component={} /> */}
 
