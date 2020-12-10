@@ -5,6 +5,7 @@ class Department(models.Model):
     title = models.CharField(max_length=250)
     image = models.CharField(max_length=250)
     about = models.CharField(max_length=1000)
-
+    board = models.ArrayField(
+            models.CharField(max_length=10, blank=True),size=8,)
     def __str__(self):
         return self.title
