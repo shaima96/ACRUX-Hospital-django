@@ -24,5 +24,5 @@ urlpatterns = [
     path('doctor/', include('doctor.urls')),
     path('patient/', include('patient.urls')),
     path('department/', include('department.urls')),
-    path('chat/', include('chat.urls')),
+    path('day/', include('day.urls'))
 ]
