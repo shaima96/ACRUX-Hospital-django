@@ -5,11 +5,11 @@ import Header from './Components/SharedComponents/Header/Header.jsx';
 import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
 import Departments from './Components/Pages/DepartmentPage/DepartmentPage'
-import { setCurrentUser, setUserRole } from './Redux/User/userActions'
+import { setCurrentUser, setUserRole} from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage/HomePage'
-import {viewDepartments} from './Redux/Department/departmentAction'
+import { viewDepartments } from './Redux/Department/departmentAction'
 import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/DepartmentDoctor'
 import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
 
@@ -17,9 +17,7 @@ import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
 class App extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = {
-    //   departments:[]
-    // }
+
   }
 
 
@@ -27,12 +25,10 @@ class App extends React.Component {
     this.loadUser()
     fetch('http://127.0.0.1:8000/department/')
 
-        .then(response => response.json())
-        .then(data =>{
-          //this.setState({departments : data})
-          this.props.viewDepartments(data)
-         console.log("dep",data)
-        })
+      .then(response => response.json())
+      .then(data => {
+        this.props.viewDepartments(data)
+      })
   }
 
   loadUser = () => {
@@ -75,7 +71,6 @@ class App extends React.Component {
 
   render() {
     const { departments } = this.props
-    console.log(departments)
     return (
       <div className='App'>
         <Header />
@@ -94,7 +89,7 @@ class App extends React.Component {
           
           <Route exact path='/doctors' component={} />
           <Route exact path='/booking' component={} /> */}
-          
+
         </Switch>
 
       </div>
@@ -106,12 +101,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
     setUserRole: role => dispatch(setUserRole(role)),
-    viewDepartments : department =>dispatch(viewDepartments(department))
+    viewDepartments: department => dispatch(viewDepartments(department))
   }
 }
 const mapStateToProps = (state) => {
   return {
-    departments :state.department.Departments
+    departments: state.department.Departments
   }
 }
 

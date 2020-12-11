@@ -9,3 +9,8 @@ export const setUserRole = role => ({
   type: UserActionTypes.SET_USER_ROLE,
   payload: role
 });
+
+export const setUserImage = image => ({
+  type: UserActionTypes.SET_USER_IMAGE,
+  payload: image
+});

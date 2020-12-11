@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   currentUser: null,
   email:null,
   id: null,
-  role : "user"
+  role : "user",
+  image:null
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -20,7 +21,12 @@ const userReducer = (state = INITIAL_STATE, action) => {
         return{
           ...state,
           role : action.payload
-        }
+        };
+        case UserActionTypes.SET_CURRENT_IMAGE:
+          return {
+            ...state,
+            image: action.payload.image
+          }
     default:
       return state;
   }
