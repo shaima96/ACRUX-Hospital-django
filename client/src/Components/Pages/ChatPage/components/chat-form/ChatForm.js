@@ -31,6 +31,7 @@ const ChatForm = (props) => {
         await messagesRef.add({
           text: textMessage,
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          image:props.image
         })
     
         setTextMessage('');
@@ -45,17 +46,18 @@ const ChatForm = (props) => {
                     value={textMessage}
                     onChange={ (e) => { setTextMessage(e.target.value); } } />
                 <FormButton disabled={ disableButton }>Send</FormButton>
-                <div title="Add Attachment">
+                {/* <div title="Add Attachment">
                     <AttachmentIcon />
-                </div>
+                </div> */}
             </>
         </form> 
     );
 }
-const mapStateToProps=({user:{role,fetchId}})=>{
+const mapStateToProps=({user:{role,fetchId,image}})=>{
     return {
         role,
-        fetchId
+        fetchId,
+        image
 
     }
 }

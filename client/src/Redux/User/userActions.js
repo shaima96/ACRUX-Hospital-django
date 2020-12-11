@@ -15,8 +15,8 @@ export const setPatientId = id => ({
   payload : id
 })
 
-export const setMessageId=id=>({
-  type: UserActionTypes.SET_MESSAGE_ID,
+export const setImg=id=>({
+  type: UserActionTypes.SET_IMAGE,
   payload : id
 })
 

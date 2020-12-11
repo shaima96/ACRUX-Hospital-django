@@ -5,9 +5,10 @@ from rest_framework import serializers
 class PatientsDoctorsSerializer(serializers.ModelSerializer):
     doctorName = serializers.CharField(source='doctorId.doctor.name', read_only=True)
     doctorId=serializers.CharField(source='doctorId.doctor.id', read_only=True)
+    image=serializers.CharField(source='doctorId.doctor.image',read_only=True)
     class Meta:
         model=DoctorPatient
-        fields= ['doctorName',"doctorId"]
+        fields= ['doctorName',"doctorId","image"]
 
 class PatientsSerializer(serializers.ModelSerializer):
     name = serializers.CharField(source="userId.name",read_only=True)

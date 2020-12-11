@@ -16,7 +16,7 @@ class ChatShell extends React.Component {
         this.state = {
             results: [],
             name:"",
-            id:""
+            
         }
     }
     componentDidMount=()=> {
@@ -43,15 +43,14 @@ class ChatShell extends React.Component {
         fetch('http://localhost:8000/doctor/details',requestOptions)
             .then(response => response.json())
             .then(data => {
-                // console.log("wwwwwwwwwwwwwwwwwwwwwwwww",data.patients)
                 this.setState({ results: data.patients })
             })
        }
         
             
     }
-    handleSetName=(name,id)=>{
-        this.setState({name,id})
+    handleSetName=(name)=>{
+        this.setState({name})
     }
     render() {
         return (
@@ -59,10 +58,10 @@ class ChatShell extends React.Component {
                 <div id="chat-container">
                     <ConversationSearch />
                     <ConversationList results={this.state.results} handleSetName={this.handleSetName} />
-                    <ChatMessage idme={this.state.id}/>
+                    <ChatMessage />
                     <NewConversation />
                     <ChatTitle name={this.state.name}/>
-                    <ChatForm idme={this.state.id} />
+                    <ChatForm  />
                 </div>
             </div>
         );

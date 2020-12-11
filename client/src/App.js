@@ -5,7 +5,7 @@ import Header from './Components/SharedComponents/Header/Header.jsx';
 import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
 import Departments from './Components/Pages/DepartmentPage/DepartmentPage'
-import { setCurrentUser, setUserRole,setPatientId,setFetchId,setMessageId } from './Redux/User/userActions'
+import { setCurrentUser, setUserRole,setPatientId,setFetchId,setImg } from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage/HomePage'
@@ -65,11 +65,11 @@ class App extends React.Component {
       .then(user => {
         if (user.patient) {
           this.props.setUserRole(user.patient.role)
-          // this.props.setMessageId(user.patient.id)
+          this.props.setImg(user.patient.image)
           this.props.setFetchId(user.patient.userId)
         } else if (user.doctor) {
           this.props.setUserRole(user.doctor.role)
-          // this.props.setMessageId(user.doctor.id)
+          this.props.setImg(user.doctor.image)
           this.props.setFetchId(user.doctor.doctor)
         }
       })
@@ -115,7 +115,7 @@ const mapDispatchToProps = (dispatch) => {
     setUserRole: role => dispatch(setUserRole(role)),
     viewDepartments : department =>dispatch(viewDepartments(department)),
     setFetchId: id => dispatch( setFetchId(id) ),
-    setMessageId: id => dispatch( setMessageId(id) ),
+    setImg: id => dispatch( setImg(id) ),
 
   }
 }

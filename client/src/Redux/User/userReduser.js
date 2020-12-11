@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   email: null,
   id: null,
   role: "user",
-  messageId:null,
+  image:null,
   fetchId:null
 };
 
@@ -23,10 +23,10 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         role: action.payload
       }
-      case UserActionTypes.SET_MESSAGE_ID:
+      case UserActionTypes.SET_IMAGE:
       return {
         ...state,
-        messageId: action.payload
+        image: action.payload
       }
       case UserActionTypes.SET_FETCH_ID:
       return {
