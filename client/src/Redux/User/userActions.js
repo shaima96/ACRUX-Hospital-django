@@ -14,3 +14,7 @@ export const setUserImage = image => ({
   type: UserActionTypes.SET_USER_IMAGE,
   payload: image
 });
+export const setPatientId = id => ({
+  type: UserActionTypes.SET_PATIENT_ID,
+  payload : id
+})

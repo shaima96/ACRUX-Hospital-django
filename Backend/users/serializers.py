@@ -18,6 +18,6 @@ class UserSerialize(serializers.ModelSerializer):
     patient = PatientsSerializer(read_only=True)
     class Meta:
         model = User
-        fields = ('id' ,'email' , 'name', 'doctor', "patient" )
+        fields = ('id','pk' ,'email' , 'name', 'doctor', "patient" )
 
 
