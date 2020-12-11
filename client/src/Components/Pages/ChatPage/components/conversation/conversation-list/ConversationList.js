@@ -10,8 +10,8 @@ const ConversationList = ({results,handleSetName}) => {
             results?
             results.map((result,id)=>{
                 return (
-                    <Link to={`/chat/${result.doctor||result.userId}`} key={id} style={{textDecoration:"none"}} onClick={()=>handleSetName(result.name)} >
-                    <ConversationItem  name={result.name}  />
+                    <Link to={`/chat/${result.doctorId}`} key={id} style={{textDecoration:"none"}} onClick={()=>handleSetName(result.doctorName)} >
+                    <ConversationItem  name={result.doctorName}  />
                     </Link>)
             })
             :<div></div>

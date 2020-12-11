@@ -15,28 +15,37 @@ class ChatShell extends React.Component {
         super(props)
         this.state = {
             results: [],
-            name:""
+            doctorName:""
         }
     }
     componentDidMount=()=> {
         console.log("d",this.props)
-        this.getDoctors()   
+        const patientId = this.props.match.params.id
+        this.getDoctors({pk : patientId})
+           
 
     }
-    getDoctors() {
-        fetch('http://localhost:8000/doctor/')
+    getDoctors(obj) {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(obj)
+        };
+
+        fetch('http://localhost:8000/patient/details/',requestOptions)
             .then(response => response.json())
             .then(data => {
-                this.setState({ results: data })
+                this.setState({ results: data.doctors })
             })
             .then(()=>{
-                let user=this.state.results.filter(result=>Number(result.doctor||result.userId)===Number(this.props.match.params.id))
-                this.setState({name:user[0].name})
+                console.log("pateint-doctors",this.state.results)
+                // let user=this.state.results.filter(result=>Number(result.doctor)===Number(this.props.match.params.id))
+                // this.setState({doctorName:user[0].doctorName})
             })
             // .then(()=>window.location.reload())
     }
-    handleSetName=(name)=>{
-        this.setState({name})
+    handleSetName=(doctorName)=>{
+        this.setState({doctorName})
     }
     render() {
         return (
@@ -45,7 +54,7 @@ class ChatShell extends React.Component {
                     <ConversationSearch />
                     <ConversationList results={this.state.results} handleSetName={this.handleSetName} />
                     <NewConversation />
-                    <ChatTitle name={this.state.name}/>
+                    <ChatTitle name={this.state.doctorName}/>
                     <ChatForm />
                 </div>
             </div>
