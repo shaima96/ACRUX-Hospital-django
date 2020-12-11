@@ -50,7 +50,7 @@ class SignIn extends React.Component {
             .then((data) => {
                 // console.log("DISPATCH ME", data)
                 this.props.setCurrentUser(data)
-                // window.location.reload()
+                window.location.reload()
             })
     }
 

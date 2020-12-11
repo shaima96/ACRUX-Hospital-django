@@ -6,7 +6,7 @@ import ConversationList from './components/conversation/conversation-list/Conver
 import NewConversation from './components/conversation/new-conversation/NewConversation';
 import ChatTitle from './components/chat-title/ChatTitle';
 import ChatForm from './components/chat-form/ChatForm';
-
+import ChatMessage from "./components/chat-message/ChatMessgae.jsx"
 import './ChatShell.scss';
 
 class ChatShell extends React.Component {
@@ -15,13 +15,13 @@ class ChatShell extends React.Component {
         super(props)
         this.state = {
             results: [],
-            name:""
+            name:"",
+            id:""
         }
     }
     componentDidMount=()=> {
-        console.log("d",this.props)
-        const pk = this.props.patientId ||
-        console.log("gggggggggggggggggggggggggggggggggggggg",this.props.patientId)
+        const pk = this.props.fetchId
+        console.log("gggggggggggggggggggggggggggggggggggggg",this.props)
         this.getDoctors({pk})
            
 
@@ -43,15 +43,15 @@ class ChatShell extends React.Component {
         fetch('http://localhost:8000/doctor/details',requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log("wwwwwwwwwwwwwwwwwwwwwwwww",data.patients)
+                // console.log("wwwwwwwwwwwwwwwwwwwwwwwww",data.patients)
                 this.setState({ results: data.patients })
             })
        }
         
             
     }
-    handleSetName=(name)=>{
-        this.setState({name})
+    handleSetName=(name,id)=>{
+        this.setState({name,id})
     }
     render() {
         return (
@@ -59,9 +59,10 @@ class ChatShell extends React.Component {
                 <div id="chat-container">
                     <ConversationSearch />
                     <ConversationList results={this.state.results} handleSetName={this.handleSetName} />
+                    <ChatMessage idme={this.state.id}/>
                     <NewConversation />
                     <ChatTitle name={this.state.name}/>
-                    <ChatForm />
+                    <ChatForm idme={this.state.id} />
                 </div>
             </div>
         );
@@ -71,10 +72,10 @@ class ChatShell extends React.Component {
 
 
 
-const mapStateToProps=({user:{role,patientId}})=>{
+const mapStateToProps=({user:{role,fetchId}})=>{
     return {
         role,
-        patientId
+        fetchId
 
     }
 }

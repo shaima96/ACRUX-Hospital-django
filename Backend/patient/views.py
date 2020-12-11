@@ -14,6 +14,6 @@ class PatientList(generics.ListAPIView):
 
 @api_view(['POST'])
 def PateintDetails(request):
-    patient = Patient.objects.get(pk=request.data['pk']) # the 'get' return me back a model I can serialize
+    patient = Patient.objects.get(userId=request.data['pk']) # the 'get' return me back a model I can serialize
     serializer = PatientsSerializer(patient,many=False)
     return Response(serializer.data)

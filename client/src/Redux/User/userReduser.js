@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   email: null,
   id: null,
   role: "user",
-  patientId: null,
+  messageId:null,
+  fetchId:null
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -22,10 +23,15 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         role: action.payload
       }
-    case UserActionTypes.SET_PATIENT_ID:
+      case UserActionTypes.SET_MESSAGE_ID:
       return {
         ...state,
-        patientId: action.payload
+        messageId: action.payload
+      }
+      case UserActionTypes.SET_FETCH_ID:
+      return {
+        ...state,
+        fetchId: action.payload
       }
     default:
       return state;

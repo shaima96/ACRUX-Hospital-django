@@ -5,7 +5,7 @@ import Header from './Components/SharedComponents/Header/Header.jsx';
 import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
 import Departments from './Components/Pages/DepartmentPage/DepartmentPage'
-import { setCurrentUser, setUserRole,setPatientId } from './Redux/User/userActions'
+import { setCurrentUser, setUserRole,setPatientId,setFetchId,setMessageId } from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage/HomePage'
@@ -65,9 +65,12 @@ class App extends React.Component {
       .then(user => {
         if (user.patient) {
           this.props.setUserRole(user.patient.role)
-          this.props.setPatientId(user.patient.id)
+          // this.props.setMessageId(user.patient.id)
+          this.props.setFetchId(user.patient.userId)
         } else if (user.doctor) {
           this.props.setUserRole(user.doctor.role)
+          // this.props.setMessageId(user.doctor.id)
+          this.props.setFetchId(user.doctor.doctor)
         }
       })
   }
@@ -89,8 +92,8 @@ class App extends React.Component {
           <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
           <Route exact path='/appointment/:id' component={AppointmentPage} />
 
-          <Route  path='/chat' render={(props)=><ChatShell {...props}/>} />
-          <Route  path='/chat/:id' render={(props)=><ChatShell {...props}/>} />
+          <Route exact path='/chat' render={(props)=><ChatShell {...props}/>} />
+          <Route exact path='/chat/:id' render={(props)=><ChatShell {...props}/>} />
 
           {/* <Route exact path='/department/:id' component={} /> */}
 
@@ -111,7 +114,9 @@ const mapDispatchToProps = (dispatch) => {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
     setUserRole: role => dispatch(setUserRole(role)),
     viewDepartments : department =>dispatch(viewDepartments(department)),
-    setPatientId: id => dispatch( setPatientId(id) )
+    setFetchId: id => dispatch( setFetchId(id) ),
+    setMessageId: id => dispatch( setMessageId(id) ),
+
   }
 }
 const mapStateToProps = (state) => {
