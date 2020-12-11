@@ -16,4 +16,4 @@ class DaySerializer(serializers.ModelSerializer):
     Hour = HourSerializer(many=True ,read_only=True)
     class Meta:
         model = Day
-        fields = ('pk','date' ,'Hour')
+        fields = ('pk','date' ,'Hour','doctorId')
