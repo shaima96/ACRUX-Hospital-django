@@ -1,9 +1,9 @@
 import React from 'react'
 
-const AppointmentList = () => {
+const AppointmentList = ({hour}) => {
     return (
-        <div>
-
+        <div className='app_list'>
+            <h3>Unavailable At {hour}</h3>
         </div>
     )
 }
