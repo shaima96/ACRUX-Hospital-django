@@ -2,12 +2,12 @@ import React from 'react';
 
 import './ChatTitle.scss';
 
-const ChatTitle = () => {
+const ChatTitle = ({name}) => {
   
 
     return (
         <div id="chat-title">
-            <span>USER NAME</span>
+            <span>{name}</span>
         </div>
     );
 }

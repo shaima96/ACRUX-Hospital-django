@@ -9,20 +9,49 @@ import ChatForm from './components/chat-form/ChatForm';
 
 import './ChatShell.scss';
 
-const ChatShell = () => {
+class ChatShell extends React.Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            results: [],
+            name:""
+        }
+    }
+    componentDidMount=()=> {
+        console.log("d",this.props)
+        this.getDoctors()   
 
-    return (
+    }
+    getDoctors() {
+        fetch('http://localhost:8000/doctor/')
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ results: data })
+            })
+            .then(()=>{
+                let user=this.state.results.filter(result=>Number(result.doctor||result.userId)===Number(this.props.match.params.id))
+                this.setState({name:user[0].name})
+            })
+            // .then(()=>window.location.reload())
+    }
+    handleSetName=(name)=>{
+        this.setState({name})
+    }
+    render() {
+        return (
             <div id="rootme">
                 <div id="chat-container">
                     <ConversationSearch />
-                    <ConversationList />
-                    <NewConversation /> 
-                    <ChatTitle />
+                    <ConversationList results={this.state.results} handleSetName={this.handleSetName} />
+                    <NewConversation />
+                    <ChatTitle name={this.state.name}/>
                     <ChatForm />
                 </div>
             </div>
-    );
+        );
+
+    }
 }
 
 
