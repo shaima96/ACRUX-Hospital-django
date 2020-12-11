@@ -7,9 +7,10 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 
-export default function DatePicker({setDate,getDatePk}) {
+export default function DatePicker({ setDate, getDates,setAvHour }) {
   // The first commit of Material-UI
   const [selectedDate, setSelectedDate] = React.useState(new Date('2020-12-18T21:11:54'));
+  const [open, setOpen] = React.useState(false);
 
   const convert = (str) => {
     var date = new Date(str),
@@ -23,9 +24,9 @@ export default function DatePicker({setDate,getDatePk}) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(date)
-  };
+    };
 
-  fetch('http://localhost:8000/day/date', requestOptions)
+    fetch('http://localhost:8000/day/date', requestOptions)
       .then(response => response.json())
       .then(data => console.log(data))
   }
@@ -33,11 +34,12 @@ export default function DatePicker({setDate,getDatePk}) {
   const handleDateChange = (date) => {
     setSelectedDate(date)
     setDate(convert(date))
-    // PostDate({date : convert(date)})
-    getDatePk(convert(date))
+    PostDate({ date: convert(date) })
+    setTimeout(() => getDates(), 200)
+    setAvHour(null)
   };
 
-  
+
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
