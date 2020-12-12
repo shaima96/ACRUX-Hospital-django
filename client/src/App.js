@@ -80,14 +80,14 @@ class App extends React.Component {
 
 
   render() {
-    const { departments } = this.props
+    const { departments,currentUser } = this.props
     return (
       <div className='App'>
         <Header />
         <Switch>
           <Route exact path='/' render={(props) => <HomePage departments={departments} {...props} />} />
 
-          <Route exact path='/profile' component={UsersProfile} />
+          <Route exact path='/profile' render={(props) => currentUser ? <UsersProfile {...props} /> : <Redirect to='/' />} />
           <Route exact path='/doctors' component={DoctorPage} />
           <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props} />} />
           <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
@@ -116,8 +116,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 const mapStateToProps = (state) => {
+  // console.log('connect',state.user.currentUser)
   return {
-    departments: state.department.Departments
+    departments: state.department.Departments,
+    currentUser: state.user.currentUser
   }
 }
 
