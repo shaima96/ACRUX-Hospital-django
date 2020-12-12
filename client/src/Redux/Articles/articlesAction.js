@@ -1,6 +1,6 @@
-// import {articlesActionTypes} from './articlesActionTypes'
+import {articlesActionTypes} from './articlesActionTypes'
 
-// export const viewArticles = articles => ({
-//     type: articlesActionTypes.VIEW_ARTICLES,
-//     payload: articles
-//   });
+export const viewArticles = articles => ({
+    type: articlesActionTypes.VIEW_ARTICLES,
+    payload: articles
+  });

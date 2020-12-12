@@ -1,10 +1,12 @@
 import React from "react"
 import RandomArticles from '../ArticlesPage/RandomArticles'
-const RightImage = () => {
+import './UserProfile.css'
+const RightImage = ({ articles }) => {
     return (
-        <div >
-              image 70%
-              <RandomArticles/>
+        <div  >
+               
+            
+              <RandomArticles />
         </div>
     )
 
