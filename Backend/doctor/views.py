@@ -24,7 +24,7 @@ def doctorCreate(request):
 
 @api_view(['POST'])
 def DoctorDetail(request):
-    doctor = Doctor.objects.get(pk=request.data['pk']) # the 'get' return me back a model I can serialize
+    doctor = Doctor.objects.get(doctor=request.data['pk']) # the 'get' return me back a model I can serialize
     serializer = DoctorSerializer(doctor,many=False)
     return Response(serializer.data)
 
