@@ -31,7 +31,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case UserActionTypes.SET_PATIENT_ID:
       return {
         ...state,
-        role: action.payload
+        patientId: action.payload
       };
     case UserActionTypes.SET_DOCTOR_ID:
       return {
