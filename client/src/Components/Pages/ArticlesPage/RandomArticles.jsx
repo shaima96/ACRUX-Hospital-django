@@ -10,15 +10,10 @@ class Articles extends Component {
         var data = await api.json();
         const randomArticle = data["articles"]
        // console.log("artilcles", randomArticle)
-      
-
-
         const indexarticles = Math.floor(Math.random() * randomArticle.length);
         //console.log(randomArticle, articles[randomArticle]);
         const articles = randomArticle[indexarticles]
         this.props.viewArticles(articles)
-
-
 
     }
 
@@ -29,13 +24,15 @@ class Articles extends Component {
         return (
 
             <div className="card bg-dark text-white">
-
+                <a href ={this.props.articles.articles.url} target="_blank">
                 <img id ="random_article"  src={this.props.articles.articles.urlToImage} className="card-img" alt="image" />
+                
                 <div className="card-img-overlay  article_content" >
                     <h5 className="card-title article_title" >{this.props.articles.articles.title}</h5>
                     <p className="card-text">{this.props.articles.articles.content}</p>
 
                 </div>
+                </a>
             </div>
 
         )

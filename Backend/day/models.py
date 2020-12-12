@@ -21,7 +21,7 @@ class Hour(models.Model):
     doctorId = models.ForeignKey(Doctor,on_delete=models.CASCADE, related_name='Appointments',default=1)
     
     class Meta:
-        unique_together = (('patientId','dayId'),('hour','dayId'))
+        unique_together = (('patientId','dayId'),('hour','dayId'),('patientId','hour','dayId'))
         
     def __str__(self):
         return self.hour

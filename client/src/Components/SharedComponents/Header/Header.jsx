@@ -4,9 +4,9 @@ import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 import RegisterDialog from "./RegisterDialog"
 import { Button, Avatar, Typography } from '@material-ui/core'
-import { setCurrentUser } from '../../../Redux/User/userActions'
+import { setCurrentUser,setUserRole } from '../../../Redux/User/userActions'
 
-const Header = ({ currentUser, setCurrentUser }) => {
+const Header = ({ currentUser, setCurrentUser, setUserRole }) => {
     // console.log(currentUser)
     return (
 
@@ -32,6 +32,7 @@ const Header = ({ currentUser, setCurrentUser }) => {
                                     email: null,
                                     id: null
                                 })
+                                setUserRole(null)
                             }}> LogOut </Button>
 
                         </div>
@@ -51,7 +52,9 @@ const mapStateToProps = ({ user: { currentUser } }) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setCurrentUser: user => dispatch(setCurrentUser(user))
+        setCurrentUser: user => dispatch(setCurrentUser(user)),
+        setUserRole: role => dispatch(setUserRole(role))
+
     }
 }
 
