@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from "react-redux"
 import { setCurrentUser, setUserImage } from "../../../Redux/User/userActions"
 
-const ProfileLeft = ({ currentUser, email, image, role, patientId, doctorId }) => {
+const ProfileLeft = ({ currentUser, email, image, role, patientId, doctorId, setUserImage }) => {
   
   const [loading, setLoading] = useState(false)
   // console.log('profileImage', profileImage)
@@ -20,7 +20,7 @@ const ProfileLeft = ({ currentUser, email, image, role, patientId, doctorId }) =
       .then(response => response.json())
       .then(data => {
         console.log(data)
-        // setUserImage(data.secure_url)
+        setUserImage(data.secure_url)
         if (role === 'patient') updateImage({ pk:patientId,image:data.secure_url })
         if (role === 'doctor') updateImage({ pk:doctorId,image:data.secure_url })
        
@@ -86,7 +86,7 @@ const mapStateToProps = ({ user: { currentUser, email, image, patientId, doctorI
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
-    setUserImage: user => dispatch(setUserImage(user)),
+    setUserImage: image => dispatch(setUserImage(image)),
 
   }
 }
