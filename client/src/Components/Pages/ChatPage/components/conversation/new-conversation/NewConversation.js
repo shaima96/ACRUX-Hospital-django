@@ -5,7 +5,7 @@ import './NewConversation.scss';
 const NewConversation = () => {
     return (
         <div id="new-message-container">
-            <button>+</button>
+            {/* <button>+</button> */}
         </div>
     );
 }
