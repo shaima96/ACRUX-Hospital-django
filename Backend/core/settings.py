@@ -78,6 +78,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+ASGI_APPLICATION = "core.routing.application"
 
 CORS_ALLOW_ALL_ORIGINS=True
 
@@ -173,3 +174,11 @@ DJOSER = {
 }
 
 AUTH_USER_MODEL = 'users.UserAccount'
+
+# ASGI_APPLICATION = "core.routing.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
