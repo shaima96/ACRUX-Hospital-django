@@ -18,7 +18,6 @@ const ProfileLeft = ({ currentUser, email, image }) => {
     //     body: data
     //   }
     // )
-    // console.log(res)
     // const file = await res.json()
     // setImage(file.secure_url)
     const requestOptions = {
