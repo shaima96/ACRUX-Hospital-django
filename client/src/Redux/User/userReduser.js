@@ -6,7 +6,9 @@ const INITIAL_STATE = {
   id: null,
   role: "user",
   image:null,
-  fetchId:null
+  fetchId:null,
+  contactArray:[],
+  contactName:''
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -32,6 +34,16 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         fetchId: action.payload
+      }
+      case UserActionTypes.SET_CONTACT_ARRAY:
+      return {
+        ...state,
+        contactArray: action.payload
+      }
+      case UserActionTypes.SET_CONTACT_TITLE:
+      return {
+        ...state,
+        contactName: action.payload
       }
     default:
       return state;
