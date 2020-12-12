@@ -7,6 +7,7 @@ import NewConversation from './components/conversation/new-conversation/NewConve
 import ChatTitle from './components/chat-title/ChatTitle';
 import ChatForm from './components/chat-form/ChatForm';
 import ChatMessage from "./components/chat-message/ChatMessgae.jsx"
+import {setMessageContacts} from "../../../Redux/User/userActions"
 import './ChatShell.scss';
 
 class ChatShell extends React.Component {
@@ -36,6 +37,7 @@ class ChatShell extends React.Component {
         fetch('http://localhost:8000/patient/details',requestOptions)
             .then(response => response.json())
             .then(data => {
+                this.props.setMessageContacts(data.doctors)
                 this.setState({ results: data.doctors })
             })
        }
@@ -43,6 +45,7 @@ class ChatShell extends React.Component {
         fetch('http://localhost:8000/doctor/details',requestOptions)
             .then(response => response.json())
             .then(data => {
+                this.props.setMessageContacts(data.patients)
                 this.setState({ results: data.patients })
             })
        }
@@ -70,6 +73,11 @@ class ChatShell extends React.Component {
 }
 
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setMessageContacts: array => dispatch(setMessageContacts(array)),  
+    }
+  }
 
 const mapStateToProps=({user:{role,fetchId}})=>{
     return {
@@ -79,4 +87,4 @@ const mapStateToProps=({user:{role,fetchId}})=>{
     }
 }
 
-export default connect(mapStateToProps)(ChatShell);
+export default connect(mapStateToProps,mapDispatchToProps)(ChatShell);

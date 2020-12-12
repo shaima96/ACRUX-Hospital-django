@@ -5,10 +5,13 @@ const INITIAL_STATE = {
   email: null,
   id: null,
   role: "user",
+  contactArray:[],
+  contactName:'',
   image: null,
   patientId: null,
   doctorId: null,
   fetchId: null
+
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -28,7 +31,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case UserActionTypes.SET_PATIENT_ID:
       return {
         ...state,
-        role: action.payload
+        patientId: action.payload
       };
     case UserActionTypes.SET_DOCTOR_ID:
       return {
@@ -49,6 +52,16 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         fetchId: action.payload
+      }
+      case UserActionTypes.SET_CONTACT_ARRAY:
+      return {
+        ...state,
+        contactArray: action.payload
+      }
+      case UserActionTypes.SET_CONTACT_TITLE:
+      return {
+        ...state,
+        contactName: action.payload
       }
     default:
       return state;
