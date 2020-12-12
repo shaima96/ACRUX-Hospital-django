@@ -24,3 +24,13 @@ export const setFetchId=id=>({
   type: UserActionTypes.SET_FETCH_ID,
   payload : id
 })
+
+export const setMessageContacts=resultArray=>({
+  type: UserActionTypes.SET_CONTACT_ARRAY,
+  payload : resultArray
+})
+
+export const setContactTitle=name=>({
+  type: UserActionTypes.SET_CONTACT_TITLE,
+  payload : name
+})

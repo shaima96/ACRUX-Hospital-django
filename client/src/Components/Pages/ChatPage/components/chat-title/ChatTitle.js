@@ -1,15 +1,20 @@
 import React from 'react';
 
 import './ChatTitle.scss';
-
-const ChatTitle = ({name}) => {
+import {connect} from "react-redux"
+const ChatTitle = ({name,contactName}) => {
   
 
     return (
         <div id="chat-title">
-            <span>{name}</span>
+            <span>{contactName||name}</span>
         </div>
     );
 }
 
-export default ChatTitle;
+const mapStateToProps = ({ user: { contactName } }) => {
+    return {
+        contactName
+    }
+}
+export default connect(mapStateToProps)(ChatTitle);
