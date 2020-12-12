@@ -6,7 +6,7 @@ const HomePage = ({ departments }) => {
     const random = (arr) => {
         let array = [...arr]
         let result = []
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             let index = Math.floor(Math.random() * array.length)
             result.push(array[index])
             array.splice(index,1)
