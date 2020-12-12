@@ -22,10 +22,10 @@ def PateintDetails(request):
 
 @api_view(['POST'])
 def PatientUpdate(request):
-    patient = Patient.objects.filter(id=request.data['id']) # to update fields use   'filter'
+    patient = Patient.objects.filter(pk=request.data['pk']) # to update fields use   'filter'
     patient.update(image=request.data['image'])
     
-    patient = Patient.objects.get(id=request.data['id']) # to serialize doctor's object use 'get'
+    patient = Patient.objects.get(pk=request.data['pk']) # to serialize doctor's object use 'get'
 
     serializer = PatientsSerializer(patient,many=False)
     

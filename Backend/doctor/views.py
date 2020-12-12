@@ -34,7 +34,6 @@ def DoctorDetail(request):
 @api_view(['POST'])
 def DoctorUpdate(request):
     doctor = Doctor.objects.filter(pk=request.data['pk']) # to update fields use   'filter'
-    doctor.update(BloodType=request.data['BloodType'])
     doctor.update(image=request.data['image'])
     
     doctor = Doctor.objects.get(pk=request.data['pk']) # to serialize doctor's object use 'get'

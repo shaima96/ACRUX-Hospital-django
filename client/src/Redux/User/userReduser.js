@@ -7,7 +7,8 @@ const INITIAL_STATE = {
   role: "user",
   image: null,
   patientId: null,
-  fetchId:null
+  doctorId: null,
+  fetchId: null
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -24,17 +25,27 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         role: action.payload
       };
-    case UserActionTypes.SET_CURRENT_IMAGE:
+    case UserActionTypes.SET_PATIENT_ID:
       return {
         ...state,
-        image: action.payload.image
-      }
-      case UserActionTypes.SET_IMAGE:
+        role: action.payload
+      };
+    case UserActionTypes.SET_DOCTOR_ID:
+      return {
+        ...state,
+        doctorId: action.payload
+      };
+    case UserActionTypes.SET_USER_IMAGE:
       return {
         ...state,
         image: action.payload
       }
-      case UserActionTypes.SET_FETCH_ID:
+    case UserActionTypes.SET_IMAGE:
+      return {
+        ...state,
+        image: action.payload
+      }
+    case UserActionTypes.SET_FETCH_ID:
       return {
         ...state,
         fetchId: action.payload

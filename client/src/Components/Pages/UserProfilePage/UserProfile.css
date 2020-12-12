@@ -102,6 +102,7 @@
     width: 66%;
     object-fit: contain;
     margin-top: 25px;
+    border-radius: 100px;
 }
 .user_upload{
     margin-top: 30px;

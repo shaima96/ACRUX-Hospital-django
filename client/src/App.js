@@ -5,7 +5,7 @@ import Header from './Components/SharedComponents/Header/Header.jsx';
 import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
 import Departments from './Components/Pages/DepartmentPage/DepartmentPage'
-import { setCurrentUser, setUserRole,setPatientId,setFetchId,setImg } from './Redux/User/userActions'
+import { setCurrentUser, setUserRole, setPatientId, setFetchId, setUserImage, setDoctorId } from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage/HomePage'
@@ -24,12 +24,12 @@ class App extends React.Component {
   componentDidMount = () => {
     this.loadUser()
     fetch('http://127.0.0.1:8000/department/')
-        .then(response => response.json())
-        .then(data =>{
-          //this.setState({departments : data})
-          this.props.viewDepartments(data)
-         console.log("dep",data)
-        })
+      .then(response => response.json())
+      .then(data => {
+        //this.setState({departments : data})
+        this.props.viewDepartments(data)
+        console.log("dep", data)
+      })
 
   }
 
@@ -62,16 +62,18 @@ class App extends React.Component {
     fetch('http://localhost:8000/user/details', requestOptions)
       .then(response => response.json())
       .then(user => {
+        // console.log(user.doctor.role)
         if (user.patient) {
           this.props.setUserRole(user.patient.role)
-
           this.props.setPatientId(user.patient.id)
-          this.props.setUserImage(user.patient.image)
           this.props.setFetchId(user.patient.userId)
+          this.props.setUserImage(user.patient.image)
         } else if (user.doctor) {
+          console.log('roole',user.doctor )
           this.props.setUserRole(user.doctor.role)
-          this.props.setUserImage(user.doctor.image)
           this.props.setFetchId(user.doctor.doctor)
+          this.props.setDoctorId(user.doctor.pk)
+          this.props.setUserImage(user.doctor.image)
         }
       })
   }
@@ -83,18 +85,18 @@ class App extends React.Component {
       <div className='App'>
         <Header />
         <Switch>
-          <Route exact path='/' render={(props) => <HomePage departments={departments} {...props}/> } />
+          <Route exact path='/' render={(props) => <HomePage departments={departments} {...props} />} />
 
           <Route exact path='/profile' component={UsersProfile} />
           <Route exact path='/doctors' component={DoctorPage} />
-          <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props}/> } />
+          <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props} />} />
           <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
           <Route exact path='/appointment/:id' component={AppointmentPage} />
-          <Route exact path='/chat' render={(props)=><ChatShell {...props}/>} />
-          <Route exact path='/chat/:id' render={(props)=><ChatShell {...props}/>} />
+          <Route exact path='/chat' render={(props) => <ChatShell {...props} />} />
+          <Route exact path='/chat/:id' render={(props) => <ChatShell {...props} />} />
 
         </Switch>
-        
+
       </div>
     )
   }
@@ -104,9 +106,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
     setUserRole: role => dispatch(setUserRole(role)),
-    viewDepartments : department =>dispatch(viewDepartments(department)),
-    setFetchId: id => dispatch( setFetchId(id) ),
-    setImg: img => dispatch( setImg(img) ),
+    viewDepartments: department => dispatch(viewDepartments(department)),
+    setFetchId: id => dispatch(setFetchId(id)),
+    setPatientId: id => dispatch(setPatientId(id)),
+    setUserImage: image => dispatch(setUserImage(image)),
+    setDoctorId: id => dispatch(setDoctorId(id))
+
 
   }
 }

@@ -2,67 +2,58 @@ import React, { useState } from 'react';
 import { connect } from "react-redux"
 import { setCurrentUser, setUserImage } from "../../../Redux/User/userActions"
 
-const ProfileLeft = ({ currentUser, email, image }) => {
-  // const [img, setImage] = useState('')
+const ProfileLeft = ({ currentUser, email, image, role, patientId, doctorId }) => {
+  
   const [loading, setLoading] = useState(false)
+  // console.log('profileImage', profileImage)
 
-  const uploadImage = () => {
-    const data = new FormData()
-    data.append('file', this.state.image)
-    data.append('upload_preset', 'rnfylwag')
-    setLoading(true)
-    // const res = await fetch(
-    //   'https://api.cloudinary.com/v1_1/dbrtinqbo/image/upload',
-    //   {
-    //     method: 'POST',
-    //     body: data
-    //   }
-    // )
-    // const file = await res.json()
-    // setImage(file.secure_url)
+  const uploadImage = (e) => {
+    const formData = new FormData()
+    formData.append('file', e.target.files[0])
+    formData.append('upload_preset', 'pqcz20rh')
+
     const requestOptions = {
       method: 'POST',
-      body: data
+      body: formData
     };
-    fetch('https://api.cloudinary.com/v1_1/dbrtinqbo/image/upload', requestOptions)
+    fetch('	https://api.cloudinary.com/v1_1/dzjchtsxn/image/upload', requestOptions)
       .then(response => response.json())
-      .then(data =>
-        console.log(data),
-        this.setState({ imageUrl: data.secure_url }),
-        // this.updateUserImage({ id: pa, image: data.secure_url }),
-        // this.updateDoctorImage({ id: 1, image: data.secure_url })
+      .then(data => {
+        console.log(data)
+        // setUserImage(data.secure_url)
+        if (role === 'patient') updateImage({ pk:patientId,image:data.secure_url })
+        if (role === 'doctor') updateImage({ pk:doctorId,image:data.secure_url })
+       
+      });
 
-      );
-    setLoading(false)
-  };
+  }
 
-  updatePatientImage = (obj) => {
+  const updateImage = (obj) => {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(obj)
     };
-    fetch('http://127.0.0.1:8000/patient/upload', requestOptions)
-      .then(response => response.json())
-      .then(data => console.log(data));
+    if (role === 'patient') {
+      fetch('http://127.0.0.1:8000/patient/upload', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }
+    if (role === 'doctor') {
+      fetch('http://127.0.0.1:8000/doctor/update', requestOptions)
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }
+
   }
-  updateDoctorImage = (obj) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(obj)
-    };
-    fetch('http://127.0.0.1:8000/doctor/upload', requestOptions)
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }
+
 
 
   return (
     <div className='user_details'>
 
       <div className='user_card'>
-        <img className='user_image' src='https://www.shareicon.net/data/256x256/2016/05/26/771204_man_512x512.png' alt='photo' />
+        <img className='user_image' src={image} alt='photo' />
         <div className='user_info'>
           <h4>{currentUser}</h4>
           <h4>{email}</h4>
@@ -75,27 +66,27 @@ const ProfileLeft = ({ currentUser, email, image }) => {
             placeholder="Upload an image"
             onChange={uploadImage}
           />
-          {loading ? (
-            <h3>Loading...</h3>
-          ) : (
-              <img src={image} style={{ width: '130px' }} />
-            )}
         </div>
       </div>
     </div>
   )
+
 }
-const mapStateToProps = ({ user: { currentUser, email, image } }) => {
+const mapStateToProps = ({ user: { currentUser, email, image, patientId, doctorId, role } }) => {
   return {
     currentUser,
     email,
-    image
+    image,
+    patientId,
+    doctorId,
+    role
+
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentUser: user => dispatch(setCurrentUser(user)),
-    setUserImage: user => dispatch(setUserImage(user))
+    setUserImage: user => dispatch(setUserImage(user)),
 
   }
 }
