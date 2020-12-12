@@ -102,7 +102,7 @@ const AppointmentPage = ({ match, patientId }) => {
                 </div>
                 <div style={{display:'flex', flexDirection:'column'}}>
                 {
-                    avHour ? avHour.map((Appointment,i) =>  <AppointmentList hour={Appointment.hour} i={i} /> )
+                    avHour ? avHour.map((Appointment,i) =>  <AppointmentList hour={Appointment.hour} key={i} /> )
                      : <div></div>
                 }
                 </div>
