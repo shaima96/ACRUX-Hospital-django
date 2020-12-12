@@ -4,7 +4,11 @@ from doctor.models import Doctor
 
 # Create your models here.
 class Day(models.Model):
-    date = models.DateField(unique=True)
+    date = models.DateField()
+    doctorId = models.ForeignKey(Doctor,on_delete=models.CASCADE, related_name='Appointemnt',default=1)
+
+    class Meta:
+        unique_together = ('date','doctorId')
     
     def __str__(self):
         return self.date.strftime("%b %d %Y")
@@ -17,7 +21,7 @@ class Hour(models.Model):
     doctorId = models.ForeignKey(Doctor,on_delete=models.CASCADE, related_name='Appointments',default=1)
     
     class Meta:
-        unique_together = (('patientId','dayId'),('hour','dayId'))
+        unique_together = (('patientId','dayId'),('hour','dayId'),('patientId','hour','dayId'))
         
     def __str__(self):
         return self.hour

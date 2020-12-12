@@ -23,4 +23,11 @@
 
 }
 
+#random_article{
+    height: 220px;
+}
+.article_title{font-weight: bold;}
 
+.article_content{
+    background: rgba(105,105,105, 0.6);
+}

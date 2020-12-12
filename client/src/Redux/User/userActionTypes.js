@@ -3,4 +3,5 @@ export const UserActionTypes = {
     SET_USER_ROLE : 'SET_USER_ROLE',
     SET_USER_IMAGE : 'SET_USER_IMAGE',
     SET_PATIENT_ID: 'SET_PATIENT_ID'
+    SET_FETCH_ID:"SET_FETCH_ID"
   };

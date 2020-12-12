@@ -18,3 +18,15 @@ export const setPatientId = id => ({
   type: UserActionTypes.SET_PATIENT_ID,
   payload : id
 })
+
+
+export const setImg=id=>({
+  type: UserActionTypes.SET_IMAGE,
+  payload : id
+})
+
+export const setFetchId=id=>({
+  type: UserActionTypes.SET_FETCH_ID,
+  payload : id
+})
+

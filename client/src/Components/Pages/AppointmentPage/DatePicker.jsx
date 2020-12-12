@@ -7,8 +7,9 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 
-export default function DatePicker({ setDate, getDates,setAvHour }) {
+export default function DatePicker({ setDate, getDates,setAvHour,doctorId }) {
   // The first commit of Material-UI
+  
   const [selectedDate, setSelectedDate] = React.useState(new Date('2020-12-18T21:11:54'));
   const [open, setOpen] = React.useState(false);
 
@@ -32,9 +33,10 @@ export default function DatePicker({ setDate, getDates,setAvHour }) {
   }
 
   const handleDateChange = (date) => {
+    console.log({ date: convert(date),doctorId })
     setSelectedDate(date)
     setDate(convert(date))
-    PostDate({ date: convert(date) })
+    PostDate({ date: convert(date),doctorId })
     setTimeout(() => getDates(), 200)
     setAvHour(null)
   };

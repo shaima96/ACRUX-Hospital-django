@@ -13,6 +13,7 @@ const AppointmentPage = ({ match, patientId }) => {
     const [dates, setDates] = useState([])
     const [avHour,setAvHour] = useState(null)
     const doctorId = match.params.id
+    
     const hours = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 AM', '1:00 PM', '2:00 PM']
 
     const handleHours = (e) => setHour(e.target.value)
@@ -35,7 +36,7 @@ const AppointmentPage = ({ match, patientId }) => {
             fetch('http://localhost:8000/day/date/details', requestOptions)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.Hour)
+                    console.log('hour',data)
                     if(data.Hour.length !== 0){
                         setAvHour(data.Hour)
                     }else {
@@ -50,8 +51,8 @@ const AppointmentPage = ({ match, patientId }) => {
     const getDatePk = () => {
         let pk = null
         dates.forEach((Datadate) => {
-            if (Datadate.date === date) {
-                console.log('currnetdate', Datadate.date)
+            if (Datadate.date === date && Datadate.doctorId == doctorId) {
+                console.log('getpk',Datadate)
                 pk = Datadate.pk
             }
         })
@@ -82,13 +83,13 @@ const AppointmentPage = ({ match, patientId }) => {
 
     console.log(dates)
     // console.log(date)
-    // console.log(hour)
+    console.log('doctorId',doctorId)
     return (
         <div className='appointment'>
             <h1>AppointmentPage</h1>
             <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', width: '60%', alignItems: 'center' }}>
-                    <DatePicker setDate={setDate} getDates={getDates} setAvHour={setAvHour} />
+                    <DatePicker setDate={setDate} getDates={getDates} doctorId={doctorId} setAvHour={setAvHour} />
                     <Select onClick={() => getHours()} onChange={handleHours} value={hour} style={{ width: '40%', marginTop: '24px' }}>
                         {
                             hours.map((hour, i) => <MenuItem key={i} value={hour} > {hour} </MenuItem>)
@@ -101,7 +102,7 @@ const AppointmentPage = ({ match, patientId }) => {
                 </div>
                 <div style={{display:'flex', flexDirection:'column'}}>
                 {
-                    avHour ? avHour.map((Appointment,i) =>  <AppointmentList hour={Appointment.hour} i={i} /> )
+                    avHour ? avHour.map((Appointment,i) =>  <AppointmentList hour={Appointment.hour} key={i} /> )
                      : <div></div>
                 }
                 </div>
