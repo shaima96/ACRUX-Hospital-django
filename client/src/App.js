@@ -12,7 +12,6 @@ import HomePage from './Components/Pages/HomePage/HomePage'
 import {viewDepartments} from './Redux/Department/departmentAction'
 import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/DepartmentDoctor'
 import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
-import ChatShell from "./Components/Pages/ChatPage/ChatShell"
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -25,7 +24,6 @@ class App extends React.Component {
   componentDidMount = () => {
     this.loadUser()
     fetch('http://127.0.0.1:8000/department/')
-
         .then(response => response.json())
         .then(data =>{
           //this.setState({departments : data})
@@ -83,27 +81,20 @@ class App extends React.Component {
       <div className='App'>
         <Header />
         <Switch>
-          <Route exact path='/' render={(props) => <HomePage departments={departments} {...props} />} />
+          <Route exact path='/' render={(props) => <HomePage departments={departments} {...props}/> } />
 
           <Route exact path='/profile' component={UsersProfile} />
           <Route exact path='/doctors' component={DoctorPage} />
- 
-          <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props} />} />
+          <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props}/> } />
           <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
           <Route exact path='/appointment/:id' component={AppointmentPage} />
-
-          <Route exact path='/chat' render={(props)=><ChatShell {...props}/>} />
-          <Route exact path='/chat/:id' render={(props)=><ChatShell {...props}/>} />
-
-          {/* <Route exact path='/department/:id' component={} /> */}
-
           {/* <Route exact path='/bloodbank' component={} />
           
           <Route exact path='/doctors' component={} />
           <Route exact path='/booking' component={} /> */}
-          
+          {/* <Route exact path='/departments' component={departments} /> */}
         </Switch>
-
+        
       </div>
     )
   }
