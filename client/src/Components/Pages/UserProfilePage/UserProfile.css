@@ -83,3 +83,27 @@
     width: 30%;
     border: 1px solid black;
 }
+
+.user_details {
+    flex: .3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+.user_card {
+    margin-top: 0.1rem;
+    width: 220px;
+}
+
+.user_image {
+    width: 66%;
+    object-fit: contain;
+    margin-top: 25px;
+    border-radius: 100px;
+}
+.user_upload{
+    margin-top: 30px;
+}
