@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { setCurrentUser, setUserImage } from "../../../Redux/User/userActions"
 
 const ProfileLeft = ({ currentUser, email, image }) => {
-  const [img, setImage] = useState('')
+  // const [img, setImage] = useState('')
   const [loading, setLoading] = useState(false)
 
   const uploadImage = () => {
@@ -79,7 +79,7 @@ const ProfileLeft = ({ currentUser, email, image }) => {
           {loading ? (
             <h3>Loading...</h3>
           ) : (
-              <img src={img} style={{ width: '130px' }} />
+              <img src={image} style={{ width: '130px' }} />
             )}
         </div>
       </div>
