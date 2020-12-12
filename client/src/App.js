@@ -5,7 +5,7 @@ import Header from './Components/SharedComponents/Header/Header.jsx';
 import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
 import Departments from './Components/Pages/DepartmentPage/DepartmentPage'
-import { setCurrentUser, setUserRole,setPatientId } from './Redux/User/userActions'
+import { setCurrentUser, setUserRole,setPatientId,setUserImage } from './Redux/User/userActions'
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage/HomePage'
@@ -63,8 +63,11 @@ class App extends React.Component {
         if (user.patient) {
           this.props.setUserRole(user.patient.role)
           this.props.setPatientId(user.patient.id)
+          this.props.setUserImage(user.patient.image)
         } else if (user.doctor) {
           this.props.setUserRole(user.doctor.role)
+          this.props.setUserImage(user.doctor.image)
+
         }
       })
   }
