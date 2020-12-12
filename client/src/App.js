@@ -9,7 +9,7 @@ import { setCurrentUser, setUserRole,setPatientId,setFetchId,setImg } from './Re
 import UsersProfile from "./Components/Pages/UserProfilePage/ProfilePage"
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HomePage from './Components/Pages/HomePage/HomePage'
-import {viewDepartments} from './Redux/Department/departmentAction'
+import { viewDepartments } from './Redux/Department/departmentAction'
 import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/DepartmentDoctor'
 import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
 import ChatShell from "./Components/Pages/ChatPage/ChatShell"
@@ -17,9 +17,7 @@ import ChatShell from "./Components/Pages/ChatPage/ChatShell"
 class App extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = {
-    //   departments:[]
-    // }
+
   }
 
 
@@ -32,6 +30,7 @@ class App extends React.Component {
           this.props.viewDepartments(data)
          console.log("dep",data)
         })
+
   }
 
   loadUser = () => {
@@ -65,11 +64,13 @@ class App extends React.Component {
       .then(user => {
         if (user.patient) {
           this.props.setUserRole(user.patient.role)
-          this.props.setImg(user.patient.image)
+
+          this.props.setPatientId(user.patient.id)
+          this.props.setUserImage(user.patient.image)
           this.props.setFetchId(user.patient.userId)
         } else if (user.doctor) {
           this.props.setUserRole(user.doctor.role)
-          this.props.setImg(user.doctor.image)
+          this.props.setUserImage(user.doctor.image)
           this.props.setFetchId(user.doctor.doctor)
         }
       })
@@ -78,7 +79,6 @@ class App extends React.Component {
 
   render() {
     const { departments } = this.props
-    console.log(departments)
     return (
       <div className='App'>
         <Header />
@@ -92,11 +92,7 @@ class App extends React.Component {
           <Route exact path='/appointment/:id' component={AppointmentPage} />
           <Route exact path='/chat' render={(props)=><ChatShell {...props}/>} />
           <Route exact path='/chat/:id' render={(props)=><ChatShell {...props}/>} />
-          {/* <Route exact path='/bloodbank' component={} />
-          
-          <Route exact path='/doctors' component={} />
-          <Route exact path='/booking' component={} /> */}
-          {/* <Route exact path='/departments' component={departments} /> */}
+
         </Switch>
         
       </div>
@@ -110,13 +106,13 @@ const mapDispatchToProps = (dispatch) => {
     setUserRole: role => dispatch(setUserRole(role)),
     viewDepartments : department =>dispatch(viewDepartments(department)),
     setFetchId: id => dispatch( setFetchId(id) ),
-    setImg: id => dispatch( setImg(id) ),
+    setImg: img => dispatch( setImg(img) ),
 
   }
 }
 const mapStateToProps = (state) => {
   return {
-    departments :state.department.Departments
+    departments: state.department.Departments
   }
 }
 

@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   email: null,
   id: null,
   role: "user",
-  image:null,
+  image: null,
+  patientId: null,
   fetchId:null
 };
 
@@ -22,6 +23,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         role: action.payload
+      };
+    case UserActionTypes.SET_CURRENT_IMAGE:
+      return {
+        ...state,
+        image: action.payload.image
       }
       case UserActionTypes.SET_IMAGE:
       return {
