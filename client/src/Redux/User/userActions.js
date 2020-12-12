@@ -10,7 +10,28 @@ export const setUserRole = role => ({
   payload: role
 });
 
+export const setUserImage = image => ({
+  type: UserActionTypes.SET_USER_IMAGE,
+  payload: image
+});
 export const setPatientId = id => ({
   type: UserActionTypes.SET_PATIENT_ID,
-  payload : id
+  payload: id
 })
+
+export const setDoctorId = id => ({
+  type: UserActionTypes.SET_DOCTOR_ID,
+  payload: id
+})
+
+
+export const setImg = id => ({
+  type: UserActionTypes.SET_IMAGE,
+  payload: id
+})
+
+export const setFetchId = id => ({
+  type: UserActionTypes.SET_FETCH_ID,
+  payload: id
+})
+

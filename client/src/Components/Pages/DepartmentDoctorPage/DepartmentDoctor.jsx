@@ -4,7 +4,7 @@ import DoctorCard from '../DoctorProfilePage/DoctorCard'
 class DepartmentDoctor extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
+        this.state = { 
             result: []
         }
     }

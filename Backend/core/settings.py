@@ -13,6 +13,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -78,6 +84,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+ASGI_APPLICATION = "core.routing.application"
 
 CORS_ALLOW_ALL_ORIGINS=True
 
@@ -139,6 +146,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+
+cloudinary.config( 
+  cloud_name = "dbrtinqbo", 
+  api_key = "119525153781832", 
+  api_secret = "uAMkepkYDIh-GVbN9mJUI71OnPc" 
+)
+
+
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
@@ -173,3 +190,11 @@ DJOSER = {
 }
 
 AUTH_USER_MODEL = 'users.UserAccount'
+
+# ASGI_APPLICATION = "core.routing.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
