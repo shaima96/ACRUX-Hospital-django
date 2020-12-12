@@ -34,7 +34,7 @@ class UsersProfile extends React.Component {
                                 <div className="right__content">
                                     {
                                         (role === "patient") ?
-                                            <PatientProfile />
+                                            <DoctorProfile />
                                             : (role === "doctor") ?
                                                 <DoctorProfile />
                                                 : <UserProfile />
