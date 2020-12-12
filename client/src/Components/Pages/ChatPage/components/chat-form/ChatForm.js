@@ -31,7 +31,7 @@ const ChatForm = (props) => {
         await messagesRef.add({
           text: textMessage,
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-          image:props.image
+          senderId:props.fetchId
         })
     
         setTextMessage('');

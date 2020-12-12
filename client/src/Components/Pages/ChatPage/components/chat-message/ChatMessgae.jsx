@@ -17,16 +17,16 @@ const ChatMessage = (props) => {
     const dummy = useRef();
     const messagesRef = firestore.collection(collectionLink);
     const query = messagesRef.orderBy('createdAt')
-  
+    
     const [messages] = useCollectionData(query, { idField: 'id' });
 
     return (
         <div id="chat-message-list">
-            <div className='message-row other-message'>
-            {messages && messages.map(msg => <SingleMessage key={msg.id} message={msg} />)}
+            {/* <div className='message-row other-message'> */}
+            {messages && messages.reverse().map(msg => <SingleMessage key={msg.id} message={msg} currentId={props.fetchId} />)}
                 <span ref={dummy}></span>
                 </div>
-        </div>
+        //  </div>
     );
 }
 const mapStateToProps=({user:{role,fetchId}})=>{
