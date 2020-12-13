@@ -6,6 +6,7 @@ import UserProfile from "./UserProfile"
 import ProfileLeft from "./ProfileLeft.jsx"
 import RightImage from "./RightImage.jsx"
 import Details from "./Details.jsx"
+import UserForm from './UserForm'
 
 import "./UserProfile.css"
 class UsersProfile extends React.Component {
@@ -25,12 +26,14 @@ class UsersProfile extends React.Component {
                     currentUser ?
                         <div className="profile">
                             <div className="profile__left">
-                                <ProfileLeft />
+                                {
+                                    (role === "user") ? <UserForm /> : <ProfileLeft />
+                                }
                             </div>
                             <div className="profile__right">
-                                <div className="right__image">
-                                    <RightImage />
-                                </div>
+
+                                <RightImage />
+
                                 <div className="right__content">
                                     {
                                         (role === "patient") ?
