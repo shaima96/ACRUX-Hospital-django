@@ -28,9 +28,9 @@ class UsersProfile extends React.Component {
                                 <ProfileLeft />
                             </div>
                             <div className="profile__right">
-                                <div className="right__image">
-                                    <RightImage />
-                                </div>
+
+                                <RightImage />
+
                                 <div className="right__content">
                                     {
                                         (role === "patient") ?
