@@ -19,7 +19,7 @@ const ProfileLeft = ({ currentUser, email, image, role, patientId, doctorId, set
     fetch('	https://api.cloudinary.com/v1_1/dzjchtsxn/image/upload', requestOptions)
       .then(response => response.json())
       .then(data => {
-        console.log(data,setUserImage)
+        console.log(data)
         setUserImage(data.secure_url)
         if (role === 'patient') updateImage({ pk:patientId,image:data.secure_url })
         if (role === 'doctor') updateImage({ pk:doctorId,image:data.secure_url })
