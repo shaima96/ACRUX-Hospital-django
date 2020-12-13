@@ -3,10 +3,10 @@ import RandomArticles from '../ArticlesPage/RandomArticles'
 import './UserProfile.css'
 const RightImage = ({ articles }) => {
     return (
-        <div  >
-               
-            
+        <div className="right__image">
               <RandomArticles />
+              
+
         </div>
     )
 
