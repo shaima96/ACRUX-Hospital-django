@@ -12,7 +12,7 @@ const ConversationList = ({results,handleSetName}) => {
                 console.log("result",result)
                 return (
                     <Link to={`/chat/${result.doctorId||result.patientId}`} key={id} style={{textDecoration:"none"}} onClick={()=>handleSetName(result.doctorName||result.patientName,result.doctorId||result.patientId)} >
-                    <ConversationItem  name={result.doctorName||result.patientName}  />
+                    <ConversationItem  image={result.image} name={result.doctorName||result.patientName}  />
                     </Link>)
             })
             :<div></div>

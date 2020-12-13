@@ -21,7 +21,7 @@ const ChatForm = (props) => {
         if(props.role==="doctor"){
             collectionLink=`messages/${props.match.params.id}/${props.fetchId}`
         }
-    const dummy = useRef();
+    // const dummy = useRef();
     const messagesRef = firestore.collection(collectionLink);
     const [textMessage, setTextMessage] = useState('');
     const disableButton = isMessageEmpty(textMessage);

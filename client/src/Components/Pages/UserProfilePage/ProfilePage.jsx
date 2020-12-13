@@ -7,7 +7,7 @@ import ProfileLeft from "./ProfileLeft.jsx"
 import RightImage from "./RightImage.jsx"
 import Details from "./Details.jsx"
 import UserForm from './UserForm'
-
+import {setChatArray} from "../../../Redux/User/userActions"
 import "./UserProfile.css"
 class UsersProfile extends React.Component {
     constructor(props) {
@@ -16,7 +16,30 @@ class UsersProfile extends React.Component {
 
         }
     }
-
+    componentDidMount = () => {
+        console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
+        fetch('http://localhost:8000/user/')
+            .then(response => response.json())
+            .then(data => {
+                let resultObject={}
+                data.map(element=>{
+                    if(element.patient){
+                        resultObject[element.patient.userId]={
+                            image:element.patient.image,
+                            name:element.name
+                        }
+                    }else if(element.doctor){
+                        resultObject[element.doctor.doctor]={
+                            image:element.doctor.image,
+                            name:element.name
+                        }
+                    }
+                    
+                })
+                this.props.setChatArray(resultObject)
+                // console.log("result ARRAY",res)
+            })
+    }
     render() {
         const { role, currentUser } = this.props
         return (
@@ -61,5 +84,10 @@ const mapStateToProps = ({ user: { role, currentUser } }) => {
         currentUser
     }
 }
+const mapDispatchToProps=dispatch=>{
+    return{
+        setChatArray:array=>dispatch(setChatArray(array))
+    }
+}
 
-export default connect(mapStateToProps)(UsersProfile);
+export default connect(mapStateToProps,mapDispatchToProps)(UsersProfile);

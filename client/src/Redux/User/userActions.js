@@ -45,3 +45,7 @@ export const setContactTitle=name=>({
   payload : name
 })
 
+export const setChatArray=array=>({
+  type: UserActionTypes.SET_CHAT_ARRAY,
+  payload : array
+})

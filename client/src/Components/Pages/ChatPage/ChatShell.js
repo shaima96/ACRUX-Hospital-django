@@ -39,6 +39,7 @@ class ChatShell extends React.Component {
             .then(data => {
                 this.props.setMessageContacts(data.doctors)
                 this.setState({ results: data.doctors })
+                console.log("gggggggggggggggggggggggggggggggggggggg",data.doctors)
             })
        }
        if(this.props.role==="doctor"){
