@@ -6,7 +6,7 @@ import RegisterDialog from "./RegisterDialog"
 import { Button, Avatar, Typography } from '@material-ui/core'
 import { setCurrentUser,setUserRole } from '../../../Redux/User/userActions'
 
-const Header = ({ currentUser, setCurrentUser, setUserRole }) => {
+const Header = ({ currentUser, setCurrentUser, setUserRole, image }) => {
     // console.log(currentUser)
     return (
 
@@ -22,7 +22,7 @@ const Header = ({ currentUser, setCurrentUser, setUserRole }) => {
                             <Link to='/doctors' style={{textDecoration:"none"}}><h4 className='header__taps'> Doctors </h4></Link>
                             <Link to='/departments' style={{textDecoration:"none"}}><h4 className='header__taps'> Departments </h4></Link>
                             <Link to='/profile'>
-                            <Avatar style={{ marginRight: '20px' }} alt={currentUser} src='https://www.shareicon.net/data/512x512/2016/08/18/813844_people_512x512.png' />
+                            <Avatar style={{ marginRight: '20px' }} alt={currentUser} src={image} />
                             </Link>
                             
                             <Button variant="contained" color="primary" onClick={() => {
@@ -44,9 +44,10 @@ const Header = ({ currentUser, setCurrentUser, setUserRole }) => {
     )
 }
 
-const mapStateToProps = ({ user: { currentUser } }) => {
+const mapStateToProps = ({ user: { currentUser,image } }) => {
     return {
-        currentUser
+        currentUser,
+        image
     }
 }
 
