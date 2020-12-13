@@ -4,9 +4,9 @@ import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 import RegisterDialog from "./RegisterDialog"
 import { Button, Avatar, Typography } from '@material-ui/core'
-import { setCurrentUser,setUserRole } from '../../../Redux/User/userActions'
+import { setCurrentUser,setUserRole, setUserImage, setMessageContacts } from '../../../Redux/User/userActions'
 
-const Header = ({ currentUser, setCurrentUser, setUserRole }) => {
+const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage, setMessageContacts }) => {
     // console.log(currentUser)
     return (
 
@@ -22,7 +22,7 @@ const Header = ({ currentUser, setCurrentUser, setUserRole }) => {
                             <Link to='/doctors' style={{textDecoration:"none"}}><h4 className='header__taps'> Doctors </h4></Link>
                             <Link to='/departments' style={{textDecoration:"none"}}><h4 className='header__taps'> Departments </h4></Link>
                             <Link to='/profile'>
-                            <Avatar style={{ marginRight: '20px' }} alt={currentUser} src='https://www.shareicon.net/data/512x512/2016/08/18/813844_people_512x512.png' />
+                            <Avatar style={{ marginRight: '20px' }} alt={currentUser} src={image} />
                             </Link>
                             
                             <Button variant="contained" color="primary" onClick={() => {
@@ -32,7 +32,9 @@ const Header = ({ currentUser, setCurrentUser, setUserRole }) => {
                                     email: null,
                                     id: null
                                 })
-                                setUserRole(null)
+                                setUserRole('user')
+                                setUserImage('https://i.imgur.com/I80W1Q0.png')
+                                setMessageContacts([])
                             }}> LogOut </Button>
 
                         </div>
@@ -44,16 +46,20 @@ const Header = ({ currentUser, setCurrentUser, setUserRole }) => {
     )
 }
 
-const mapStateToProps = ({ user: { currentUser } }) => {
+const mapStateToProps = ({ user: { currentUser,image } }) => {
     return {
-        currentUser
+        currentUser,
+        image
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
         setCurrentUser: user => dispatch(setCurrentUser(user)),
-        setUserRole: role => dispatch(setUserRole(role))
+        setUserRole: role => dispatch(setUserRole(role)),
+        setUserImage : image => dispatch(setUserImage(image)),
+        setMessageContacts : array => dispatch(setMessageContacts(array))
+
 
     }
 }
