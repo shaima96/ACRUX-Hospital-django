@@ -49,3 +49,8 @@ export const setChatArray=array=>({
   type: UserActionTypes.SET_CHAT_ARRAY,
   payload : array
 })
+
+export const setLastTextObject=obj=>({
+  type: UserActionTypes.SET_TEXT_OBJECT,
+  payload : obj
+})

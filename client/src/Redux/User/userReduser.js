@@ -11,8 +11,8 @@ const INITIAL_STATE = {
   patientId: null,
   doctorId: null,
   fetchId: null,
-  chatArray:{}
-
+  chatArray:{},
+  lastTextObject:{}
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -68,6 +68,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         chatArray: action.payload
+      }
+      case UserActionTypes.SET_TEXT_OBJECT:
+      return {
+        ...state,
+        lastTextObject: action.payload
       }
     default:
       return state;

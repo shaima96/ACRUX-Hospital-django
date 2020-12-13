@@ -7,6 +7,7 @@ import AttachmentIcon from '../controls/icons/attachment-icon/AttachmentIcon';
 import './ChatForm.scss';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import {setLastTextObject} from "../../../../../Redux/User/userActions"
 
 const isMessageEmpty = (textMessage) => {
     return adjustTextMessage(textMessage).length === 0;
@@ -33,7 +34,10 @@ const ChatForm = (props) => {
           createdAt: firebase.firestore.FieldValue.serverTimestamp(),
           senderId:props.fetchId
         })
-    
+        props.setLastTextObject({
+            ...props.lastTextObject,
+            [props.match.params.id]:textMessage
+        })
         setTextMessage('');
         // dummy.current.scrollIntoView({ behavior: 'smooth' });
       }
@@ -53,14 +57,21 @@ const ChatForm = (props) => {
         </form> 
     );
 }
-const mapStateToProps=({user:{role,fetchId,image}})=>{
+
+const mapDispatchToProps=dispatch=>{
+    return{
+        setLastTextObject:obj=>dispatch(setLastTextObject(obj))
+    }
+}
+
+const mapStateToProps=({user:{role,fetchId,image,lastTextObject}})=>{
     return {
         role,
         fetchId,
-        image
-
+        image,
+        lastTextObject
     }
 }
-export default withRouter(connect(mapStateToProps)(ChatForm));
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(ChatForm));
 
 
