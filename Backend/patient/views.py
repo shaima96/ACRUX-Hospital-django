@@ -8,7 +8,7 @@ from rest_framework.response import Response
 
 # Create your views here.
 
-class PatientList(generics.ListAPIView):
+class PatientList(generics.ListCreateAPIView):
     queryset = Patient.objects.all()
     serializer_class = PatientsSerializer
 
