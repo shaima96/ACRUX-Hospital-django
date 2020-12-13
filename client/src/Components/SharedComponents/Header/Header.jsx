@@ -4,9 +4,9 @@ import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 import RegisterDialog from "./RegisterDialog"
 import { Button, Avatar, Typography } from '@material-ui/core'
-import { setCurrentUser,setUserRole, setUserImage, setMessageContacts } from '../../../Redux/User/userActions'
+import { setCurrentUser,setUserRole, setUserImage, setMessageContacts, setContactTitle, setFetchId } from '../../../Redux/User/userActions'
 
-const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage, setMessageContacts }) => {
+const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage, setMessageContacts, setContactTitle, setFetchId }) => {
     // console.log(currentUser)
     return (
 
@@ -35,6 +35,8 @@ const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage,
                                 setUserRole('user')
                                 setUserImage('https://i.imgur.com/I80W1Q0.png')
                                 setMessageContacts([])
+                                setContactTitle('')
+                                setFetchId(null)
                             }}> LogOut </Button>
 
                         </div>
@@ -58,7 +60,9 @@ const mapDispatchToProps = (dispatch) => {
         setCurrentUser: user => dispatch(setCurrentUser(user)),
         setUserRole: role => dispatch(setUserRole(role)),
         setUserImage : image => dispatch(setUserImage(image)),
-        setMessageContacts : array => dispatch(setMessageContacts(array))
+        setMessageContacts : array => dispatch(setMessageContacts(array)),
+        setContactTitle: name => dispatch(setContactTitle(name)),
+        setFetchId : id => dispatch(setFetchId(id))
 
 
     }

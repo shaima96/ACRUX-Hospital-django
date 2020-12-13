@@ -30,7 +30,7 @@ const UserForm = ({ id }) => {
 
             fetch('http://localhost:8000/patient/', requestOptions)
                 .then(response => response.json())
-                .then(data => console.log(data))
+                .then(data => window.location.reload())
         } else {
             alert('Please enter a valid blood type')
             setBloodType('')
