@@ -57,6 +57,7 @@ class ChatShell extends React.Component {
         this.setState({name})
     }
     render() {
+        console.log("this.state",this.state)
         return (
             <div id="rootme">
                 <div id="chat-container">
