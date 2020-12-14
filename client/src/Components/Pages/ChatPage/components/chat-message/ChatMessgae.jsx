@@ -23,7 +23,7 @@ const ChatMessage = (props) => {
     return (
         <div id="chat-message-list">
             {/* <div className='message-row other-message'> */}
-            {messages && messages.reverse().map(msg => <SingleMessage key={msg.id} message={msg} currentId={props.fetchId} />)}
+            {messages && messages.reverse().map(msg => <SingleMessage key={msg.id} reseiverId={props.match.params.id} message={msg} currentId={props.fetchId} />)}
                 <span ref={dummy}></span>
                 </div>
         //  </div>

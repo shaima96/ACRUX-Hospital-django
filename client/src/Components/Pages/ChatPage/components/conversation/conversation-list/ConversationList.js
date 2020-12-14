@@ -3,6 +3,8 @@ import React from 'react';
 import ConversationItem from '../conversation-item/ConversationItem';
 import './ConversationList.scss';
 import {Link} from "react-router-dom"
+
+
 const ConversationList = ({results,handleSetName}) => {
     return (
         <div id="conversation-list">
@@ -12,7 +14,7 @@ const ConversationList = ({results,handleSetName}) => {
                 console.log("result",result)
                 return (
                     <Link to={`/chat/${result.doctorId||result.patientId}`} key={id} style={{textDecoration:"none"}} onClick={()=>handleSetName(result.doctorName||result.patientName,result.doctorId||result.patientId)} >
-                    <ConversationItem  name={result.doctorName||result.patientName}  />
+                    <ConversationItem recieverId={result.doctorId||result.patientId} image={result.image} name={result.doctorName||result.patientName}  />
                     </Link>)
             })
             :<div></div>
@@ -21,5 +23,6 @@ const ConversationList = ({results,handleSetName}) => {
         </div>
     );
 }
+
 
 export default ConversationList;
