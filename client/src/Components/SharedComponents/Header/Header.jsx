@@ -4,9 +4,9 @@ import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 import RegisterDialog from "./RegisterDialog"
 import { Button, Avatar, Typography } from '@material-ui/core'
-import { setCurrentUser,setUserRole, setUserImage, setMessageContacts, setContactTitle, setFetchId } from '../../../Redux/User/userActions'
+import { setCurrentUser,setUserRole, setUserImage, setMessageContacts,setLastTextObject, setContactTitle, setFetchId } from '../../../Redux/User/userActions'
 
-const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage, setMessageContacts, setContactTitle, setFetchId }) => {
+const Header = ({ currentUser,setLastTextObject, setCurrentUser, setUserRole, image, setUserImage, setMessageContacts, setContactTitle, setFetchId }) => {
     // console.log(currentUser)
     return (
 
@@ -37,6 +37,7 @@ const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage,
                                 setMessageContacts([])
                                 setContactTitle('')
                                 setFetchId(null)
+                                setLastTextObject({})
                             }}> LogOut </Button>
 
                         </div>
@@ -62,7 +63,8 @@ const mapDispatchToProps = (dispatch) => {
         setUserImage : image => dispatch(setUserImage(image)),
         setMessageContacts : array => dispatch(setMessageContacts(array)),
         setContactTitle: name => dispatch(setContactTitle(name)),
-        setFetchId : id => dispatch(setFetchId(id))
+        setFetchId : id => dispatch(setFetchId(id)),
+        setLastTextObject:obj=>dispatch(setLastTextObject(obj))
 
 
     }
