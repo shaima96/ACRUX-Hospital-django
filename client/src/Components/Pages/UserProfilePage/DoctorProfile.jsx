@@ -45,7 +45,7 @@ const DoctorProfile = ({ setMessageContacts, role, fetchId, contactArray,setCont
                         return (
                             <Link to={`/chat/${oneContact.doctorId || oneContact.patientId}`} key={id} onClick={(e)=>handleSetName(oneContact.doctorName||oneContact.patientName)} >
                                 <div className="image-div">
-                                    <img className="chat-image" src="https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg" alt="" />
+                                    <img className="chat-image" src={oneContact.image} alt="" />
                                     <p>{oneContact.doctorName || oneContact.patientName}</p>
                                 </div>
                             </Link>

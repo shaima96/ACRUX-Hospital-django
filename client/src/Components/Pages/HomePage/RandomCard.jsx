@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 380,
+        width: 380,
     },
     media: {
         height: 250,
