@@ -35,17 +35,20 @@
     justify-content: flex-start;
     flex-direction: column;
     
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .right__image {
     width: 100%;
     height: 14rem;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    margin: 20px 20px;
+    padding: 10px;
+    
+    /* margin: 20px 20px; */
 }
 
 .right__content {
@@ -110,6 +113,10 @@
 }
 .user_upload{
     margin-top: 30px;
+}
+
+.patients{
+    padding: 15px;
 }
 
 

@@ -21,3 +21,10 @@ def DayDetail(request):
     day = Day.objects.get(pk=request.data['pk']) # the 'get' return me back a model I can serialize
     serializer = DaySerializer(day,many=False)
     return Response(serializer.data)
+
+
+@api_view(['POST'])
+def DayDetailDoctor(request):
+    day = Day.objects.get(doctorId=request.data['doctorId']) # the 'get' return me back a model I can serialize
+    serializer = DaySerializer(day,many=False)
+    return Response(serializer.data)
