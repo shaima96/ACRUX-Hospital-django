@@ -10,9 +10,9 @@ import {
 export default function DatePicker({ setDate, getDates,setAvHour,doctorId }) {
   // The first commit of Material-UI
   
-  const [selectedDate, setSelectedDate] = React.useState(new Date('2020-12-18T21:11:54'));
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
   const [open, setOpen] = React.useState(false);
-
+  const today = new Date();
   const convert = (str) => {
     var date = new Date(str),
       mnth = ("0" + (date.getMonth() + 1)).slice(-2),
@@ -56,6 +56,7 @@ export default function DatePicker({ setDate, getDates,setAvHour,doctorId }) {
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}
+          minDate={today}
         />
       </Grid>
     </MuiPickersUtilsProvider>
