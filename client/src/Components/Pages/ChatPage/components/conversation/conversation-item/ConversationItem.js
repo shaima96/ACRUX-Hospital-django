@@ -5,11 +5,12 @@ import './ConversationItem.scss';
 
 const ConversationItem = ({name,image,lastTextObject,recieverId,setLastTextObject}) => {
  
-    React.useEffect(()=>{console.log("hiii")
-    setTimeout(()=>{
-        setLastTextObject(lastTextObject)
-    },500)
-    },[])
+    // React.useEffect(()=>{
+
+    // setTimeout(()=>{
+    //     setLastTextObject(lastTextObject)
+    // },1000)
+    // },[])
     return (
         <div className='conversation' >
             <img src={image} alt="" />
