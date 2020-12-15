@@ -19,7 +19,10 @@ const Details = ({ doctorId }) => {
 
         fetch('http://localhost:8000/day/date/doctor', requestOptions)
             .then(response => response.json())
-            .then(data => setPatients(data.Hour))
+            .then(data => {
+                console.log('patients', data)
+                setPatients(data)
+            })
     }
 
     useEffect(() => {
@@ -29,7 +32,7 @@ const Details = ({ doctorId }) => {
     return (
         <div >
             {
-                patients.length && patients.map( (patient ,i) => <PatientsCard key={i} patient={patient} />  )
+                patients && patients.map( (patient ,i) => <PatientsCard key={i} patient={patient} />  )
             }
         </div>
     )
