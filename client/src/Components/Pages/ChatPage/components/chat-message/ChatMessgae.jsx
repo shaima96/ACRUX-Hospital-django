@@ -22,6 +22,16 @@ const ChatMessage = (props) => {
 
     useEffect(async () => {
         if (props.role === "doctor") {
+            let obj = {}
+            await props.contactArray.map(async (element) => {
+                console.log(element)
+                let collectionLinks = `messages/${element.patientId}/${props.fetchId}`
+                await firestore.collection(collectionLinks).orderBy('createdAt').get().then(data => {
+                    obj[element.patientId] = data.docs[data.docs.length - 1].data().text
+                    console.log("ssssssssssssssssssss", data.docs[data.docs.length - 1].data().text)
+                })
+                props.setLastTextObject(obj)
+            })
         } else {
             let obj = {}
             await props.contactArray.map(async (element) => {
