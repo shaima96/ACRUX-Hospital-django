@@ -55,7 +55,7 @@ const DoctorProfile = ({ setMessageContacts, role, fetchId, contactArray,setCont
                 }
             </div>
             <div className="content__left__royal">
-                royal ui force
+                
         </div>
         </div>
     )
