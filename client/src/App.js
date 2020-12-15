@@ -92,8 +92,8 @@ class App extends React.Component {
           <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props} />} />
           <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
           <Route exact path='/appointment/:id' component={AppointmentPage} />
-          <Route exact path='/chat' render={(props) => <ChatShell {...props} />} />
-          <Route exact path='/chat/:id' render={(props) => <ChatShell {...props} />} />
+          {/* <Route exact path='/chat' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} /> */}
+          <Route exact path='/chat/:id' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} />
 
         </Switch>
 

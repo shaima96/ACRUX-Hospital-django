@@ -8,6 +8,7 @@ import RightImage from "./RightImage.jsx"
 import Details from "./Details.jsx"
 import UserForm from './UserForm'
 import {setChatArray} from "../../../Redux/User/userActions"
+import PatientsDetails from './PatientsDetails'
 import "./UserProfile.css"
 class UsersProfile extends React.Component {
     constructor(props) {
@@ -66,7 +67,10 @@ class UsersProfile extends React.Component {
                                                 : <UserProfile />
                                     }
                                     <div className="content__right">
-                                        <Details />
+                                        {
+                                           (role === "doctor") ? <Details /> : <PatientsDetails/>
+                                        }
+                                        
                                     </div>
                                 </div>
                             </div>

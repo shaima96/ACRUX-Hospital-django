@@ -2,6 +2,11 @@ from patient.models import Patient,DoctorPatient
 from day.serializers import HourSerializer
 from rest_framework import serializers
 
+class PatientsDoctorsCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DoctorPatient
+        fields = ['doctorId','patientId']
+
 class PatientsDoctorsSerializer(serializers.ModelSerializer):
     doctorName = serializers.CharField(source='doctorId.doctor.name', read_only=True)
     doctorId=serializers.CharField(source='doctorId.doctor.id', read_only=True)
