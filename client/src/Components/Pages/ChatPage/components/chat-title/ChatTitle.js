@@ -7,7 +7,7 @@ const ChatTitle = ({name,contactName}) => {
 
     return (
         <div id="chat-title">
-            <span>{contactName||name}</span>
+            <span>{name||contactName}</span>
         </div>
     );
 }

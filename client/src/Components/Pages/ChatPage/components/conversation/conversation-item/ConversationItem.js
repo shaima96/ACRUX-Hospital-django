@@ -1,24 +1,34 @@
 import React from 'react';
 import {connect} from "react-redux"
-
+import {setLastTextObject} from "../../../../../../Redux/User/userActions"
 import './ConversationItem.scss';
 
-const ConversationItem = ({name,image}) => {
+const ConversationItem = ({name,image,lastTextObject,recieverId,setLastTextObject}) => {
+ 
+    // React.useEffect(()=>{
 
+    // setTimeout(()=>{
+    //     setLastTextObject(lastTextObject)
+    // },1000)
+    // },[])
     return (
         <div className='conversation' >
-            <img src={"https://cdn.pixabay.com/photo/2017/06/13/12/53/profile-2398782_1280.png"} alt="" />
+            <img src={image} alt="" />
             <div className="title-text">{name}</div>
             <div className="conversation-message">
-               LATEST TEXT
+               {lastTextObject[recieverId]&&lastTextObject[recieverId]}
             </div>
         </div>
     );
 }
-
-const mapStateToProps=({user:{image}})=>{
-    return {
-        image
+const mapDispatchToProps=dispatch=>{
+    return{
+        setLastTextObject:obj=>dispatch(setLastTextObject(obj))
     }
 }
-export default connect(mapStateToProps)(ConversationItem);
+const mapStateToProps=({user:{lastTextObject}})=>{
+    return {
+        lastTextObject
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ConversationItem);
