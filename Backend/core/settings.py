@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'department',
     'patient',
     'doctor',
-    'day'
+    'day',
+    'doctor.ml'
 ]
 
 MIDDLEWARE = [
