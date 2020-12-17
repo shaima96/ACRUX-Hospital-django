@@ -7,6 +7,8 @@ from doctor.serializers import DoctorSerializer
 from rest_framework.decorators import api_view  
 from rest_framework.response import Response
 
+from doctor.ml.classifier.random_forest import RandomForestClassifier
+
 class DoctorList(generics.ListCreateAPIView):
     queryset = Doctor.objects.all()
     serializer_class = DoctorSerializer
@@ -41,4 +43,11 @@ def DoctorUpdate(request):
     serializer = DoctorSerializer(doctor,many=False)
     
     return Response(serializer.data)
+
+@api_view(['POST'])
+def heart_disease(request):
+    print(request.data)
+    my_alg = RandomForestClassifier()
+    response = my_alg.compute_prediction(request.data)
+    return Response(response)
 
