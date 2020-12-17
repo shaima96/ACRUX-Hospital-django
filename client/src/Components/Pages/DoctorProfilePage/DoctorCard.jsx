@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 
 
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function DoctorCard({ doctor }) {
+const DoctorCard = ({ doctor, role }) => {
     const classes = useStyles();
     return (
         <Card className={classes.root} style={{ margin: '20px', marginTop: '80px' }}>
@@ -32,14 +33,27 @@ export default function DoctorCard({ doctor }) {
                     <Typography id="name" gutterBottom variant="h5" component="h2">
                         {doctor.name}
                     </Typography>
-                    <Link to={`/appointment/${doctor.pk}`} style={{textDecoration:'none'}}>
-                        <Typography id="title" variant="body2" color="textSecondary" component="p">
-                            Book an appoinment
+                    {
+                        (role === 'patient') && <Link to={`/appointment/${doctor.pk}`} style={{ textDecoration: 'none' }}>
+                            <Typography id="title" variant="body2" color="textSecondary" component="p">
+                                Book an appoinment
                    </Typography>
-                    </Link>
+                        </Link>
+                    }
+
                 </CardContent>
 
             </CardActionArea>
         </Card>
     );
 }
+
+const mapStateToProps = ({ user: { role } }) => {
+    return {
+        role
+    }
+}
+
+
+
+export default connect(mapStateToProps)(DoctorCard)
