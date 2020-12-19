@@ -8,6 +8,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from doctor.ml.classifier.random_forest import RandomForestClassifier
+from doctor.ml.classifier.breast_cancer import RandomForestCancerClassifier
 
 class DoctorList(generics.ListCreateAPIView):
     queryset = Doctor.objects.all()
@@ -48,6 +49,13 @@ def DoctorUpdate(request):
 def heart_disease(request):
     print(request.data)
     my_alg = RandomForestClassifier()
+    response = my_alg.compute_prediction(request.data)
+    return Response(response)
+
+@api_view(['POST'])
+def breast_cancer(request):
+    print(request.data)
+    my_alg = RandomForestCancerClassifier()
     response = my_alg.compute_prediction(request.data)
     return Response(response)
 
