@@ -13,6 +13,7 @@ import { viewDepartments } from './Redux/Department/departmentAction'
 import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/DepartmentDoctor'
 import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
 import ChatShell from "./Components/Pages/ChatPage/ChatShell"
+import DiagnosePage from './Components/Pages/DiagnosePage/DiagnosePage'
 
 class App extends React.Component {
   constructor(props) {
@@ -94,6 +95,7 @@ class App extends React.Component {
           <Route exact path='/appointment/:id' component={AppointmentPage} />
           {/* <Route exact path='/chat' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} /> */}
           <Route exact path='/chat/:id' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} />
+          <Route exact path='/heart' render={(props) => currentUser ? <DiagnosePage {...props} /> : <Redirect to='/' />} />
 
         </Switch>
 
