@@ -24,7 +24,7 @@ const ChatMessage = (props) => {
         if (props.role === "doctor") {
             let obj = {}
             await props.contactArray.map(async (element) => {
-                console.log(element)
+                console.log('el', element)
                 let collectionLinks = `messages/${element.patientId}/${props.fetchId}`
                 await firestore.collection(collectionLinks).orderBy('createdAt').get().then(data => {
                     obj[element.patientId] = data.docs[data.docs.length - 1].data().text
