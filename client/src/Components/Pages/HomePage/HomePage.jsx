@@ -1,5 +1,7 @@
 import React from 'react'
 import RandomCard from './RandomCard'
+import AboutUs from './AboutUs'
+import Services from './Services'
 import './HomePage.css'
 
 const HomePage = ({ departments }) => {
@@ -21,6 +23,8 @@ const HomePage = ({ departments }) => {
             <div className='homepage__text'>
                 <h1 >Welcome To Our Hospital</h1>
             </div>
+            <AboutUs/>
+            <Services/>
             <div className='random'>
                 {
                     res[0] ?

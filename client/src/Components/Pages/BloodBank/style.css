@@ -1,0 +1,64 @@
+/* #blood-image{
+   margin-left: 20px;
+   
+}*/
+#search{
+width: 400px;
+margin-right: 20px;
+align-items: center !important;
+justify-content: center;  
+margin-top: 20px;
+
+} 
+#main{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center;
+}
+#main-header{
+    display: flex !important;
+    flex-direction: column;
+    background-size: cover !important;
+    
+    
+}
+#image-header{
+ align-items: center !important;
+  justify-content: center;
+    width: 60% !important;
+    height: 150px;
+    border-radius: 15px;
+    border-color:lightblue ;
+    border-style: solid;
+}
+.active-cyan input[type=text] {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+  }
+  #table{
+    align-items: center !important;
+    justify-content: center;
+      width:400px
+    }
+
+    #forTable{
+        display: flex;
+        /* flex-wrap: wrap; */
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #for{
+        display: flex;
+        /* flex-wrap: wrap; */
+        flex-direction: row; 
+    }
+    .pname{
+        padding-right: 240px;
+        /* background-color: lightcoral; */
+    }
+    .bname{
+        padding-right: 20px;
+    }

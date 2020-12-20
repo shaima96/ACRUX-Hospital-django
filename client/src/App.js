@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css';
-
 import Header from './Components/SharedComponents/Header/Header.jsx';
 import DoctorPage from './Components/Pages/DoctorProfilePage/DoctorPage'
 import { connect } from "react-redux"
@@ -13,11 +12,12 @@ import { viewDepartments } from './Redux/Department/departmentAction'
 import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/DepartmentDoctor'
 import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
 import ChatShell from "./Components/Pages/ChatPage/ChatShell"
-
+import DiagnosePage from './Components/Pages/DiagnosePage/DiagnosePage'
+import BloodBank from './Components/Pages/BloodBank/BloodBankMain'
 class App extends React.Component {
   constructor(props) {
     super(props)
-
+  
   }
 
 
@@ -30,6 +30,7 @@ class App extends React.Component {
         this.props.viewDepartments(data)
         console.log("dep", data)
       })
+      
 
   }
 
@@ -59,6 +60,7 @@ class App extends React.Component {
       body: JSON.stringify(user)
     };
 
+
     fetch('http://localhost:8000/user/details', requestOptions)
       .then(response => response.json())
       .then(user => {
@@ -81,22 +83,26 @@ class App extends React.Component {
 
   render() {
     const { departments,currentUser } = this.props
+    
     return (
       <div className='App'>
+       
         <Header />
         <Switch>
           <Route exact path='/' render={(props) => <HomePage departments={departments} {...props} />} />
 
           <Route exact path='/profile' render={(props) => currentUser ? <UsersProfile {...props} /> : <Redirect to='/' />} />
+          <Route exact path='/bloodbank'  render={(props) => currentUser ? <BloodBank {...props} /> : <Redirect to='/' />}/>
           <Route exact path='/doctors' component={DoctorPage} />
           <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props} />} />
           <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
           <Route exact path='/appointment/:id' component={AppointmentPage} />
-          <Route exact path='/chat' render={(props) => <ChatShell {...props} />} />
-          <Route exact path='/chat/:id' render={(props) => <ChatShell {...props} />} />
+          {/* <Route exact path='/chat' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} /> */}
+          <Route exact path='/chat/:id' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} />
+          <Route exact path='/heart' render={(props) => currentUser ? <DiagnosePage {...props} /> : <Redirect to='/' />} />
 
         </Switch>
-
+        
       </div>
     )
   }

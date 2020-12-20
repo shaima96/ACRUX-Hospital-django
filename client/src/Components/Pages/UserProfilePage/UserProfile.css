@@ -9,8 +9,12 @@
 }
 
 .profile__left {
-    width: 30%;
-    border: 1px solid black;
+    margin-top: 9px;
+    width: 20%;
+    border-radius: 30px;
+    /* box-shadow: 0 10px 6px -6px #777; */
+    box-shadow: 3px 4px 15px #00000026;
+    /* border: 1px solid black; */
     /* height: 100%; */
 }
 
@@ -29,23 +33,26 @@
 }
 
 .profile__right {
-    width: 70%;
+    width: 77%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .right__image {
     width: 100%;
-    height: 14rem;
-    border: 1px solid black;
+    height: 17rem;
+    /* border: 1px solid black; */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    margin: 20px 20px;
+    padding: 10px;
+    
+    /* margin: 20px 20px; */
 }
 
 .right__content {
@@ -57,17 +64,19 @@
 
 .content__left {
     width: 70%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .content__left__collection {
+    margin-top: 30px;
+    margin-left: 9px;
     display: flex;
     justify-content:start;
     align-items: center;
     height: 9rem;
-    margin-bottom: 20px;
-    border: 1px solid black;
-    padding: 5px;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: 3px 4px 15px #00000026;
 }
 .image-div{
     margin-right: 10px;
@@ -78,14 +87,13 @@
     border-radius: 30px;
 }
 
-.content__left__royal {
-    border: 1px solid black;
-}
+
 
 .content__right {
     margin-top: 0px;
     width: 30%;
-    border: 1px solid black;
+    /* margin-bottom: 60px; */
+    /* border: 1px solid black; */
 }
 
 .user_details {
@@ -100,16 +108,58 @@
 .user_card {
     margin-top: 0.1rem;
     width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .user_image {
-    width: 66%;
-    object-fit: contain;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin-top: 25px;
     border-radius: 100px;
+    box-shadow: 0 10px 6px -6px #777;
 }
+
+.user_info{
+    margin-top: 30px;
+}
+
 .user_upload{
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user_inputfile {
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+
+.user_inputfile + label {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: aquamarine;
+    box-shadow: 0 10px 6px -6px #777;
+    
+}
+
+.patients{
+    margin-top: 15px;
+    padding: 15px;
 }
 
 

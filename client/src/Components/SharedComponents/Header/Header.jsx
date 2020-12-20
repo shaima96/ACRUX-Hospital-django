@@ -4,9 +4,9 @@ import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 import RegisterDialog from "./RegisterDialog"
 import { Button, Avatar, Typography } from '@material-ui/core'
-import { setCurrentUser,setUserRole, setUserImage, setMessageContacts, setContactTitle, setFetchId } from '../../../Redux/User/userActions'
+import { setCurrentUser, setUserRole, setUserImage, setMessageContacts, setLastTextObject, setContactTitle, setFetchId, setDoctorId } from '../../../Redux/User/userActions'
 
-const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage, setMessageContacts, setContactTitle, setFetchId }) => {
+const Header = ({ currentUser, setLastTextObject, setCurrentUser, setUserRole, image, setUserImage, setMessageContacts, setContactTitle, setFetchId, setDoctorId }) => {
     // console.log(currentUser)
     return (
 
@@ -19,13 +19,15 @@ const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage,
                 {
                     currentUser ?
                         <div className='header__contents'>
-                            <Link to='/doctors' style={{textDecoration:"none"}}><h4 className='header__taps'> Doctors </h4></Link>
-                            <Link to='/departments' style={{textDecoration:"none"}}><h4 className='header__taps'> Departments </h4></Link>
+                             <Link to='/bloodbank' style={{ textDecoration: "none" }}><h4 className='header__taps'> BloodBank </h4></Link>
+                            <Link to='/doctors' style={{ textDecoration: "none" }}><h4 className='header__taps'> Doctors </h4></Link>
+                            <Link to='/departments' style={{ textDecoration: "none" }}><h4 className='header__taps'> Departments </h4></Link>
                             <Link to='/profile'>
-                            <Avatar style={{ marginRight: '20px' }} alt={currentUser} src={image} />
+                                <Avatar style={{ marginRight: '20px' }} alt={currentUser} src={image} />
                             </Link>
-                            
-                            <Button variant="contained" color="primary" onClick={() => {
+                           
+
+                            <Button variant="outlined" color="primary" onClick={() => {
                                 localStorage.removeItem('Authorization')
                                 setCurrentUser({
                                     currentUser: null,
@@ -37,6 +39,8 @@ const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage,
                                 setMessageContacts([])
                                 setContactTitle('')
                                 setFetchId(null)
+                                setLastTextObject({})
+                                setDoctorId(null)
                             }}> LogOut </Button>
 
                         </div>
@@ -48,7 +52,7 @@ const Header = ({ currentUser, setCurrentUser, setUserRole, image, setUserImage,
     )
 }
 
-const mapStateToProps = ({ user: { currentUser,image } }) => {
+const mapStateToProps = ({ user: { currentUser, image } }) => {
     return {
         currentUser,
         image
@@ -59,10 +63,12 @@ const mapDispatchToProps = (dispatch) => {
     return {
         setCurrentUser: user => dispatch(setCurrentUser(user)),
         setUserRole: role => dispatch(setUserRole(role)),
-        setUserImage : image => dispatch(setUserImage(image)),
-        setMessageContacts : array => dispatch(setMessageContacts(array)),
+        setUserImage: image => dispatch(setUserImage(image)),
+        setMessageContacts: array => dispatch(setMessageContacts(array)),
         setContactTitle: name => dispatch(setContactTitle(name)),
-        setFetchId : id => dispatch(setFetchId(id))
+        setFetchId: id => dispatch(setFetchId(id)),
+        setLastTextObject: obj => dispatch(setLastTextObject(obj)),
+        setDoctorId: id => dispatch(setDoctorId(id))
 
 
     }
