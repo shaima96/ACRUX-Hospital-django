@@ -29,8 +29,8 @@ export default function DepCard({department}) {
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {department.title}
-            </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
+            </Typography >
+                    <Typography variant="body2" color="textSecondary" component="p" className='dep_text'>
                         {department.about}
             </Typography>
                 </CardContent>
