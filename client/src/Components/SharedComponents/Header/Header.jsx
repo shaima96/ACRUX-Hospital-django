@@ -27,7 +27,7 @@ const Header = ({ currentUser, setLastTextObject, setCurrentUser, setUserRole, i
                             </Link>
                            
 
-                            <Button variant="contained" color="primary" onClick={() => {
+                            <Button variant="outlined" color="primary" onClick={() => {
                                 localStorage.removeItem('Authorization')
                                 setCurrentUser({
                                     currentUser: null,

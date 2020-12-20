@@ -4,7 +4,11 @@
     align-items: center;
     padding: 15px;
     background-color: rgba(255, 255, 255, 0.651);
-    opacity: .75;
+    opacity: .9;
+    box-shadow: 0 6px 6px -6px #777;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .header__logo{
@@ -20,7 +24,11 @@
 
 .header__taps{
     margin-right: 20px;
+    margin-bottom: 0;
     text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 22px;
 }
 
 .contents__content{
