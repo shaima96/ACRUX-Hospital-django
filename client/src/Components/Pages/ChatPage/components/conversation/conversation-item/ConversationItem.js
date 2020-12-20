@@ -16,7 +16,7 @@ const ConversationItem = ({ name, image, lastTextObject, recieverId, setLastText
             <img src={image} alt="" />
             <div className="title-text">{name}</div>
             {/* <div className="conversation-message">
-                {lastTextObject[recieverId] && lastTextObject[recieverId]}
+               {lastTextObject[recieverId]&&lastTextObject[recieverId]}
             </div> */}
         </div>
     ); 
