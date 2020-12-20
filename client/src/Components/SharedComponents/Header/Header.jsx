@@ -19,11 +19,13 @@ const Header = ({ currentUser, setLastTextObject, setCurrentUser, setUserRole, i
                 {
                     currentUser ?
                         <div className='header__contents'>
+                             <Link to='/bloodbank' style={{ textDecoration: "none" }}><h4 className='header__taps'> BloodBank </h4></Link>
                             <Link to='/doctors' style={{ textDecoration: "none" }}><h4 className='header__taps'> Doctors </h4></Link>
                             <Link to='/departments' style={{ textDecoration: "none" }}><h4 className='header__taps'> Departments </h4></Link>
                             <Link to='/profile'>
                                 <Avatar style={{ marginRight: '20px' }} alt={currentUser} src={image} />
                             </Link>
+                           
 
                             <Button variant="contained" color="primary" onClick={() => {
                                 localStorage.removeItem('Authorization')
