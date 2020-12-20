@@ -8,13 +8,13 @@ class RandomForestCancerClassifier:
 
     def preprocessing(self, input_data):
         # JSON to pandas DataFrame
-        print(input_data)
+        # print(input_data)
         input_data = pd.DataFrame(input_data, index=[0])
-        print(input_data)
+        # print(input_data)
         return input_data
 
     def predict(self, input_data):
-        print(self.model.predict_proba(input_data))
+        # print(self.model.predict_proba(input_data))
         return self.model.predict_proba(input_data)
 
     def postprocessing(self, input_data):
