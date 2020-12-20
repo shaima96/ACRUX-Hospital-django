@@ -14,6 +14,7 @@ import DepartmentDoctor from './Components/Pages/DepartmentDoctorPage/Department
 import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
 import ChatShell from "./Components/Pages/ChatPage/ChatShell"
 import DiagnosePage from './Components/Pages/DiagnosePage/DiagnosePage'
+import AboutUs from './Components/Pages/AboutUsPage/AboutUs'
 
 class App extends React.Component {
   constructor(props) {
@@ -96,6 +97,7 @@ class App extends React.Component {
           {/* <Route exact path='/chat' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} /> */}
           <Route exact path='/chat/:id' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} />
           <Route exact path='/heart' render={(props) => currentUser ? <DiagnosePage {...props} /> : <Redirect to='/' />} />
+          <Route exact path='/about' component={AboutUs} />
 
         </Switch>
 
