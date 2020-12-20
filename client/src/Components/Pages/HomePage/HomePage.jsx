@@ -25,6 +25,7 @@ const HomePage = ({ departments }) => {
             </div>
             <AboutUs/>
             <Services/>
+            <h2 className='content__title' style={{marginTop:'100px'}}>We Take Care Of Your Life Healthy Health</h2>
             <div className='random'>
                 {
                     res[0] ?
