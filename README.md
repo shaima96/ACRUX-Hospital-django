@@ -6,7 +6,7 @@
  - patinet can book an appointment with doctor
  - doctor & patient can make chat with each other 
  - dcotor can check all blood bank users
-
+ 
 # Future Features :
  - send message to all users to donate blood for emergency
 
@@ -18,12 +18,14 @@
 
 ## Technologies used
 - Machine learning
-- Frontend
-  - React (Redux ,Hooks ,firebase )
-  - User Interface Framework (Material UI)
-- Backend
-  - Python (Django)
-  - Authentication (JWT)
+- [Reactjs](https://reactjs.org/) - For the frontend
+- [Redux](https://react-redux.js.org/)- For the frontend
+- [Material UI](https://material-ui.com/)User Interface Framework
+- [Django](https://www.djangoproject.com/)
+- Firebase
+- [Trello] (https://trello.com/b/FFojNT3J/thesis-project)
+- [Figma] (https://www.figma.com/file/8BDxJ5qw5olfUAPNUFYy7F/Acrux-hospital-Team-Library?node-id=312%3A2)
+
 ## Installing Dependencies
 1. Backend
    - Go from root directory to Backend directory
