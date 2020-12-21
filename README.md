@@ -38,7 +38,7 @@
    ```
    - Run the server:
     ```
-    cd src/
+    cd Backend/
     python manage.py runserver
     ```
 2. frontend
