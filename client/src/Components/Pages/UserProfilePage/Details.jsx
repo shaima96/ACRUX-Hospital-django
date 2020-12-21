@@ -9,6 +9,7 @@ const Details = ({ doctorId }) => {
     console.log(patients)
 
     const getAppointments = () => {
+        // console.log('called')
         const obj = { doctorId }
         console.log(obj)
         const requestOptions = {
@@ -27,21 +28,27 @@ const Details = ({ doctorId }) => {
 
     useEffect(() => {
         getAppointments()
-    },[])
+    }, [])
+
+
 
     return (
-        <div >
-            {
-                patients && patients.map( (patient ,i) => <PatientsCard key={i} patient={patient} />  )
-            }
+        <div style={{ padding: '20px' }}>
+            <h5> Patients Requests  </h5>
+            <div >
+                {
+                    patients && patients.map((patient, i) => <PatientsCard key={i} patient={patient} getAppointments={getAppointments} />)
+                }
+            </div>
         </div>
+
     )
 
 
 }
 
 const mapStateToProps = ({ user: { doctorId } }) => {
-    return{
+    return {
         doctorId
     }
 }
