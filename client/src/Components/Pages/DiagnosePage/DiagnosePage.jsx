@@ -1,7 +1,7 @@
 import React from 'react'
 import { TextField, Button } from '@material-ui/core';
 import './Diagnose.css'
-import DiagnoseResult from './DjagnoseResult'
+import CustomizedDialogs from './DjagnoseResult'
 
 class DiagnosePage extends React.Component {
     constructor() {
@@ -30,8 +30,8 @@ class DiagnosePage extends React.Component {
         this.setState({ [name]: value })
         console.log(value)
     }
-    onSubmit = (e) => {
-        e.preventDefault()
+
+    postRequest = () => {
         const { age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal } = this.state
         const obj = { age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal }
         const requestOptions = {
@@ -59,26 +59,53 @@ class DiagnosePage extends React.Component {
     render() {
         const { age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal, probability, label } = this.state
         return (
-            <div style={{ display: 'flex' }}>
-                <form onSubmit={this.onSubmit} className='diagnose_form'>
-                    <TextField onChange={this.handleChange} name='age' type='text' value={age} label="Age" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='sex' type='text' value={sex} label="sex" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='cp' type='text' value={cp} label="cp" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='trestbps' type='text' value={trestbps} label="trestbps" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='chol' type='text' value={chol} label="chol" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='fbs' type='text' value={fbs} label="fbs" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='restecg' type='text' value={restecg} label="restecg" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='thalach' type='text' value={thalach} label="thalach" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='exang' type='text' value={exang} label="exang" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='oldpeak' type='text' value={oldpeak} label="oldpeak" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='slope' type='text' value={slope} label="slope" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='ca' type='text' value={ca} label="ca" variant="outlined" className='diagnose_input' required />
-                    <TextField onChange={this.handleChange} name='thal' type='text' value={thal} label="thal" variant="outlined" className='diagnose_input' required />
-                    <Button type='submit' color='primary' variant='contained' className='diagnose_input'> Check patient result </Button>
-                </form>
-                {
-                    probability && <DiagnoseResult label={label} probability={probability} />
-                }
+            <div className='form_page'>
+                <div className='form_picture'></div>
+                <div className='form_text'>
+                    {/* <h1 >Diagnose Heart  Attack</h1> */}
+                </div>
+                <h3 id="form_title">Heart Attack Form</h3>
+
+                <div className='form'>
+                    <form onSubmit={this.onSubmit} className='form_textfield'>
+                        <div className='form1'>
+                            <TextField id="standard-basic" label="Your age in years" onChange={this.handleChange} name='age' type='text' value={age} required />
+                            <br />
+                            <TextField id="standard-basic" label="1 = male; 0 = female" onChange={this.handleChange} name='sex' type='text' value={sex} required />
+                            <br />
+                            <TextField id="standard-basic" label="Chest pain type" onChange={this.handleChange} name='cp' type='text' value={cp} required />
+                            <br />
+                            <TextField id="standard-basic" label="Resting blood pressure" onChange={this.handleChange} name='trestbps' type='text' value={trestbps} required />
+                            <br />
+                            <TextField id="standard-basic" label="Serum cholestoral in mg/dl" onChange={this.handleChange} name='chol' type='text' value={chol} required />
+                            <br />
+                            <TextField id="standard-basic" label="(fasting blood sugar > 120 mg/dl)" onChange={this.handleChange} name='fbs' type='text' value={fbs} required />
+                            <br />
+                            <TextField id="standard-basic" label="Electrocardiographic results" onChange={this.handleChange} name='restecg' type='text' value={restecg} required />
+                        </div>
+                        <div className='form2'>
+                            <TextField id="standard-basic" label="Maximum heart rate achieved" onChange={this.handleChange} name='thalach' type='text' value={thalach} required />
+                            <br />
+                            <TextField id="standard-basic" label="Exercise induced angina (1 = yes; 0 = no)" onChange={this.handleChange} name='exang' type='text' value={exang} required />
+                            <br />
+                            <TextField id="standard-basic" label="ST depression induced by exercise" onChange={this.handleChange} name='oldpeak' type='text' value={oldpeak} required />
+                            <br />
+                            <TextField id="standard-basic" label="The slope of the peak exercise ST segment" onChange={this.handleChange} name='slope' type='text' value={slope} required />
+                            <br />
+                            <TextField id="standard-basic" label="number of major vessels (0-3)" onChange={this.handleChange} name='ca' type='text' value={ca} required />
+                            <br />
+                            <TextField id="standard-basic" label="3 = normal; 6 = fixed defect; 7 = reversable defect" onChange={this.handleChange} name='thal' type='text' value={thal} required />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <div className='result'>
+                                <CustomizedDialogs result={this.postRequest} label={label} probability={probability} />
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
 
         )
