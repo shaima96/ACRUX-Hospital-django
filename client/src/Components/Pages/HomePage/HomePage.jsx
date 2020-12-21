@@ -21,9 +21,12 @@ const HomePage = ({ departments }) => {
     return (
         <div className='homepage'>
             <div className='homepage__picture'></div>
-            <Link to='/about' className='homepage__text' style={{ textDecoration: "none" }}><h1 style={{textDecoration:'none',color:'white'}} >Welcome To Our Hospital</h1></Link>
+            <Link to='/about' className='homepage__text' style={{ textDecoration: "none" }}><h1 style={{ textDecoration: 'none', color: 'white' }} >Welcome To Our Hospital</h1></Link>
             <AboutUs />
-            <Services />
+            <div style={{ width:'72%' }}>
+                <Services />
+            </div>
+
             <h2 className='content__title' style={{ marginTop: '100px' }}>We Take Care Of Your Life Healthy Health</h2>
             <div className='random'>
                 {
