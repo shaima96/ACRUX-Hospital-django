@@ -1,4 +1,4 @@
-.form_page{
+.cancer_page{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -8,7 +8,7 @@
 }
 
 
-.form_picture{
+.cancer_picture{
     width: 100%;
     height: 500px;
     background-image: url(https://shtheme.org/demosd/mecare/wp-content/uploads/2020/08/blog_img01.jpg);
@@ -18,7 +18,7 @@
     margin-bottom: 20px;
 }
 
-.form_text{
+.cancer_text{
     color: #013243;
 	position: absolute;
 	top: 190px;
@@ -26,42 +26,42 @@
 	font-size: 70px;
 	padding: 15px 30px;
     font-family: 'Titillium Web', sans-serif;
-    margin-right: 40px;
+    margin-right:100px;
 }
 
-#standard-basic{
+#standard{
     width: 400px;
     text-align: left;
+    border-radius:30px;
+    border:1px ;
 }
-.form{
+.cancer_form{
     width: 100%;
-	margin-top: 30px;
+	margin-top: -10px;
 	height: 500px;
 }
-
-#form_title{
+ #cancer_title
+ {
     font-family: 'Titillium Web', sans-serif;
     color: #013243;
     font-size: 40px;
     margin-top: 20px;
-    margin-left: 60px;
+    margin-left: -50px;
     font-weight: bold;
 }
 
-.form1{
+.cancer_form1{
     width: 40%;
     margin-top: 30px;
-    margin-left:250px;
+    margin-left: 500px;
 }
-.form2{
 
-    width: 40%;
-    margin-top: -335px;
-    margin-left: 900px;
-}
-.result{
+.cancer_result{
     margin-top: 20px;
-    margin-left: -80px;
+    margin-left: 750px;
     width: 200px;
 }
 
+.form_textfield{
+    margin-left: 40px;
+}
