@@ -7,7 +7,7 @@ import ProfileLeft from "./ProfileLeft.jsx"
 import RightImage from "./RightImage.jsx"
 import Details from "./Details.jsx"
 import UserForm from './UserForm'
-import {setChatArray} from "../../../Redux/User/userActions"
+import { setChatArray } from "../../../Redux/User/userActions"
 import PatientsDetails from './PatientsDetails'
 import "./UserProfile.css"
 class UsersProfile extends React.Component {
@@ -22,20 +22,20 @@ class UsersProfile extends React.Component {
         fetch('http://localhost:8000/user/')
             .then(response => response.json())
             .then(data => {
-                let resultObject={}
-                data.map(element=>{
-                    if(element.patient){
-                        resultObject[element.patient.userId]={
-                            image:element.patient.image,
-                            name:element.name
+                let resultObject = {}
+                data.map(element => {
+                    if (element.patient) {
+                        resultObject[element.patient.userId] = {
+                            image: element.patient.image,
+                            name: element.name
                         }
-                    }else if(element.doctor){
-                        resultObject[element.doctor.doctor]={
-                            image:element.doctor.image,
-                            name:element.name
+                    } else if (element.doctor) {
+                        resultObject[element.doctor.doctor] = {
+                            image: element.doctor.image,
+                            name: element.name
                         }
                     }
-                    
+
                 })
                 this.props.setChatArray(resultObject)
                 // console.log("result ARRAY",res)
@@ -68,9 +68,9 @@ class UsersProfile extends React.Component {
                                     }
                                     <div className="content__right">
                                         {
-                                           (role === "doctor") ? <Details /> : <PatientsDetails/>
+                                            (role === "doctor") ? <Details /> : <PatientsDetails />
                                         }
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -88,10 +88,10 @@ const mapStateToProps = ({ user: { role, currentUser } }) => {
         currentUser
     }
 }
-const mapDispatchToProps=dispatch=>{
-    return{
-        setChatArray:array=>dispatch(setChatArray(array))
+const mapDispatchToProps = dispatch => {
+    return {
+        setChatArray: array => dispatch(setChatArray(array))
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(UsersProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(UsersProfile);

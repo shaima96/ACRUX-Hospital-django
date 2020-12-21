@@ -48,10 +48,14 @@ class SignIn extends React.Component {
                 return loader()
             })
             .then((data) => {
-                // console.log("DISPATCH ME", data)
+                console.log("DISPATCH ME", data)
+                if(data.code){
+                    throw Error
+                }
                 this.props.setCurrentUser(data)
                 window.location.reload()
             })
+            .catch(() => alert('Invalid Credentials'))
     }
 
     signIn = (e) => {
