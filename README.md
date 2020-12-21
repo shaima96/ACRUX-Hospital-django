@@ -1,14 +1,11 @@
-<!-- #Project Name : ACRUX-Hospital-django
 
-ACRUX-Hospital-django: A web app. this website help Hospital ,Doctors ,Patients ,normal people to commuinicat easier with  each other.
-
-##Team : -->
-# Sparkles
-> A website where you can book cleaning services, buy cleaning products, and add or check cleaning tips provided by others.
+#  ACRUX-Hospital-django
+> ACRUX-Hospital-django: A web app. this website help Hospital ,Doctors ,Patients ,normal people to commuinicat easier with  each other.
 ## Team
-- **Scrum Master**: Qamar Jaradat
-- **Co-Leader**: Halal Salhab
-- **Development Team Members**: Belal Abuhani, Hanadi Sabuhani, Hala Salhab, Qamar Jaradat
+- **Scrum Master**: [Moumen Hanbali](https://github.com/Moumenh)
+- **Co-Leader**: [Israa kittaneh](https://github.com/israakittaneh)
+-  [Asem Nouri](https://github.com/asemnouri) 
+- [Shaima Azmi](https://github.com/shaima96) 
 ## Technologies used
 - Frontend
   - React (Redux ,Hooks , React Router)
