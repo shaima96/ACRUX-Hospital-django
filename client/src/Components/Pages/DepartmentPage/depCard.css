@@ -61,9 +61,16 @@ color: seashell;}
     flex-direction: column;
     width: 50%;
 }
-.cardit :hover{
-    background: rgb(0,64,115);
-    background: linear-gradient(90deg, rgba(0,64,115,1) 0%, rgba(74,134,230,1) 54%, rgba(192,232,240,1) 100%);
+
+.cardit{
+    background-color: white !important;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in !important;
+}
+
+.cardit:hover{
+    background-color: #43c0d5 !important;
+    /* background-color: linear-gradient(90deg, rgba(0,64,115,1) 0%, rgba(74,134,230,1) 54%, rgba(192,232,240,1) 100%); */
 }
 
 .cardit :hover > .zameel {
@@ -79,4 +86,17 @@ color: seashell;}
 .cardit :hover > h2 {
     color: white !important;
     /* z-index: 1; */
+}
+.content__title1{
+    width: 100%;
+    height: 370px;
+    background-image: url(https://shtheme.org/demosd/mecare/wp-content/uploads/2020/11/slider_img02.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-text-stroke-color: black;
 }

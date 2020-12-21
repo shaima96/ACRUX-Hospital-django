@@ -45,11 +45,19 @@ class App extends React.Component {
     return fetch('http://localhost:8000/auth/users/me', requestOptions)
       .then(response => response.json())
       .then(user => {
-        // console.log("ME", user)
+        console.log("ME", user)
+        if(user.messages){
+          console.log('iff')
+          throw Error
+        }
         this.props.setCurrentUser(user)
         return user
       })
       .then((user) => this.userRole({ pk: user.id }))
+      .catch(() => {
+        this.props.setUserRole('user')
+        console.log('token expired')
+      })
 
   }
 
