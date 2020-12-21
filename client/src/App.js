@@ -14,6 +14,7 @@ import AppointmentPage from './Components/Pages/AppointmentPage/AppointmentPage'
 import ChatShell from "./Components/Pages/ChatPage/ChatShell"
 import DiagnosePage from './Components/Pages/DiagnosePage/DiagnosePage'
 import BloodBank from './Components/Pages/BloodBank/BloodBankMain'
+import Footer from './Components/SharedComponents/Footer/Footer'
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -102,6 +103,7 @@ class App extends React.Component {
           <Route exact path='/heart' render={(props) => currentUser ? <DiagnosePage {...props} /> : <Redirect to='/' />} />
 
         </Switch>
+        <Footer/>
         
       </div>
     )
