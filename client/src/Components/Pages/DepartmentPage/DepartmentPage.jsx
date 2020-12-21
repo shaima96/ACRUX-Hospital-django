@@ -14,7 +14,9 @@ const CardsList = ({ departments }) => {
   console.log(departments)
     return(
   <div>
+  <h1 className='content__title1'>Departments</h1>
     <div className="container">
+
       <div className="container_left">
         {
           departments.slice(0, 3).map((department, i) => (
