@@ -73,7 +73,7 @@ const DoctorProfile = ({ setMessageContacts, role, fetchId, contactArray, setCon
                             </div>
                         </div>
                         :
-                        <div>no doctor</div>
+                        <div></div>
                 }
             </div>
         </div>
