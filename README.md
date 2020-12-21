@@ -19,12 +19,14 @@
 ## Technologies used
 - [Reactjs](https://reactjs.org/) - For the frontend
 - [Redux](https://react-redux.js.org/)- For the frontend
-- [Material UI](https://material-ui.com/)User Interface Framework
-- [Django](https://www.djangoproject.com/)
+- [Material UI](https://material-ui.com/) - User Interface Framework
+- [Django](https://www.djangoproject.com/) - for backend
 - [Trello](https://trello.com/b/FFojNT3J/thesis-project)
 - [Figma](https://www.figma.com/file/8BDxJ5qw5olfUAPNUFYy7F/Acrux-hospital-Team-Library?node-id=312%3A2)
 - Machine learning
 - Firebase
+- SQLite - For the database
+
 ## Installing Dependencies
 1. Backend
    - Go from root directory to Backend directory
