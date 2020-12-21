@@ -61,9 +61,16 @@ color: seashell;}
     flex-direction: column;
     width: 50%;
 }
-.cardit :hover{
-    background: rgb(0,64,115);
-    background: linear-gradient(90deg, rgba(0,64,115,1) 0%, rgba(74,134,230,1) 54%, rgba(192,232,240,1) 100%);
+
+.cardit{
+    background-color: white !important;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in !important;
+}
+
+.cardit:hover{
+    background-color: rgb(0,64,115) !important;
+    /* background-color: linear-gradient(90deg, rgba(0,64,115,1) 0%, rgba(74,134,230,1) 54%, rgba(192,232,240,1) 100%); */
 }
 
 .cardit :hover > .zameel {
