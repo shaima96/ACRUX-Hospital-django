@@ -27,8 +27,10 @@ const ChatMessage = (props) => {
                 console.log('el', element)
                 let collectionLinks = `messages/${element.patientId}/${props.fetchId}`
                 await firestore.collection(collectionLinks).orderBy('createdAt').get().then(data => {
-                    obj[element.patientId] = data.docs[data.docs.length - 1].data().text
-                    console.log("ssssssssssssssssssss", data.docs[data.docs.length - 1].data().text)
+                    if(data.docs[data.docs.length - 1]){
+                        obj[element.patientId] = data.docs[data.docs.length - 1].data().text
+                        console.log("ssssssssssssssssssss", data.docs[data.docs.length - 1].data().text)
+                    }
                 })
                 props.setLastTextObject(obj)
             })
@@ -37,8 +39,10 @@ const ChatMessage = (props) => {
             await props.contactArray.map(async (element) => {
                 let collectionLinks = `messages/${props.fetchId}/${element.doctorId}`
                 await firestore.collection(collectionLinks).orderBy('createdAt').get().then(data => {
+                    if(data.docs[data.docs.length - 1]){
                     obj[element.doctorId] = data.docs[data.docs.length - 1].data().text
                     console.log("ssssssssssssssssssss", data.docs[data.docs.length - 1].data().text)
+                    }
                 })
                 props.setLastTextObject(obj)
             })

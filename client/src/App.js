@@ -46,11 +46,19 @@ class App extends React.Component {
     return fetch('http://localhost:8000/auth/users/me', requestOptions)
       .then(response => response.json())
       .then(user => {
-        // console.log("ME", user)
+        console.log("ME", user)
+        if (user.messages) {
+          console.log('iff')
+          throw Error
+        }
         this.props.setCurrentUser(user)
         return user
       })
       .then((user) => this.userRole({ pk: user.id }))
+      .catch(() => {
+        this.props.setUserRole('user')
+        console.log('token expired')
+      })
 
   }
 
@@ -71,7 +79,7 @@ class App extends React.Component {
           this.props.setFetchId(user.patient.userId)
           this.props.setUserImage(user.patient.image)
         } else if (user.doctor) {
-          console.log('roole',user.doctor )
+          console.log('roole', user.doctor)
           this.props.setUserRole(user.doctor.role)
           this.props.setFetchId(user.doctor.doctor)
           this.props.setDoctorId(user.doctor.pk)
@@ -82,7 +90,7 @@ class App extends React.Component {
 
 
   render() {
-    const { departments,currentUser } = this.props
+    const { departments, currentUser,role } = this.props
     return (
       <div className='App'>
         <Header />
@@ -93,7 +101,7 @@ class App extends React.Component {
           <Route exact path='/doctors' component={DoctorPage} />
           <Route exact path='/departments' render={(props) => <Departments departments={departments} {...props} />} />
           <Route exact path='/department/:id' render={(props) => <DepartmentDoctor {...props} />} />
-          <Route exact path='/appointment/:id' component={AppointmentPage} />
+          <Route exact path='/appointment/:id' render={(props) => (currentUser && role === 'patient') ? <AppointmentPage {...props} /> : <Redirect to='/' />} />
           {/* <Route exact path='/chat' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} /> */}
           <Route exact path='/chat/:id' render={(props) => currentUser ? <ChatShell {...props} /> : <Redirect to='/' />} />
           <Route exact path='/heart' render={(props) => currentUser ? <DiagnosePage {...props} /> : <Redirect to='/' />} />
@@ -123,7 +131,8 @@ const mapStateToProps = (state) => {
   // console.log('connect',state.user.currentUser)
   return {
     departments: state.department.Departments,
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    role: state.user.role
   }
 }
 

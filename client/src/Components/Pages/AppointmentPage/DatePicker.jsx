@@ -7,9 +7,9 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 
-export default function DatePicker({ setDate, getDates,setAvHour,doctorId }) {
+export default function DatePicker({ setDate, getDates, setAvHour, doctorId }) {
   // The first commit of Material-UI
-  
+
   const [selectedDate, setSelectedDate] = React.useState(new Date());
   const [open, setOpen] = React.useState(false);
   const today = new Date();
@@ -33,10 +33,10 @@ export default function DatePicker({ setDate, getDates,setAvHour,doctorId }) {
   }
 
   const handleDateChange = (date) => {
-    console.log({ date: convert(date),doctorId })
+    console.log({ date: convert(date), doctorId })
     setSelectedDate(date)
     setDate(convert(date))
-    PostDate({ date: convert(date),doctorId })
+    PostDate({ date: convert(date), doctorId })
     setTimeout(() => getDates(), 200)
     setAvHour(null)
   };
@@ -44,21 +44,25 @@ export default function DatePicker({ setDate, getDates,setAvHour,doctorId }) {
 
 
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justify="space-around">
-        <KeyboardDatePicker
-          margin="normal"
-          id="date-picker-dialog"
-          label="Book an appoinment"
-          format="MM/dd/yyyy"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-          minDate={today}
-        />
-      </Grid>
-    </MuiPickersUtilsProvider>
+    <div>
+
+
+      <MuiPickersUtilsProvider utils={DateFnsUtils} style={{ width: '30%' }}>
+        <Grid container justify="space-around">
+          <KeyboardDatePicker
+            margin="normal"
+            id="date-picker-dialog"
+            label="Book an appoinment"
+            format="MM/dd/yyyy"
+            value={selectedDate}
+            onChange={handleDateChange}
+            KeyboardButtonProps={{
+              'aria-label': 'change date',
+            }}
+            minDate={today}
+          />
+        </Grid>
+      </MuiPickersUtilsProvider>
+    </div>
   );
 }

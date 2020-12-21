@@ -3,8 +3,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.651);
-    opacity: .75;
+    background-color: rgba(255, 255, 255, 0.966);
+    opacity: .98;
+    box-shadow: 0 6px 6px -6px #777;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .header__logo{
@@ -19,8 +23,12 @@
 }
 
 .header__taps{
-    margin-right: 20px;
+    margin-right: 25px;
+    margin-bottom: 0;
     text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 17px;
 }
 
 .contents__content{

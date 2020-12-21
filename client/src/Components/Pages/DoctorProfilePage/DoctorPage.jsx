@@ -1,6 +1,6 @@
 import React from 'react';
 import './doctor.css'
-import DoctorCard from "./DoctorCard";
+import DoctorCard from './DoctorCard'
 import { connect } from "react-redux"
 import { setCurrentDoctor } from "../../../Redux/Doctor/doctorActions"
 
@@ -36,7 +36,9 @@ class DoctorPage extends React.Component {
 
         return (
             <div className='home'>
-                
+                <div className='doctor_img'>
+                <h1 className='content__title'>Our Staff</h1>
+                </div>
                 <div className='doctors'>
                     {
                         currentDoctor ? currentDoctor.map((doc, i) => <DoctorCard doctor={doc} key={i} />

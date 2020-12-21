@@ -8,7 +8,7 @@ class HourSerializer(serializers.ModelSerializer):
     doctorName = serializers.CharField(source='doctorId.doctor.name',read_only=True )
     class Meta:
         model = Hour
-        fields = ('isAvailable' , 'date' ,'dayId' ,'hour','patientName' ,'doctorName','doctorId','patientId' )
+        fields = ('isAvailable' , 'date' ,'dayId' ,'hour','patientName' ,'doctorName','doctorId','patientId','id' )
 
 
 class DaySerializer(serializers.ModelSerializer):

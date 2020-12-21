@@ -1,10 +1,10 @@
 import React from 'react';
-import {connect} from "react-redux"
-import {setLastTextObject} from "../../../../../../Redux/User/userActions"
+import { connect } from "react-redux"
+import { setLastTextObject } from "../../../../../../Redux/User/userActions"
 import './ConversationItem.scss';
 
-const ConversationItem = ({name,image,lastTextObject,recieverId,setLastTextObject}) => {
- 
+const ConversationItem = ({ name, image, lastTextObject, recieverId, setLastTextObject }) => {
+
     // React.useEffect(()=>{
 
     // setTimeout(()=>{
@@ -15,20 +15,20 @@ const ConversationItem = ({name,image,lastTextObject,recieverId,setLastTextObjec
         <div className='conversation' >
             <img src={image} alt="" />
             <div className="title-text">{name}</div>
-            <div className="conversation-message">
+            {/* <div className="conversation-message">
                {lastTextObject[recieverId]&&lastTextObject[recieverId]}
-            </div>
+            </div> */}
         </div>
-    );
+    ); 
 }
-const mapDispatchToProps=dispatch=>{
-    return{
-        setLastTextObject:obj=>dispatch(setLastTextObject(obj))
+const mapDispatchToProps = dispatch => {
+    return {
+        setLastTextObject: obj => dispatch(setLastTextObject(obj))
     }
 }
-const mapStateToProps=({user:{lastTextObject}})=>{
+const mapStateToProps = ({ user: { lastTextObject } }) => {
     return {
         lastTextObject
     }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(ConversationItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ConversationItem);
