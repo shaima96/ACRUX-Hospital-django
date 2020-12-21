@@ -1,24 +1,34 @@
 
 #  ACRUX-Hospital-django
 > ACRUX-Hospital-django: A web app. this website help Hospital ,Doctors ,Patients ,normal people to commuinicat easier with  each other.
+## Main User Stories:
+ - can have an acoount in our website (doctor,patient ,normal user)
+ - patinet can book an appointment with doctor
+ - doctor & patient can make chat with each other 
+ - dcotor can check all blood bank users
+
+# Future Features :
+ - send message to all users to donate blood for emergency
+
 ## Team
 - **Scrum Master**: [Moumen Hanbali](https://github.com/Moumenh)
 - **Co-Leader**: [Israa kittaneh](https://github.com/israakittaneh)
 -  [Asem Nouri](https://github.com/asemnouri) 
 - [Shaima Azmi](https://github.com/shaima96) 
+
 ## Technologies used
+- Machine learning
 - Frontend
-  - React (Redux ,Hooks , React Router)
+  - React (Redux ,Hooks ,firebase )
   - User Interface Framework (Material UI)
 - Backend
   - Python (Django)
-  - Authentication (JWT, Bcrypt)
-  - Database (mongoDB)
+  - Authentication (JWT)
 ## Installing Dependencies
 1. Backend
-   - Go from root directory to backend directory
+   - Go from root directory to Backend directory
     ```
-    cd backend/
+    cd Backend/
     ```
    - Create virtualenv
    ```
@@ -32,9 +42,9 @@
     python manage.py runserver
     ```
 2. frontend
-   - Go from root directory to frontend directory
+   - Go from root directory to client directory
    ```
-   cd frontend/
+   cd client/
    npm i
    ```
    - Run the app
