@@ -57,8 +57,8 @@ this.setState({search:e.target.value})
     })
     return (
       <div id="main-header">
-        <div >
-           <img id="image-header" src="https://media.istockphoto.com/vectors/blood-donationisometric-3d-banner-header-vector-id1135268724?k=6&m=1135268724&s=170667a&w=0&h=bpNx4iO2tR7nlRHfamcX4HO_UPd9yABxnkP9IKe46CM="/>
+        <div className='bloodbank_img' >
+           {/* <img id="image-header" src="https://media.istockphoto.com/vectors/blood-donationisometric-3d-banner-header-vector-id1135268724?k=6&m=1135268724&s=170667a&w=0&h=bpNx4iO2tR7nlRHfamcX4HO_UPd9yABxnkP9IKe46CM="/> */}
         </div>
        <div id="main">
         <Search handleInput={this.handleInput}/><br/>

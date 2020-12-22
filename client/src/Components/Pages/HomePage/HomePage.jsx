@@ -23,7 +23,7 @@ const HomePage = ({ departments }) => {
             <div className='homepage__picture'></div>
             <Link to='/about' className='homepage__text' style={{ textDecoration: "none" }}><h1 style={{ textDecoration: 'none', color: 'white' }} >Welcome To Our Hospital</h1></Link>
             <AboutUs />
-            <div style={{ width:'72%' }}>
+            <div style={{ width:'100%' }}>
                 <Services />
             </div>
 
