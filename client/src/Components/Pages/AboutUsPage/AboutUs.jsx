@@ -39,14 +39,14 @@ class AboutUs extends React.Component {
                     <br />
                     <br />
                     <br />
-                    <div className='user_details'>
+                    <div className='about_user_details'>
                         <img src="https://shtheme.org/demosd/mecare/wp-content/uploads/2020/11/testimonial-img.png" />
-                        <div className='user_detail'>
+                        <div className='about_user_detail'>
                             <h3>Adam Mcwilliams</h3>
                             <h5 >CEO & Founder</h5>
                         </div>
                         <br />
-                        <div>
+                        <div className="client_text">
                             <p>Welcome to our website through it you can see our departments and doctors ,the patient can book an appointment and chat  with him directly through his account.</p>
                         </div>
                     </div>

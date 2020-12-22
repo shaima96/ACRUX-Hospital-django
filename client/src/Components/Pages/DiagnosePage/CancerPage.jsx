@@ -58,12 +58,12 @@ class CancerPage extends React.Component {
             <div className='cancer_page'>
                 <div className='cancer_picture'></div>
                 <div className='cancer_text'>
-                    {/* <h1 >Diagnose Cancer</h1> */}
+                    <h1 >Diagnose Cancer</h1>
                 </div>
-                <h3 id="cancer_title">Cancer Form</h3>
+                {/* <h3 id="cancer_title">Cancer Form</h3> */}
 
                 <div className='cancer_form'>
-                    <form onSubmit={this.onSubmit} className='form_textfield'>
+                    <form onSubmit={this.onSubmit} className='form_textfield_heart'>
                         <div className='cancer_form1'>
                             <TextField id="standard"  label="Clump_Thickness(1 - 10)" onChange={this.handleChange} name='Clump_Thickness' type='text' value={Clump_Thickness} required />
                             <br />
