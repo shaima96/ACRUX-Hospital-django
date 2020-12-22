@@ -1,7 +1,7 @@
 import React from 'react'
 
 const AboutUs = () => {
-    return(
+    return (
         <div className='about'>
             <div className='about__avatar'>
 
@@ -10,7 +10,10 @@ const AboutUs = () => {
             <div className='about__content'>
                 <h2 className='content__title'>We Are Specialize in Medical Diagnositics</h2>
                 <p className='content__desc'>
-                Nulla lacinia sapien a diam ullamcorper, sed congue leo vulputate. Phasellus et ante ultrices, sagittis purus vitae, sagittis quam. Quisque urna lectus, auctor quis tristique tincidunt, semper vel lectus. Mauris eget eleifend massa. Praesent ex felis, laoreet nec tellus in, laoreet commodo ipsum.
+                    Acrux is a website that enables users to know
+                    the departments and doctors in the hospital,
+                    enables the patient to book an appointment
+                    with the doctor and communicate with him.
                 </p>
             </div>
 

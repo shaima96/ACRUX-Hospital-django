@@ -28,3 +28,9 @@ def DayDetailDoctor(request):
     hour = Hour.objects.all().filter(doctorId=request.data['doctorId']) # the 'get' return me back a model I can serialize
     serializer = HourSerializer(hour,many=True)
     return Response(serializer.data)
+
+@api_view(['POST'])
+def DeleteAppointment(request):
+    hour = Hour.objects.get(id=request.data['id']) # the 'get' return me back a model I can serialize
+    hour.delete()
+    return Response('Successfully Deleted')

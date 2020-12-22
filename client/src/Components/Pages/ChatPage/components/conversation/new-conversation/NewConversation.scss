@@ -7,9 +7,9 @@ $container-top-border: darken($primary-color, 27.84);
   grid: 40px / 40px;
   align-content: center;
   grid-area: new-message-container;
-  background: $primary-color;
-  border-top: 1px solid $container-top-border;
-  border-radius: 0 0 0 10px;
+  background:  #137bfe;
+  border-top: 1px solid rgb(71, 70, 70);
+  border-radius: 0 0 0 20px;
   padding: 0 15px;
 
   button {

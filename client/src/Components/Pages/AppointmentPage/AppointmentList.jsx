@@ -1,9 +1,15 @@
 import React from 'react'
 
-const AppointmentList = ({hour}) => {
+const AppointmentList = ({avHour}) => {
+    // console.log(avHour)
     return (
         <div className='app_list'>
-            <h3>Unavailable At {hour}</h3>
+            {
+                avHour.isAvailable ? 
+                    <h4 className='available'> Available At {avHour.hour} </h4>
+                    :
+                    <h4 className='unavailable'> UnAvailable At {avHour.hour} </h4>
+            }
         </div>
     )
 }

@@ -30,6 +30,8 @@
     font-family: 'Titillium Web', sans-serif;
 }
 
+
+
 .homepage__text:hover{
     background-color: rgba(245, 222, 179, 0.116);
 }
@@ -37,7 +39,7 @@
 .random{
     max-width: 1366px;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -90,13 +92,16 @@
 }
 
 .service{
+    max-width: 1336px;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    width: 70%;
+    width: 75%;
     background-image: url(https://shtheme.org/demosd/mecare/wp-content/themes/mecare/img/icon/sr-line.png);
     background-position: center;
     background-repeat: no-repeat;
+    filter: drop-shadow(0 0 0.6px #7ac7f8); 
     /* background-size: cover; */
 }
 

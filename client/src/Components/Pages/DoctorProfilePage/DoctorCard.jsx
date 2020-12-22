@@ -1,51 +1,25 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-
-
-
-
-const useStyles = makeStyles({
-    root: {
-        maxWidth: 300,
-    },
-    media: {
-        height: 250,
-    }
-});
-
 const DoctorCard = ({ doctor, role }) => {
-    const classes = useStyles();
     return (
-        <Card className={classes.root} style={{ margin: '20px', marginTop: '80px' }}>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    alt="Contemplative Reptile"
-                    image={doctor.image}
-                    className={classes.media}
-                    id="photo"
-                />
-                <CardContent>
-                    <Typography id="name" gutterBottom variant="h5" component="h2">
-                        {doctor.name}
-                    </Typography>
-                    {
-                        (role === 'patient') && <Link to={`/appointment/${doctor.pk}`} style={{ textDecoration: 'none' }}>
-                            <Typography id="title" variant="body2" color="textSecondary" component="p">
-                                Book an appoinment
-                   </Typography>
-                        </Link>
-                    }
+        <div className='doctor'>
+            <div className='doctor__image' style={{ backgroundImage: `url(${doctor.image})` }}>
 
-                </CardContent>
-
-            </CardActionArea>
-        </Card>
-    );
+            </div>
+            <div className='doctor__content'>
+                <h4 className='content__title' style={{ width: '100%' }}> {doctor.name} </h4>
+                {
+                    (role === 'patient') && <Link to={`/appointment/${doctor.pk}`} style={{ textDecoration: 'none' }}>
+                        <p className='doctor__app'>
+                            Book an appoinment
+                   </p>
+                    </Link>
+                }
+            </div>
+        </div>
+    )
 }
 
 const mapStateToProps = ({ user: { role } }) => {
@@ -53,7 +27,6 @@ const mapStateToProps = ({ user: { role } }) => {
         role
     }
 }
-
 
 
 export default connect(mapStateToProps)(DoctorCard)
