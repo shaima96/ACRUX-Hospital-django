@@ -38,10 +38,11 @@ class BloodBankMain extends React.Component {
           console.log("patients",patients)
         })
        this.setState({users :BloodUsers})
-      //   console.log("BloodUsers",this.state.users)
-      //   this.setState.filtereduser = this.state.users.filter((user)=>{
-      //     return user.BloodType.toLowerCase().includes(this.state.search.toLowerCase())
-      //   })
+        console.log("BloodUsers",this.state.users)
+        // const filteredusers = this.state.users.filter((user)=>{
+        //   return user.BloodType.toLowerCase().includes(this.state.search.toLowerCase())
+        // })
+        // this.setState({filtereduser :filteredusers})
   }
   
 handleInput=(e)=>{
