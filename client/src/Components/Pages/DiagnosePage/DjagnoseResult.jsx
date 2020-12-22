@@ -60,9 +60,9 @@ export default function CustomizedDialogs({ label, probability, result }) {
     const handleClose = () => {
         setOpen(false);
     };
-    console.log(probability)
+    // console.log(probability)
 
-    console.log(label)
+    // console.log(label)
     return (
         <div>
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -88,7 +88,7 @@ export default function CustomizedDialogs({ label, probability, result }) {
                 </DialogContent>
                 <DialogActions>
                     <Button autoFocus onClick={handleClose} color="primary">
-                        Submit
+                        Close
           </Button>
                 </DialogActions>
             </Dialog>

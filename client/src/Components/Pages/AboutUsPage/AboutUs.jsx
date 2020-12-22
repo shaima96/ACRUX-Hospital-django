@@ -10,28 +10,26 @@ class AboutUs extends React.Component {
 
     render() {
         return (
-            <div className='about'>
+            <div className='about_page'>
                 <div className='about_picture'></div>
                 <div className='about_text'>
-                    <h1 >About Us</h1>
+                    <h1>About Us</h1>
                 </div>
-                <div className='about_description'>
-                    <div className='description_picture'>
-                        <img src="https://shtheme.org/demosd/mecare/wp-content/uploads/2020/11/illlustration.png" />
+                <div className='about_a'>
+                    <div className='about_avatar'>
+                        <img src="https://shtheme.org/demosd/mecare/wp-content/uploads/2020/11/illlustration.png"/>
                     </div>
-                    <div className='description_text'>
-                        <h2 id="title">We Are Specialize in  <br />Medical Diagnositics</h2>
-                        <br />
-                        <div className='description'>
-                            <p> Acrux is a website that enables users to know  <br />the departments and doctors in the hospital,<br />enables the patient to book an appointment<br /> with the doctor and communicate with him.</p>
-                        </div>
-
+                    <div className='about_content'>
+                        <h2 className='about_title'>We Are Specialize in <br /> Medical Diagnositics</h2>
+                        <p className='about_desc'>
+                            Acrux is a website that enables users to know
+                            the departments and doctors in the hospital,
+                            enables the patient to book an appointment
+                            with the doctor and communicate with him.
+                </p>
                     </div>
                 </div>
-                <br />
-                <br />
-                <br />
-                <br />
+              
 
                 <div className='team'>
                     <span>TESTIMONIALS</span>
@@ -52,6 +50,7 @@ class AboutUs extends React.Component {
                     </div>
                 </div>
             </div>
+
         )
     }
 

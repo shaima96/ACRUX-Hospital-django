@@ -64,10 +64,10 @@ class DiagnosePage extends React.Component {
                 <div className='form_text'>
                     <h1 >Diagnose Heart  Attack</h1>
                 </div>
-                {/* <h3 id="form_title">Heart Attack Form</h3> */}
                 <div className='form'>
                     <form onSubmit={this.onSubmit} className='form_textfield'>
                         <div className='form1'>
+                        <br/>
                         <br/>
                             <TextField id="standard-basic" label="Your age in years" onChange={this.handleChange} name='age' type='text' value={age} required />
                             <br />

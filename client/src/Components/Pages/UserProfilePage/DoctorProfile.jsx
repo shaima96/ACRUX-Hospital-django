@@ -61,19 +61,19 @@ const DoctorProfile = ({ setMessageContacts, role, fetchId, contactArray, setCon
                         <div >
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "30px" }}>
                                 <h4>Heart Disease Diagnosis</h4>
-                                <Link to='/heart'>
+                                <Link to='/heart' style={{ textDecoration: 'none' }}>
                                     <Button variant="outlined" color="primary">Diagnosis Form</Button>
                                 </Link>
                             </div>
                             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "30px" }}>
                                 <h4>Breast Cancer Diagnosis</h4>
-                                <Link to='/heart'>
+                                <Link to='/cancer' style={{ textDecoration: 'none' }}>
                                     <Button variant="outlined" color="primary">Diagnosis Form</Button>
                                 </Link>
                             </div>
                         </div>
                         :
-                        <div>no doctor</div>
+                        <div></div>
                 }
             </div>
         </div>

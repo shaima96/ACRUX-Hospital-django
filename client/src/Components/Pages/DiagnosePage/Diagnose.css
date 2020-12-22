@@ -35,8 +35,9 @@
 }
 .form{
     width: 100%;
-	margin-top: 30px;
-	height: 500px;
+	margin-top: 150px;
+    height: 500px;
+    margin-right: 80px;
 }
 
 #form_title{
@@ -50,7 +51,8 @@
 
 .form1{
     width: 40%;
-    margin-left:50px;}
+    margin-left:50px;
+}
 .form2{
 
     width: 40%;
@@ -63,8 +65,7 @@
 }
 
 .form_textfield{
-    background-color: crimson;
-    height: 93%;
+    height: 98%;
     width: 70%;
     margin-left:300px;
     background: white padding-box;

@@ -65,6 +65,8 @@ class CancerPage extends React.Component {
                 <div className='cancer_form'>
                     <form onSubmit={this.onSubmit} className='form_textfield_heart'>
                         <div className='cancer_form1'>
+                            <br/>
+                            <br/>
                             <TextField id="standard"  label="Clump_Thickness(1 - 10)" onChange={this.handleChange} name='Clump_Thickness' type='text' value={Clump_Thickness} required />
                             <br />
                             <TextField id="standard" label="Cell_Size_Uniformity(1 - 10)" onChange={this.handleChange} name='Cell_Size_Uniformity' type='text' value={Cell_Size_Uniformity} required />
